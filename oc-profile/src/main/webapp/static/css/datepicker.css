@@ -1,0 +1,38 @@
+a.quicktime{
+	text-decoration: none;
+}
+a.quicktime:hover{
+	text-decoration: underline;
+}
+a.qtime-cur{
+	color: gray;
+}
+a.qtime-cur:hover{
+	text-decoration: none;
+}
+img.ui-datepicker-trigger{
+	vertical-align:middle;
+}
+
+.ui-timepicker-div .ui-widget-header{ margin-bottom: 8px; }
+.ui-timepicker-div dl{ text-align: left; }
+.ui-timepicker-div dl dt{ height: 25px; }
+.ui-timepicker-div dl dd{ margin: -25px 0 10px 65px; }
+.ui-timepicker-div td { font-size: 90%; }
+
+
+/* date picker */
+.datepicker-wrapper {
+	margin: 10px;
+}
+
+.datepicker-btn {
+	background: none repeat scroll 0 0 #F6F6F6;
+	border: 1px solid #84ACC6;
+	color: #005EAC;
+	font-weight: bold;
+	height: 22px;
+	line-height: 22px;
+	text-align: center;
+	width: 60px;
+}
