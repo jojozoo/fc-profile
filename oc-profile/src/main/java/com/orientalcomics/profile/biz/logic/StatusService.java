@@ -6,24 +6,19 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.renren.profile.biz.dao.KpiDAO;
-import com.renren.profile.biz.dao.UserInvitationDAO;
-import com.renren.profile.biz.dao.UserPerfDAO;
-import com.renren.profile.biz.dao.WeeklyReportDAO;
-import com.renren.profile.biz.model.Kpi;
-import com.renren.profile.biz.model.PerfTime;
-import com.renren.profile.biz.model.UserInvitation;
-import com.renren.profile.biz.model.UserPerf;
-import com.renren.profile.biz.model.WeeklyReport;
-import com.renren.profile.constants.status.KpiStatus;
-import com.renren.profile.constants.status.PerfTimeStatus;
-import com.renren.profile.constants.status.UserInvitationStatus;
-import com.renren.profile.constants.status.UserPeerPerfStatus;
-import com.renren.profile.constants.status.UserPerfStatus;
-import com.renren.profile.constants.status.WeeklyReportStatus;
-import com.renren.profile.util.DateTimeUtil;
-import com.renren.profile.util.logging.ILogger;
-import com.renren.profile.util.logging.ProfileLogger;
+import com.orientalcomics.profile.biz.model.Kpi;
+import com.orientalcomics.profile.biz.model.PerfTime;
+import com.orientalcomics.profile.biz.model.UserPerf;
+import com.orientalcomics.profile.biz.model.WeeklyReport;
+import com.orientalcomics.profile.constants.status.KpiStatus;
+import com.orientalcomics.profile.constants.status.PerfTimeStatus;
+import com.orientalcomics.profile.constants.status.UserPeerPerfStatus;
+import com.orientalcomics.profile.constants.status.UserPerfStatus;
+import com.orientalcomics.profile.constants.status.WeeklyReportStatus;
+import com.orientalcomics.profile.util.logging.ILogger;
+import com.orientalcomics.profile.util.logging.ProfileLogger;
+import com.orientalcomics.profile.util.time.DateTimeUtil;
+
 
 /**
  * @author 张浩 E-mail:hao.zhang@renren-inc.com
