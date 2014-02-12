@@ -2,8 +2,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://struts.apache.org/tags-logic" prefix="logic"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-<%@ taglib uri="http://www.orientalcomics.com/profile" prefix="profile"%>
-<%@ taglib uri="http://www.orientalcomics.com/profile/functions" prefix="profilefn"%>
+<%@ taglib uri="/WEB-INF/tld/oc-profile.tld" prefix="profile"%>
+<%@ taglib uri="/WEB-INF/tld/oc-profile-functions.tld" prefix="profilefn"%>
 
 <c:set var="nav_menu" value="resume_view"></c:set>
 
