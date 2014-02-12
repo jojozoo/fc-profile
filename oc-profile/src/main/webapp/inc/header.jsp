@@ -1,8 +1,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://struts.apache.org/tags-logic" prefix="logic"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-<%@ taglib uri="http://www.renren.com/profile" prefix="profile"%>
-<%@ taglib uri="http://www.renren.com/profile/functions" prefix="profilefn"%>
+<%@ taglib uri="http://www.orientalcomics.com/profile" prefix="profile"%>
+<%@ taglib uri="http://www.orientalcomics.com/profile/functions" prefix="profilefn"%>
 <div id="full_header">
 	<div id="header" class="clearfix">
 		<div class="logo">
