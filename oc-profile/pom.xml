@@ -42,13 +42,25 @@
 	    <version>1.0</version>  
 	</dependency> 
     
-	 <!-- jstl支持 -->
+	
+	<!-- display tag,jstl,struts标签支持 -->
+	 <dependency>
+		<groupId>displaytag</groupId>
+		<artifactId>displaytag</artifactId>
+		<version>1.2</version>
+	</dependency>
+	<dependency>
+		<groupId>displaytag</groupId>
+		<artifactId>displaytag-export-poi</artifactId>
+		<version>1.2</version>
+	</dependency>
+	 <!-- jstl支持 
 	<dependency>
 	    <groupId>javax.servlet</groupId>
 	    <artifactId>jstl</artifactId>
 	    <version>1.2</version>
 	</dependency>
-	
+	-->
 	<dependency>
 	    <groupId>taglibs</groupId>
 	    <artifactId>standard</artifactId>
