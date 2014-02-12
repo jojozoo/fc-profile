@@ -1,4 +1,4 @@
-package com.orientalcomics.web.interceptors;
+package com.orientalcomics.profile.web.interceptors;
 
 /**
  * Zhang Hao   email:zhanghao@foundercomics.com

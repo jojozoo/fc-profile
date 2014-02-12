@@ -1,4 +1,4 @@
-package com.orientalcomics.web.taglibs;
+package com.orientalcomics.profile.web.taglibs;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
