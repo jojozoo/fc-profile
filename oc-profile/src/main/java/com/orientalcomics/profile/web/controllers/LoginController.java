@@ -1,4 +1,4 @@
-package com.orientalcomics.profile.web.controller; 
+package com.orientalcomics.profile.web.controllers; 
 
 import java.io.UnsupportedEncodingException;
 
