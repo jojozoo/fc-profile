@@ -17,7 +17,6 @@ public interface UserDAO {
     String TABLE                  = "user";
     // -------- { Column Defines
     String ID                     = "id";
-    String OA_ID                  = "oa_id";
     String NAME                   = "name";
     String NUMBER                 = "number";
     String STATUS                 = "status";
@@ -35,7 +34,7 @@ public interface UserDAO {
     // -------- } Column Defines
 
     String FIELD_PK               = "id";
-    String FIELDS_WITHOUT_PK      = "oa_id,name,number,email,tiny_url,main_url,status,pemission_level,job_title,level,show_level,department_id,manager_id,virtual_reward_item_id,kpi_open";
+    String FIELDS_WITHOUT_PK      = "name,number,email,tiny_url,main_url,status,pemission_level,job_title,level,show_level,department_id,manager_id,virtual_reward_item_id,kpi_open";
     String FIELDS_ALL             = FIELD_PK + "," + FIELDS_WITHOUT_PK;
     String INDEX_FIELDS_ALL       = "id,name,email";
 
@@ -187,14 +186,6 @@ public interface UserDAO {
     
     
 
-    /**
-     * 按UserAOID单个查询
-     * 
-     * @param aoId
-     * @return
-     */
-    @SQL("select " + FIELDS_ALL + " from " + TABLE + " where status=0 and `oa_id` = :1")
-    public User query(String oID);
 
     @SQL("select " + INDEX_FIELDS_ALL + " from " + TABLE +" where status=0")
     public List<User> queryAllWithIndexableFields();
@@ -222,7 +213,7 @@ public interface UserDAO {
     @SQL("select " + FIELDS_ALL + " from " + TABLE + " where status=0 and ##(:1) limit :offset,:count")
     public List<User> queryByCondition(String condition, @SQLParam("offset") int offset, @SQLParam("count") int count);
 
-    String SQL_UPDATE_MODEL_FILEDS_WITHOUT_PK = "oa_id=:model.oaId,name=:model.name,number=:model.number,email=:model.email,tiny_url=:model.tinyUrl,main_url=:model.mainUrl,status=:model.status,pemission_level=:model.pemissionLevel,job_title=:model.jobTitle,level=:model.level,show_level=:model.showLevel,department_id=:model.departmentId,manager_id=:model.managerId,virtual_reward_item_id=:model.virtualRewardItemId,kpi_open=:model.kpiOpen";
+    String SQL_UPDATE_MODEL_FILEDS_WITHOUT_PK = "name=:model.name,number=:model.number,email=:model.email,tiny_url=:model.tinyUrl,main_url=:model.mainUrl,status=:model.status,pemission_level=:model.pemissionLevel,job_title=:model.jobTitle,level=:model.level,show_level=:model.showLevel,department_id=:model.departmentId,manager_id=:model.managerId,virtual_reward_item_id=:model.virtualRewardItemId,kpi_open=:model.kpiOpen";
 
     /**
      * 更新员工信息
@@ -274,7 +265,7 @@ public interface UserDAO {
             + TABLE
             + " ("
             + FIELDS_WITHOUT_PK
-            + ") VALUES (:model.oaId,:model.name,:model.number,:model.email,:model.tinyUrl,:model.mainUrl,:model.status,:model.pemissionLevel,:model.jobTitle,:model.level,:model.showLevel,:model.departmentId,:model.managerId,:model.virtualRewardItemId,:model.kpiOpen)")
+            + ") VALUES (:model.name,:model.number,:model.email,:model.tinyUrl,:model.mainUrl,:model.status,:model.pemissionLevel,:model.jobTitle,:model.level,:model.showLevel,:model.departmentId,:model.managerId,:model.virtualRewardItemId,:model.kpiOpen)")
     @ReturnGeneratedKeys
     public Integer save(@SQLParam("model") User model);
 

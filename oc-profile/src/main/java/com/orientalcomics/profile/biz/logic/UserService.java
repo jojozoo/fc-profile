@@ -163,10 +163,6 @@ public class UserService {
         return userDAO.queryAllMyFollowExcludeKpiOpen(id,kpiOpen);
     }
 
-    public User query(String oID) {
-        return userDAO.query(oID);
-    }
-
     public Integer queryLeader(int userId) {
         return userDAO.queryLeader(userId);
     }
