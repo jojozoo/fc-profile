@@ -11,7 +11,7 @@ import net.paoding.rose.web.annotation.Path;
 public class TestController {
 
 	public String hello(Invocation inv){
-		return "@hello";
+		return "index.jsp";
 	}
 }
  

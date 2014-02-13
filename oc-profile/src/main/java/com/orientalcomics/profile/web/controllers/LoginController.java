@@ -1,10 +1,6 @@
 package com.orientalcomics.profile.web.controllers; 
 
 import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
-
-import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServletResponse;
 
 import net.paoding.rose.web.Invocation;
 import net.paoding.rose.web.annotation.Param;

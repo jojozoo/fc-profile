@@ -1,16 +1,24 @@
 package com.orientalcomics.profile.web.interceptors;
 
+import java.lang.annotation.Annotation;
+import java.util.ArrayList;
+import java.util.List;
+
 import net.paoding.rose.web.Invocation;
 
 import org.apache.commons.lang.math.NumberUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.orientalcomics.profile.OcProfileAjaxCodes;
+import com.orientalcomics.profile.OcProfileConstants;
 import com.orientalcomics.profile.biz.dao.SystemPageDAO;
 import com.orientalcomics.profile.biz.logic.UserService;
 import com.orientalcomics.profile.biz.logic.UserTokenService;
 import com.orientalcomics.profile.biz.model.User;
 import com.orientalcomics.profile.biz.model.UserToken;
+import com.orientalcomics.profile.core.base.BaseUtil;
 import com.orientalcomics.profile.core.base.ClassUtils;
 import com.orientalcomics.profile.core.base.HtmlPageImpl;
 import com.orientalcomics.profile.core.base.NetUtils;
@@ -48,6 +56,27 @@ public class LoginInterceptor extends AbstractControllerInterceptorAdapter {
     public PriorityType getPriorityType() {
         return PriorityType.Login;
     }
+
+    
+    private static final Logger logger = LoggerFactory.getLogger(LoginInterceptor.class);
+
+
+	public LoginInterceptor(){
+		setPriority(1000);
+	}
+
+	@Override
+	public Class<? extends Annotation> getRequiredAnnotationClass() {
+		return LoginRequired.class;
+	}
+
+	@Override
+	public List<Class<? extends Annotation>> getRequiredAnnotationClasses() {
+	        Class<LoginRequired> clazz = LoginRequired.class;
+	        List<Class<? extends Annotation>> list = new ArrayList<Class<? extends Annotation>>(2);
+	        list.add(clazz);
+	        return list;
+	}
 
     @Override
     protected Object before(Invocation inv) throws Exception {
@@ -102,7 +131,13 @@ public class LoginInterceptor extends AbstractControllerInterceptorAdapter {
         if (user == null && ClassUtils.isAnnotationPresentOnMethodAndClass(inv, LoginRequired.class)) {
             HtmlPageImpl page = (HtmlPageImpl) RoseUtils.currentHtmlMessages(inv);
             page.code(OcProfileAjaxCodes.NEED_LOGIN);
-            return false;
+            
+            if(logger.isDebugEnabled()){
+            	logger.debug("未登录，被拦截");
+            }
+            return "r:" + "/login?rf=r&domain="
+            + OcProfileConstants.PROFILE_MAIN_DOMAIN + "&origURL="
+            + BaseUtil.getResourceFullLocation(inv.getRequest());
         }
 
         return true;

@@ -22,7 +22,7 @@
 	<%@include file="/inc/header.jsp"%>
 
 	<div id="container">
-	<form method="POST" action="/do">
+	<form method="POST" action="/login/do">
 		<input type="text" name="name"> </input></br>
 		<input type="password" name="passwd"> </input></br>
 		<input type="hidden"></input></br>
