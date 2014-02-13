@@ -5,10 +5,9 @@ import java.util.List;
 import net.paoding.rose.jade.annotation.DAO;
 import net.paoding.rose.jade.annotation.SQL;
 
-import com.orientalcomics.profile.OcProfileConstants;
 import com.orientalcomics.profile.biz.model.SystemPage;
 
-@DAO(catalog=OcProfileConstants.DB_CATALOG)
+@DAO
 public interface SystemPageDAO {
 	
 	String TABLE             = "system_page";

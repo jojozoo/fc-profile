@@ -12,7 +12,7 @@ import net.paoding.rose.jade.annotation.SQLParam;
 import com.orientalcomics.profile.OcProfileConstants;
 import com.orientalcomics.profile.biz.model.Department;
 
-@DAO(catalog = OcProfileConstants.DB_CATALOG)
+@DAO
 public interface DepartmentDAO {
     String TABLE             = "department";
     // -------- { Column Defines

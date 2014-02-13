@@ -12,32 +12,18 @@ http://www.springframework.org/schema/tx http://www.springframework.org/schema/t
 http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd"
 	default-lazy-init="false">
 	
-		<bean id="jade.dataSource.com.renren.profile"
-		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-			<property name="url"
-			value="jdbc:mysql://localhost:3306/who"></property>
-			 <property name="username" value=""></property> 
-			<property name="password" value=""></property>
-		 </bean>
-
-<!-- 	<bean id="jade.dataSource.com.renren.profile" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close" lazy-init="true">
-		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
-		 	 
-		<property name="maxActive" value="40" />  
-        <property name="initialSize" value="10" />  
-        <property name="maxWait" value="60000" />  
-        <property name="maxIdle" value="15" />  
-        <property name="minIdle" value="5" /> 
-        
-        <property name="timeBetweenEvictionRunsMillis" value="3600000" />  一小时跑一次 evict()
-		<property name="validationQuery" value="select 1" />  一小时跑一次 evict() 
-		<property name="numTestsPerEvictionRun" value="-1" />在 evict()中，测试pool.size()个连接
-		<property name="testWhileIdle" value="true" />在 evict()中，测试空闲的连接
-		<property name="minEvictableIdleTimeMillis" value="7200000" />在 evict()中，销毁空闲了2小时的连接 
-		
-		<property name="url" value="jdbc:mysql://localhost/profile" />
-		<property name="username" value="profile" />
-		<property name="password" value="}vM0*4c2e#I7r#/S" />
-	</bean> -->
+		<!-- 数据源配置 dbcp -->
+    <bean id="jade.dataSource.com.chen.dao" class="org.apache.commons.dbcp.BasicDataSource"
+        destroy-method="close">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
+        <property name="url"
+            value="jdbc:mysql://127.0.0.1:3306/who?useUnicode=true&amp;characterEncoding=utf-8"></property>
+        <property name="username" value="root"></property>
+        <property name="password" value=""></property>
+        <!-- 运行判断连接超时任务的时间间隔，单位为毫秒，默认为-1，即不执行任务。 -->
+        <property name="timeBetweenEvictionRunsMillis" value="3600000"></property>
+        <!-- 连接的超时时间，默认为半小时。 -->
+        <property name="minEvictableIdleTimeMillis" value="3600000"></property>
+    </bean> 
 
 </beans>

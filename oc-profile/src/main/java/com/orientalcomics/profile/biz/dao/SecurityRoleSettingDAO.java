@@ -9,10 +9,9 @@ import net.paoding.rose.jade.annotation.ReturnGeneratedKeys;
 import net.paoding.rose.jade.annotation.SQL;
 import net.paoding.rose.jade.annotation.SQLParam;
 
-import com.orientalcomics.profile.OcProfileConstants;
 import com.orientalcomics.profile.biz.model.SecurityRoleSetting;
 
-@DAO(catalog = OcProfileConstants.DB_CATALOG)
+@DAO
 public interface SecurityRoleSettingDAO {
     String TABLE             = "security_role_setting";
     // -------- { Column Defines

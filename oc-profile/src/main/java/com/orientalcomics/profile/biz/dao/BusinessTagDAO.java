@@ -11,7 +11,7 @@ import net.paoding.rose.jade.annotation.SQLParam;
 import com.orientalcomics.profile.OcProfileConstants;
 import com.orientalcomics.profile.biz.model.BusinessTag;
 
-@DAO(catalog = OcProfileConstants.DB_CATALOG)
+@DAO
 public interface BusinessTagDAO {
     String TABLE             = "business_tag";
     // -------- { Column Defines

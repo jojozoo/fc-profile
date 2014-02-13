@@ -10,7 +10,7 @@ import net.paoding.rose.jade.annotation.SQLParam;
 import com.orientalcomics.profile.OcProfileConstants;
 import com.orientalcomics.profile.biz.model.PerfTime;
 
-@DAO(catalog = OcProfileConstants.DB_CATALOG)
+@DAO
 public interface PerfTimeDAO {
     String TABLE             = "perf_time";
     // -------- { Column Defines

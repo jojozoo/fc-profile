@@ -10,7 +10,7 @@ import net.paoding.rose.jade.annotation.SQLParam;
 import com.orientalcomics.profile.OcProfileConstants;
 import com.orientalcomics.profile.biz.model.Kpi;
 
-@DAO(catalog = OcProfileConstants.DB_CATALOG)
+@DAO
 public interface KpiDAO {
   String TABLE = "kpi";
   // -------- { Column Defines
