@@ -6,6 +6,7 @@ import java.util.List;
 
 import org.apache.commons.lang.StringUtils;
 
+import com.orientalcomics.profile.biz.base.PerfTimeAssignable;
 import com.orientalcomics.profile.constants.status.UserPerfStatus;
 import com.orientalcomics.profile.util.time.TimeUtils;
 import com.orientalcomics.profile.util.time.TimeValidator;

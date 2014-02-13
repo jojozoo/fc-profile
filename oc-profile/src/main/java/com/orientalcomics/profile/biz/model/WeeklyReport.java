@@ -4,10 +4,10 @@ import java.util.Date;
 
 import org.apache.commons.lang.StringUtils;
 
-import com.renren.profile.constants.status.WeeklyReportStatus;
-import com.renren.profile.util.DateTimeUtil;
-import com.renren.profile.util.time.TimeUtils;
-import com.renren.profile.util.time.TimeValidator;
+import com.orientalcomics.profile.constants.status.WeeklyReportStatus;
+import com.orientalcomics.profile.util.time.DateTimeUtil;
+import com.orientalcomics.profile.util.time.TimeUtils;
+import com.orientalcomics.profile.util.time.TimeValidator;
 
 public class WeeklyReport {
     // -------- { Property Defines

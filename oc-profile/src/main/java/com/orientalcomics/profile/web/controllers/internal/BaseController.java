@@ -17,6 +17,7 @@ import com.orientalcomics.profile.util.logging.ILogger;
 import com.orientalcomics.profile.util.logging.ProfileLogger;
 import com.orientalcomics.profile.web.access.ProfileHostHolder;
 import com.orientalcomics.profile.web.constants.AjaxType;
+import com.orientalcomics.profile.web.utils.AjaxUtils;
 
 @Ignored
 @IgnorePassportValidation

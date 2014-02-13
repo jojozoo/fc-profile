@@ -5,10 +5,10 @@ import java.util.List;
 
 import org.apache.commons.lang.StringUtils;
 
-import com.renren.profile.biz.base.PerfProjectWeightAssignable;
-import com.renren.profile.constants.ProfilePerfProjectWeight;
-import com.renren.profile.util.time.TimeUtils;
-import com.renren.profile.util.time.TimeValidator;
+import com.orientalcomics.profile.biz.base.PerfProjectWeightAssignable;
+import com.orientalcomics.profile.constants.ProfilePerfProjectWeight;
+import com.orientalcomics.profile.util.time.TimeUtils;
+import com.orientalcomics.profile.util.time.TimeValidator;
 
 public class UserPerfProject implements PerfProjectWeightAssignable {
     // -------- { Property Defines
