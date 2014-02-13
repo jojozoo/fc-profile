@@ -16,6 +16,22 @@ public class UserLoginService implements OcProfileConstants {
     @Autowired
     private UserProfileDAO    userProfileDAO;
 
+    
+    /**
+     * 验证用户是否能登录成功
+     * @param name
+     * @param passwd
+     * @return
+     */
+    public User verifyByNameAndPass(String name,String passwd){
+    	
+    	
+    	
+    	
+    	return null;
+    	
+    }
+    
 
     public User saveOAUserInfo() {
     	

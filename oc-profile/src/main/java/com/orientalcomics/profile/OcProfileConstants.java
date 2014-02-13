@@ -24,9 +24,6 @@ public interface OcProfileConstants {
     String                     DIR              =          "/data/profile-data/excel/";
     String                     EMPTY_MAIN_URL            = "/data/photos/empty_200.png";
     String                     REWARD_FLOWER_URL         = "/data/photos/flower.jpg";
-    String 						OA_MAIN_URL 			 = "http://passport.renren-inc.com";
-    String                     OA_LOGIN_URL                    =OA_MAIN_URL+ "/login/login.jsp";
-    String                     OA_LOGOUT_URL                    =OA_MAIN_URL+ "/passport/logout";
 
     // webhost在resin.xml中配置
     String                     PROFILE_CONF_HOST         = (String) ObjectUtils.defaultIfNull(StringUtils.trimToNull(System.getProperty("webhost")), "who");

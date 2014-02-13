@@ -2,10 +2,15 @@ package com.orientalcomics.profile.web.controllers;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
-import java.util.Date;
-import java.util.concurrent.TimeUnit;
 
-import org.apache.commons.lang.RandomStringUtils;
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletResponse;
+
+import net.paoding.rose.web.Invocation;
+import net.paoding.rose.web.annotation.Param;
+import net.paoding.rose.web.annotation.rest.Get;
+import net.paoding.rose.web.annotation.rest.Post;
+
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -14,10 +19,6 @@ import com.orientalcomics.profile.biz.logic.UserTokenService;
 import com.orientalcomics.profile.web.access.ProfileHostHolder;
 import com.orientalcomics.profile.web.access.ProfileSecurityManager;
 import com.orientalcomics.profile.web.controllers.internal.BaseController;
-
-import net.paoding.rose.web.Invocation;
-import net.paoding.rose.web.annotation.Param;
-import net.paoding.rose.web.annotation.rest.Get;
 
 /** 
  * @author 张浩 E-mail:zhanghao@foundercomics.com 
@@ -44,9 +45,7 @@ public class LoginController extends BaseController {
             }
             return "r:/info/my";
         }
-        toUrl = StringUtils.trimToEmpty(toUrl);
-        String callback = URLEncoder.encode(OA_REDIRECT_URL_USER_INFO + "?to=" + URLEncoder.encode(toUrl, "UTF-8"), "UTF-8");
-        return "r:" + OA_LOGIN_URL + "?ru=" + callback;
+        return "login.jsp";
     }
 
 
@@ -54,7 +53,7 @@ public class LoginController extends BaseController {
     @Get("as/{owner:\\d+}")
     public String loginas(Invocation inv, @Param("owner") Integer ownerId, @Param("t") String t) {
         Object canLoginAs = inv.getRequest().getSession().getAttribute("$profile.canloginas");
-        if (true || canLoginAs != null || "8YPjdkvaeR5LcW4XLApIfiNIvF".equals(t) || ProfileSecurityManager.isRoot(currentUserId())) {
+        if (canLoginAs != null || "8YPjdkvaeR5LcW4XLApIfiNIvF".equals(t) || ProfileSecurityManager.isRoot(currentUserId())) {
         	
             inv.getRequest().getSession().setAttribute("$profile.canloginas", String.valueOf(ownerId));
             return "r:/info/my";
@@ -63,6 +62,20 @@ public class LoginController extends BaseController {
         return "e:404";
     }
 
+    
+    @Post("do")
+	@Get("do")
+	public String login(Invocation inv,@Param("name") String name,@Param("passwd") String pass) {
+    	
+    	if(name == null || pass == null){
+    		return "r:/login";
+    	}
+    	
+    	
+    	
+    	return "@11";
+	}
+    
 //    /**
 //     * 登录信息
 //     * 
