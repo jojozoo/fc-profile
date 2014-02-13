@@ -13,7 +13,7 @@ http://www.springframework.org/schema/aop http://www.springframework.org/schema/
 	default-lazy-init="false">
 	
 		<!-- 数据源配置 dbcp -->
-    <bean id="jade.dataSource.com.chen.dao" class="org.apache.commons.dbcp.BasicDataSource"
+    <bean id="jade.dataSource.com.orientalcomics.profile" class="org.apache.commons.dbcp.BasicDataSource"
         destroy-method="close">
         <property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
         <property name="url"
