@@ -57,8 +57,8 @@ public interface SecurityRelationSettingDAO {
     public void delete(int id);
 
     @SQL("delete from $TABLE where relation_id = :1 and action_id in (:2)")
-    public void removeActionIdsOfRelationId(int relationId, Collection actionIds);
+    public void removeActionIdsOfRelationId(int relationId, Collection<?> actionIds);
 
     @SQL("delete from $TABLE where action_id = :1 and relation_id in (:2)")
-    public void removeRelationIdsOfActionId(Integer actionId, Collection relationIds);
+    public void removeRelationIdsOfActionId(Integer actionId, Collection<?> relationIds);
 }
