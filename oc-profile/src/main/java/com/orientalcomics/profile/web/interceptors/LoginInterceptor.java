@@ -81,7 +81,7 @@ public class LoginInterceptor extends AbstractControllerInterceptorAdapter {
     @Override
     protected Object before(Invocation inv) throws Exception {
     	
-    	
+    	logger.info("######### comming before");
         User user = null;
         
         // loginas
@@ -128,6 +128,7 @@ public class LoginInterceptor extends AbstractControllerInterceptorAdapter {
 //            inv.addModel("_owner_score_rank", scoreRankUrl);
 //            inv.addModel("_owner_reward_flower", rewardFlowerDAO.getRewardFlower(_owner.getId(), 3));
 //        }
+        
         if (user == null && ClassUtils.isAnnotationPresentOnMethodAndClass(inv, LoginRequired.class)) {
             HtmlPageImpl page = (HtmlPageImpl) RoseUtils.currentHtmlMessages(inv);
             page.code(OcProfileAjaxCodes.NEED_LOGIN);
@@ -139,7 +140,7 @@ public class LoginInterceptor extends AbstractControllerInterceptorAdapter {
             + OcProfileConstants.PROFILE_MAIN_DOMAIN + "&origURL="
             + BaseUtil.getResourceFullLocation(inv.getRequest());
         }
-
+        logger.info("######### comming before 111");
         return true;
     }
 }
