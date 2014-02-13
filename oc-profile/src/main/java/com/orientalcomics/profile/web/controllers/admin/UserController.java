@@ -6,8 +6,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import javax.management.relation.Role;
-
 import net.paoding.rose.web.Invocation;
 import net.paoding.rose.web.annotation.Param;
 import net.paoding.rose.web.annotation.rest.Get;
@@ -28,6 +26,7 @@ import com.orientalcomics.profile.biz.logic.ProfileConfigs.PageSizeConfigView;
 import com.orientalcomics.profile.biz.logic.ProfileSecurityService;
 import com.orientalcomics.profile.biz.logic.UserRoleService;
 import com.orientalcomics.profile.biz.logic.UserService;
+import com.orientalcomics.profile.biz.model.Role;
 import com.orientalcomics.profile.biz.model.User;
 import com.orientalcomics.profile.biz.model.UserProfile;
 import com.orientalcomics.profile.constants.ProfileAction;
@@ -85,7 +84,7 @@ public class UserController extends LoginRequiredController {
     @Get({ "", "/list" })
     public String list(Invocation inv, PageMessages pageMessages, @Param("ul_keyword") String keyword, @Param("curpage") int curPage) {
         List<User> userList;
-        String escapedKeyword = StringUtils.trimToNull(keyword);
+//        String escapedKeyword = StringUtils.trimToNull(keyword);
         int pageSize = getPageSize(PageSizeConfigView.ADMIN_USER);
         int total = userService.countValidUsers();
         curPage = checkAndReturnPage(curPage, total, pageSize);
