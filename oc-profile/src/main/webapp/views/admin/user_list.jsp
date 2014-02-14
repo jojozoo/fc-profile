@@ -40,7 +40,7 @@
 <%@include file="/inc/header.jsp" %>
 
 <div id="main">
-    <%@include file="/inc/left-nav.jsp" %>
+   <%--  <%@include file="/inc/left-nav.jsp" %> --%>
     <div id="content">
         <div class="content-title">
             <div class="content-action">

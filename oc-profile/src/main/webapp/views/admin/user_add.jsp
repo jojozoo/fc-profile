@@ -47,7 +47,7 @@
 	<%@include file="/inc/header.jsp" %>
 	
 	<div id="main">
-		<%@include file="/inc/left-nav.jsp" %>
+		<%-- <%@include file="/inc/left-nav.jsp" %> --%>
 		<div id="content">
 			<div class="content-title">
 					<h2><a href="/admin/user">角色</a> &#187; 创建用户</h2>

@@ -102,8 +102,11 @@ public class LoginInterceptor extends AbstractControllerInterceptorAdapter {
             }
         }
 
-        profileHostHolder.setUser(user);
-        inv.addModel("_user", user);
+        if(user != null){
+        	profileHostHolder.setUser(user);
+            inv.addModel("_user", user);
+        }
+        
 
 //        // add by hao.zhang 增加勋章
 //        if (user != null && user.getVirtualRewardItemId() != 0) {
