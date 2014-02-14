@@ -23,14 +23,13 @@ public interface UserProfileDAO {
     String EXT_NUMBER        = "ext_number";
     String HOBBY             = "hobby";
     String MOBILE            = "mobile";
-    String RENREN_LINK       = "renren_link";
     String IS_DISPLAY        = "is_display";
     String GRADUATE_SCHOOL   = "graduate_school";
     String birthday          = "birthday";
     // -------- } Column Defines
 
     String FIELD_PK          = "user_id";
-    String FIELDS_WITHOUT_PK = "gender,rr,qq,ext_number,hobby,mobile,renren_link,is_display,graduate_school,birthday";
+    String FIELDS_WITHOUT_PK = "gender,rr,qq,ext_number,hobby,mobile,is_display,graduate_school,birthday";
     String FIELDS_ALL        = FIELD_PK + "," + FIELDS_WITHOUT_PK;
 
     /**
@@ -58,7 +57,7 @@ public interface UserProfileDAO {
     
    
 
-    String SQL_UPDATE_MODEL_FILEDS_WITHOUT_PK = "gender=:model.gender,rr=:model.rr,qq=:model.qq,ext_number=:model.extNumber,hobby=:model.hobby,mobile=:model.mobile,renren_link=:model.renrenLink,is_display=:model.isDisplay,graduate_school=:model.graduateSchool,birthday=:model:birthday";
+    String SQL_UPDATE_MODEL_FILEDS_WITHOUT_PK = "gender=:model.gender,rr=:model.rr,qq=:model.qq,ext_number=:model.extNumber,hobby=:model.hobby,mobile=:model.mobile,is_display=:model.isDisplay,graduate_school=:model.graduateSchool,birthday=:model:birthday";
     /**
      * 更新记录
      * @param model
@@ -121,7 +120,7 @@ public interface UserProfileDAO {
      * @return
      */
     @SQL("insert ignore into " + TABLE + " (" + FIELDS_ALL
-            + ") VALUES (:model.userId,:model.gender,:model.rr,:model.qq,:model.extNumber,:model.hobby,:model.mobile,:model.renrenLink,:model.is_display,:model.graduate_school,:model.birthday)")
+            + ") VALUES (:model.userId,:model.gender,:model.rr,:model.qq,:model.extNumber,:model.hobby,:model.mobile,:model.is_display,:model.graduate_school,:model.birthday)")
     @ReturnGeneratedKeys
     public Integer save(@SQLParam("model") UserProfile model);
 

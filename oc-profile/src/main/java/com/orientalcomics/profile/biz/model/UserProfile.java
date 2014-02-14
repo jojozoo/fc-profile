@@ -24,7 +24,6 @@ public class UserProfile {
     // 手机号
     private String    mobile          = StringUtils.EMPTY;
     
-    private String    renrenLink      = StringUtils.EMPTY;
     
     private String    graduateSchool  = StringUtils.EMPTY;
     
@@ -61,14 +60,6 @@ public class UserProfile {
 		this.isDisplay = isDisplay;
 	}
 
-
-	public String getRenrenLink() {
-		return renrenLink;
-	}
-
-	public void setRenrenLink(String renrenLink) {
-		this.renrenLink = renrenLink;
-	}
 
 	/**
      * get userId

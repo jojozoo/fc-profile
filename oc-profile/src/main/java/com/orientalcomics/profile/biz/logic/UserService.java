@@ -243,7 +243,8 @@ public class UserService {
                 .build();
     }
 
-    public List<JSONObject> toJSON(List<User> users) {
+    @SuppressWarnings("unchecked")
+	public List<JSONObject> toJSON(List<User> users) {
         if (CollectionUtils.isEmpty(users)) {
             return new JSONArray();
         }
