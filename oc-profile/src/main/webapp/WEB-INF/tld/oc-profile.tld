@@ -2,14 +2,14 @@
 <taglib xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd"
 version="2.0">
-	<description>Renren Profile library</description>
-	<display-name>Renren Profile</display-name>
+	<description>orientalcomics Profile library</description>
+	<display-name>orientalcomics Profile</display-name>
 	<tlib-version>1.1</tlib-version>
 	<short-name>profile</short-name>
-	<uri>http://www.renren.com/profile</uri>
+	<uri>http://www.orientalcomics.com/profile</uri>
 	<tag>
 		<name>substr</name>
-		<tag-class>com.renren.profile.web.taglibs.SubStringTag</tag-class>
+		<tag-class>com.orientalcomics.profile.web.taglibs.SubStringTag</tag-class>
 		<body-content>empty</body-content>
 		<attribute>
 			<name>value</name>
@@ -39,7 +39,7 @@ version="2.0">
 	</tag>
 	<tag>
 		<name>html</name>
-		<tag-class>com.renren.profile.web.taglibs.HtmlTextTag</tag-class>
+		<tag-class>com.orientalcomics.profile.web.taglibs.HtmlTextTag</tag-class>
 		<body-content>scriptless</body-content>
 		<attribute>
 			<name>newline</name>
@@ -55,7 +55,7 @@ version="2.0">
 	</tag>
 	<tag>
 		<name>page</name>
-		<tag-class>com.renren.profile.web.taglibs.PageTag</tag-class>
+		<tag-class>com.orientalcomics.profile.web.taglibs.PageTag</tag-class>
 		<body-content>empty</body-content>
 		<attribute>
 			<description>Hide when 'none', 'empty' or 'single'</description>
@@ -221,7 +221,7 @@ version="2.0">
 	<tag>
 		<description>Profile Menu</description>
 		<name>menu</name>
-		<tag-class>com.renren.profile.web.taglibs.MenuTag</tag-class>
+		<tag-class>com.orientalcomics.profile.web.taglibs.MenuTag</tag-class>
 		<body-content>scriptless</body-content>
 		<attribute>
 			<name>prefix</name>
@@ -242,7 +242,7 @@ version="2.0">
 	<tag>
 		<description>Profile Security</description>
 		<name>security</name>
-		<tag-class>com.renren.profile.web.taglibs.SecurityTag</tag-class>
+		<tag-class>com.orientalcomics.profile.web.taglibs.SecurityTag</tag-class>
 		<body-content>scriptless</body-content>
 		<attribute>
 			<description>ProfileAction's Id/name, or 'root'.</description>
