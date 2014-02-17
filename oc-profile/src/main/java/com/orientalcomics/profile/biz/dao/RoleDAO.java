@@ -7,7 +7,6 @@ import net.paoding.rose.jade.annotation.ReturnGeneratedKeys;
 import net.paoding.rose.jade.annotation.SQL;
 import net.paoding.rose.jade.annotation.SQLParam;
 
-import com.orientalcomics.profile.OcProfileConstants;
 import com.orientalcomics.profile.biz.model.Role;
 
 @DAO

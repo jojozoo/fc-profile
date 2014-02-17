@@ -1,0 +1,23 @@
+.page {
+ clear:both;
+ padding:10px 0;
+ line-height:19px;
+ height:19px;
+}
+.page span,.page a {
+ float:left;
+ margin-left:5px;
+ color:#666;
+}
+.page .lis {
+ float:right;
+}
+.page a {
+ border:1px solid #cccccc;
+ padding:0px 7px;
+}
+.page .on {
+ background:#c30101;
+ color:#fff;
+ border:1px solid #c30101;
+}
