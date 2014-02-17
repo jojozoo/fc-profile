@@ -23,7 +23,7 @@
 
 <div>
 
-<span>$msg</span>
+<span>${msg}</span>
 
 <table align="center" border="1">
 	<tr align="center">
@@ -77,7 +77,7 @@
 <div align="center">添加用户</div>
 <br/>
 <div align="center">
-<form action="/admin/addShadow" method="post" " style="align:center"><br/>
+<form action="/admin/shadow" method="post" " style="align:center"><br/>
 	<table>
 		<tr>
 			<td>用户名</td>
