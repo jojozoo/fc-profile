@@ -107,6 +107,7 @@ public class ShadowController {
 		shadow = new Shadow();
 		shadow.setLoginName(trimedName);
 		shadow.setLoginPassword(trimedPassword);
+		shadow.setEmail(trimedEmail);
 		Integer userId = shadowDAO.save(shadow);
 		
 		
