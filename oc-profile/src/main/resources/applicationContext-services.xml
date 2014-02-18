@@ -13,4 +13,5 @@ http://www.springframework.org/schema/aop http://www.springframework.org/schema/
 default-lazy-init="false">
 
 	<context:component-scan base-package="com.orientalcomics.profile.biz.logic"></context:component-scan>
+	<context:component-scan base-package="com.orientalcomics.profile.biz.security"></context:component-scan>
 </beans>
