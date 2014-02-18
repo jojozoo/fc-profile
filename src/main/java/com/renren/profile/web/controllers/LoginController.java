@@ -13,14 +13,14 @@ import com.renren.profile.biz.logic.UserLoginService;
 import com.renren.profile.biz.logic.UserTokenService;
 import com.renren.profile.biz.model.User;
 import com.renren.profile.biz.model.access.UserToken;
-import com.renren.profile.web.access.ProfileHostHolderImpl;
+import com.renren.profile.web.access.ProfileHostHolder;
 import com.renren.profile.web.controllers.internal.BaseController;
 import com.renren.profile.web.util.NetUtils;
 
 public class LoginController extends BaseController {
 
     @Autowired
-    private ProfileHostHolderImpl profileHostHolder;
+    private ProfileHostHolder profileHostHolder;
 
     @Autowired
     private UserLoginService  userLoginService;

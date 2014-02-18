@@ -11,7 +11,7 @@ import com.renren.profile.RenrenProfileConstants;
 import com.renren.profile.biz.model.User;
 import com.renren.profile.util.logging.ILogger;
 import com.renren.profile.util.logging.ProfileLogger;
-import com.renren.profile.web.access.ProfileHostHolderImpl;
+import com.renren.profile.web.access.ProfileHostHolder;
 import com.renren.profile.web.config.ProfileConfigHelper;
 import com.renren.profile.web.config.ProfileConfigs.PageSizeConfigView;
 
@@ -22,7 +22,7 @@ public abstract class BaseController implements RenrenProfileConstants {
     protected ProfileConfigHelper configHelper;
 
     @Autowired
-    ProfileHostHolderImpl             profileHostHolder;
+    ProfileHostHolder             profileHostHolder;
 
     protected boolean isLogined() {
         return profileHostHolder.getUser() != null;
