@@ -74,7 +74,13 @@ public class UserPerfService implements RenrenProfileConstants {
 
     private ILogger    LOG = ProfileLogger.getLogger(this.getClass());
 
-    /***
+    
+    
+    public UserPerfService() {
+		
+	}
+
+	/***
      * 根据条件：人名或者邮件名称模糊查询用户信息
      * 
      * @param matchStr
