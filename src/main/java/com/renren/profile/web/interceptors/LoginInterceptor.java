@@ -6,14 +6,13 @@ import net.paoding.rose.web.Invocation;
 import net.paoding.rose.web.annotation.Interceptor;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 
 import com.renren.profile.RenrenProfileAjaxCodes;
 import com.renren.profile.biz.logic.UserService;
 import com.renren.profile.biz.logic.UserTokenService;
 import com.renren.profile.biz.model.User;
 import com.renren.profile.biz.model.access.UserToken;
-import com.renren.profile.web.access.ProfileHostHolder;
+import com.renren.profile.web.access.ProfileHostHolderImpl;
 import com.renren.profile.web.annotations.AjaxJson;
 import com.renren.profile.web.annotations.LoginRequired;
 import com.renren.profile.web.base.HtmlPageImpl;
@@ -25,8 +24,7 @@ import com.renren.profile.web.util.NetUtils;
 public class LoginInterceptor extends AbstractControllerInterceptorAdapter {
 
     @Autowired
-    @Qualifier("profileHostHolderImpl")
-    private ProfileHostHolder profileHostHolder;
+    private ProfileHostHolderImpl profileHostHolder;
 
     @Autowired
     private UserService           userService;

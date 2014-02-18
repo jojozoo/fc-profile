@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.renren.profile.biz.model.User;
 
-public class ProfileHostHolderImpl implements ProfileHostHolder {
+public class ProfileHostHolderImpl {
 
     private static final String KEY_CUR_USER = "__current_user__";
 
@@ -19,7 +19,6 @@ public class ProfileHostHolderImpl implements ProfileHostHolder {
     	System.out.println("======== inited");
     }
     
-    @Override
     public User getUser() {
         Invocation inv = this.inv.getCurrent(false);
         if (inv != null) {
@@ -29,7 +28,6 @@ public class ProfileHostHolderImpl implements ProfileHostHolder {
         }
     }
 
-    @Override
     public void setUser(User user) {
         inv.getRequest().setAttribute(KEY_CUR_USER, user);
     }
