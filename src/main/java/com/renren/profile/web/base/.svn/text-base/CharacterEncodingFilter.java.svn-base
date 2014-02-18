@@ -1,0 +1,42 @@
+package com.renren.profile.web.base;
+
+import java.io.IOException;
+
+import javax.servlet.Filter;
+import javax.servlet.FilterChain;
+import javax.servlet.FilterConfig;
+import javax.servlet.ServletException;
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
+
+import org.apache.commons.lang.StringUtils;
+
+public class CharacterEncodingFilter implements Filter {
+
+    private String encoding;
+
+    public void setEncoding(String encoding) {
+        this.encoding = encoding;
+    }
+
+    @Override
+    public void init(FilterConfig filterConfig) throws ServletException {
+    }
+
+    @Override
+    public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
+        String _enc = StringUtils.trimToNull(encoding);
+        if (_enc == null) {
+            _enc = "UTF-8";
+        }
+        request.setCharacterEncoding(_enc);
+        response.setCharacterEncoding(_enc);
+        
+        chain.doFilter(request, response);
+    }
+
+    @Override
+    public void destroy() {
+    }
+
+}

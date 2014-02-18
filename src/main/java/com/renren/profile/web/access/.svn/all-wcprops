@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/tech_system/!svn/ver/916/renren-profile/trunk/src/main/java/com/renren/profile/web/access
+END
+ProfileSecurityManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/tech_system/!svn/ver/916/renren-profile/trunk/src/main/java/com/renren/profile/web/access/ProfileSecurityManager.java
+END
+ProfileHostHolder.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/tech_system/!svn/ver/5/renren-profile/trunk/src/main/java/com/renren/profile/web/access/ProfileHostHolder.java
+END
+ProfileHostHolderImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/tech_system/!svn/ver/323/renren-profile/trunk/src/main/java/com/renren/profile/web/access/ProfileHostHolderImpl.java
+END

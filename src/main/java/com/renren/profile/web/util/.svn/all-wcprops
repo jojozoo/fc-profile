@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/tech_system/!svn/ver/862/renren-profile/trunk/src/main/java/com/renren/profile/web/util
+END
+ControllerLogger.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/tech_system/!svn/ver/5/renren-profile/trunk/src/main/java/com/renren/profile/web/util/ControllerLogger.java
+END
+ClassUtils.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/tech_system/!svn/ver/441/renren-profile/trunk/src/main/java/com/renren/profile/web/util/ClassUtils.java
+END
+OALogin.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/tech_system/!svn/ver/255/renren-profile/trunk/src/main/java/com/renren/profile/web/util/OALogin.java
+END
+JsonUtils.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/tech_system/!svn/ver/862/renren-profile/trunk/src/main/java/com/renren/profile/web/util/JsonUtils.java
+END

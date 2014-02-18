@@ -1,0 +1,113 @@
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/tech_system/!svn/ver/1055/renren-profile/trunk/src/main/java/com/renren/profile/biz/dao
+END
+PerfTimeDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/tech_system/!svn/ver/1053/renren-profile/trunk/src/main/java/com/renren/profile/biz/dao/PerfTimeDAO.java
+END
+UserDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/tech_system/!svn/ver/896/renren-profile/trunk/src/main/java/com/renren/profile/biz/dao/UserDAO.java
+END
+UserPerfProjectDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/tech_system/!svn/ver/692/renren-profile/trunk/src/main/java/com/renren/profile/biz/dao/UserPerfProjectDAO.java
+END
+UserInvitationDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/tech_system/!svn/ver/1055/renren-profile/trunk/src/main/java/com/renren/profile/biz/dao/UserInvitationDAO.java
+END
+KpiDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/tech_system/!svn/ver/579/renren-profile/trunk/src/main/java/com/renren/profile/biz/dao/KpiDAO.java
+END
+SecurityRoleSettingDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/tech_system/!svn/ver/361/renren-profile/trunk/src/main/java/com/renren/profile/biz/dao/SecurityRoleSettingDAO.java
+END
+BusinessTagDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/tech_system/!svn/ver/384/renren-profile/trunk/src/main/java/com/renren/profile/biz/dao/BusinessTagDAO.java
+END
+UserPerfDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/tech_system/!svn/ver/986/renren-profile/trunk/src/main/java/com/renren/profile/biz/dao/UserPerfDAO.java
+END
+WeeklyReportDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/tech_system/!svn/ver/506/renren-profile/trunk/src/main/java/com/renren/profile/biz/dao/WeeklyReportDAO.java
+END
+UserProfileDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/tech_system/!svn/ver/601/renren-profile/trunk/src/main/java/com/renren/profile/biz/dao/UserProfileDAO.java
+END
+PromotionManageDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/tech_system/!svn/ver/613/renren-profile/trunk/src/main/java/com/renren/profile/biz/dao/PromotionManageDAO.java
+END
+PeerPerfProjectDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/tech_system/!svn/ver/693/renren-profile/trunk/src/main/java/com/renren/profile/biz/dao/PeerPerfProjectDAO.java
+END
+ResumeDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/tech_system/!svn/ver/557/renren-profile/trunk/src/main/java/com/renren/profile/biz/dao/ResumeDAO.java
+END
+UserRoleDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/tech_system/!svn/ver/244/renren-profile/trunk/src/main/java/com/renren/profile/biz/dao/UserRoleDAO.java
+END
+RoleDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/tech_system/!svn/ver/63/renren-profile/trunk/src/main/java/com/renren/profile/biz/dao/RoleDAO.java
+END
+SecurityRelationSettingDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/tech_system/!svn/ver/361/renren-profile/trunk/src/main/java/com/renren/profile/biz/dao/SecurityRelationSettingDAO.java
+END
+DepartmentDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/tech_system/!svn/ver/896/renren-profile/trunk/src/main/java/com/renren/profile/biz/dao/DepartmentDAO.java
+END
+PeerPerfDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/tech_system/!svn/ver/737/renren-profile/trunk/src/main/java/com/renren/profile/biz/dao/PeerPerfDAO.java
+END

@@ -1,0 +1,12 @@
+package com.renren.profile.web.interceptors;
+
+import net.paoding.rose.web.ControllerInterceptorAdapter;
+import net.paoding.rose.web.Invocation;
+
+import org.apache.commons.lang.math.NumberUtils;
+
+import com.renren.profile.RenrenProfileConstants;
+
+public abstract class AbstractControllerInterceptorAdapter extends ControllerInterceptorAdapter {
+
+}

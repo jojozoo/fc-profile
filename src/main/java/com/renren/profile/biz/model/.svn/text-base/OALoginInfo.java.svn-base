@@ -1,0 +1,51 @@
+package com.renren.profile.biz.model;
+
+import java.util.List;
+
+import com.sso.api.bean.HumresBean;
+import com.sso.api.bean.Orgunit;
+import com.sso.api.bean.Orgunitlink;
+
+public class OALoginInfo {
+    HumresBean       humres;
+    // 自己所在部门信息
+    Orgunit          orgunit;
+
+    // 部门关系信息
+    Orgunitlink      link;
+    // 自己下属信息
+    List<HumresBean> rlist;
+
+    public HumresBean getHumres() {
+        return humres;
+    }
+
+    public void setHumres(HumresBean humres) {
+        this.humres = humres;
+    }
+
+    public Orgunit getOrgunit() {
+        return orgunit;
+    }
+
+    public void setOrgunit(Orgunit orgunit) {
+        this.orgunit = orgunit;
+    }
+
+    public Orgunitlink getLink() {
+        return link;
+    }
+
+    public void setLink(Orgunitlink link) {
+        this.link = link;
+    }
+
+    public List<HumresBean> getRlist() {
+        return rlist;
+    }
+
+    public void setRlist(List<HumresBean> rlist) {
+        this.rlist = rlist;
+    }
+
+}

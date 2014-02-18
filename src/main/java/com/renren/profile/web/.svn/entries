@@ -1,0 +1,61 @@
+10
+
+dir
+1058
+http://svn.d.xiaonei.com/tech_system/renren-profile/trunk/src/main/java/com/renren/profile/web
+http://svn.d.xiaonei.com/tech_system
+
+
+
+2012-03-16T09:55:18.017791Z
+1055
+wen.he1@XIAONEI.OPI.COM
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+7c65ab8e-839a-4d0b-b6ea-255ba787de84
+
+access
+dir
+
+interceptors
+dir
+
+params
+dir
+
+config
+dir
+
+taglibs
+dir
+
+controllers
+dir
+
+dto
+dir
+
+listeners
+dir
+
+base
+dir
+
+annotations
+dir
+
+util
+dir
+

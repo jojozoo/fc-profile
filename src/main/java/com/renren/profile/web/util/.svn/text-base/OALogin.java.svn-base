@@ -1,0 +1,104 @@
+package com.renren.profile.web.util;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.renren.profile.RenrenProfileConstants;
+import com.renren.profile.biz.model.OALoginInfo;
+import com.sso.api.bean.HumresBean;
+import com.sso.api.bean.LogonBean;
+import com.sso.api.inter.SSOImpl;
+import com.sso.api.inter.SSOInterface;
+import com.sso.api.util.Base64;
+import com.sso.api.util.Md5;
+
+/**
+ * 
+ * 获取OA登陆用户信息
+ * 
+ * 
+ * @author wen.he1
+ * 
+ * 
+ */
+public class OALogin implements RenrenProfileConstants {
+
+    /**
+     * 通过url参数，用md5解密出来
+     * 
+     * @param ticketid
+     * @param host
+     * @return
+     */
+    private static final LogonBean parseSid(String ticketid, String host) {
+
+        LogonBean bean = null;
+        if (ticketid != null && !"".equals(ticketid)) {
+
+            String strs[] = ticketid.split("_");
+            if (strs != null && strs.length == 3) {
+
+                String md5key = Md5.getBit32SHA((new StringBuilder(String.valueOf(strs[0]))).append(host).append(strs[1]).toString());
+                if (md5key.equals(strs[2])) {
+
+                    String oldkey = strs[1];
+                    if (oldkey != null && oldkey.length() > 13) {
+
+                        String createtime = oldkey.substring(0, 13);
+                        String key = oldkey.substring(13, oldkey.length());
+                        String temp = Base64.getFromBASE64(key);
+                        String tempArray[] = temp.split(";");
+                        if (tempArray != null && tempArray.length == 3 && createtime.equals(tempArray[2])) {
+
+                            bean = new LogonBean();
+                            bean.setSid(strs[1]);
+                            bean.setTicketid(ticketid);
+                            bean.setLogonname(tempArray[0]);
+                            bean.setLogonstatus(tempArray[1]);
+
+                        }
+                    }
+                }
+            }
+        }
+        return bean;
+    }
+
+    /**
+     * 获取OA用户信息
+     * 
+     * @param request
+     * @param response
+     */
+    public static OALoginInfo getUsrInfo(HttpServletRequest request, HttpServletResponse response) {
+
+        SSOInterface sso = new SSOImpl(); // 生成对象
+        String host = request.getHeader("host");
+
+        LogonBean bean = parseSid(request.getParameter("passtid"), host);
+
+        if (bean == null || bean.getLogonstatus() == null || !bean.getLogonstatus().equals("1"))
+            bean = sso.ppLogin(request, response);
+
+        // 如果有必要可以多次认证一下是否真正登录
+        String result = sso.isLogin(bean.getLogonname(), bean.getSid());
+        if (!result.equals("0")) {
+            OALoginInfo oaLoginInfo = new OALoginInfo();
+            HumresBean humres = sso.getHumres(bean.getLogonname(), request, response);
+            oaLoginInfo.setHumres(humres);
+
+            // 自己所在部门信息
+            oaLoginInfo.setOrgunit(sso.getOrgunit(humres.getOrgid(), request, response));
+
+            // 部门关系信息
+            oaLoginInfo.setLink(sso.getOrgunitLink(humres.getOrgid(), request, response));
+
+            // 自己下属信息
+            oaLoginInfo.setRlist(sso.getMyFollow(humres.getId(), request, response));
+
+            return oaLoginInfo;
+        }
+
+        return null;
+    }
+}

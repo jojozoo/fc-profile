@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/tech_system/!svn/ver/1029/renren-profile/trunk/src/main/java/com/renren/profile/web/controllers/admin
+END
+PerfController.java
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/tech_system/!svn/ver/699/renren-profile/trunk/src/main/java/com/renren/profile/web/controllers/admin/PerfController.java
+END
+UserController.java
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/tech_system/!svn/ver/952/renren-profile/trunk/src/main/java/com/renren/profile/web/controllers/admin/UserController.java
+END
+RolesController.java
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/tech_system/!svn/ver/916/renren-profile/trunk/src/main/java/com/renren/profile/web/controllers/admin/RolesController.java
+END
+PromotionController.java
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/tech_system/!svn/ver/1029/renren-profile/trunk/src/main/java/com/renren/profile/web/controllers/admin/PromotionController.java
+END
+SecurityController.java
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/tech_system/!svn/ver/916/renren-profile/trunk/src/main/java/com/renren/profile/web/controllers/admin/SecurityController.java
+END

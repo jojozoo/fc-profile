@@ -1,0 +1,146 @@
+package com.renren.profile.web.controllers.admin;
+
+import java.sql.Timestamp;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.List;
+
+import net.paoding.rose.web.Invocation;
+import net.paoding.rose.web.annotation.Param;
+import net.paoding.rose.web.annotation.rest.Get;
+import net.paoding.rose.web.annotation.rest.Post;
+
+import org.apache.commons.lang.StringUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.renren.profile.biz.dao.PerfTimeDAO;
+import com.renren.profile.biz.model.PerfTime;
+import com.renren.profile.web.controllers.internal.LoginRequiredController;
+
+public class PerfController extends LoginRequiredController{
+
+	 @Autowired
+	 private PerfTimeDAO      perfTimeDAO;
+	 
+	 /**
+     * 绩效周期管理
+     * 
+     * @param inv
+     * @return
+     */
+    @Get({ "" })
+    public String perf(Invocation inv) {
+        // 首先查询绩效列表
+        List<PerfTime> perfList = perfTimeDAO.queryAll(0, 10);
+        for(int i=0;i<perfList.size();i++){
+        	LOG.info("perfTitle",perfList.get(i).getPerfTitle());
+        	LOG.info("status",perfList.get(i).getStatus());
+        }
+        if (perfList == null || perfList.size()==0) {
+            // 如果绩效记录为空，就生成一份新的记录
+            Calendar now = Calendar.getInstance();
+            now.setTime(new Date());
+            int month = now.get(Calendar.MONTH);
+            int season = month % 3 > 0 ? month / 3 + 1 : month / 3;
+            LOG.info("当前season:", season);
+            try {
+                PerfTime perfTime = new PerfTime();
+                perfTime.setPerfTitle(now.get(Calendar.YEAR) + "Q" + season);
+                perfTime.setStartTime(new Timestamp(new Date().getTime()));
+                perfTime.setPerfYear(now.get(Calendar.YEAR));
+                perfTime.setEditorId(currentUserId());
+                int perfTimeId = perfTimeDAO.save(perfTime);
+                perfTime.setId(perfTimeId);
+                perfList.add(0,perfTime);
+            } catch (Exception e) {
+                LOG.error(e, e.getMessage());
+                LOG.error("插入数据出错");
+            }
+            inv.addModel("currentTitle", now.get(Calendar.YEAR) + "Q" + season);
+            inv.addModel("perfList", perfList);
+        } else {
+        	// 如果有记录，并且符合2012Q1格式，title为自动生成，不会出现其他格式
+            String perfTitle = perfList.get(0).getPerfTitle();
+            String currentTitle = "";
+            int year = 1970;
+            if (StringUtils.isNotEmpty(perfTitle)) {
+                String[] titles = perfTitle.split("Q");
+                int season = Integer.parseInt(titles[titles.length-1]);
+                year = Integer.parseInt(titles[0]);
+                LOG.info("上一份season:", season);
+                if (season == 4) {
+                    currentTitle = Integer.parseInt(titles[0]) + 1 + "Q1";
+                } else
+                    currentTitle = titles[0] + "Q" + (season + 1);
+                LOG.info("当前TITLE:", currentTitle);
+            }
+            // 如果第一个绩效已结束，就生成一份新的记录
+            if (perfList.get(0).getStatus() == 2) {
+                PerfTime perfTime = new PerfTime();
+                perfTime.setStartTime(new Timestamp(new Date().getTime()));
+                perfTime.setPerfTitle(currentTitle);
+                perfTime.setEditorId(currentUserId());
+                perfTime.setPerfYear(year);
+                perfTime.setStatus(0);
+                try {
+                    int perfTimeId = perfTimeDAO.save(perfTime);
+                    perfTime.setId(perfTimeId);
+                    perfList.add(0,perfTime);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    LOG.error(e, e.getMessage());
+                    LOG.error("插入记录出错");
+                }
+            }
+            inv.addModel("perfList", perfList);
+        }
+        return "perf_time";
+    }
+
+	
+	/**
+	 * 开始绩效考核
+	 * 
+	 * @param inv
+	 * @return
+	 */
+	@Get( {"/start/{perfId:\\d+}","/end/{perfId:\\d+}"})
+	@Post( {"/start/{perfId:\\d+}","/end/{perfId:\\d+}"})
+	public String perfStartEnd(Invocation inv,@Param("perfId") int perfId,@Param("perf_promotion") String promotion) {
+		
+		boolean isPromotion = false;
+		if(StringUtils.isNotBlank(promotion) && promotion.equals("true")){
+			System.out.println(promotion);
+			isPromotion = true;
+		}
+		try {
+			PerfTime perf = perfTimeDAO.query(perfId);
+			switch (perf.getStatus()) {
+			case 0: {
+				// 开始考核
+				perf.setStartTime(new Timestamp(new Date().getTime()));
+				perf.setStatus(1);
+				perf.setPromotion(isPromotion);
+				perfTimeDAO.update(perf);
+				break;
+			}
+			case 1: {
+				// 结束考核
+				Calendar calendar = Calendar.getInstance();
+				calendar.setTime(new Date());
+				calendar.add(Calendar.DAY_OF_MONTH, 1);// 加1天结束
+				perf.setEndTime(new Timestamp(calendar.getTimeInMillis()));
+				perf.setStatus(2);
+				perfTimeDAO.update(perf);
+				break;
+			}
+			default:
+				break;
+			}
+
+		} catch (Exception e) {
+			LOG.error(e, e.getMessage());
+		}
+		return "r:/admin/perf";
+	}
+}

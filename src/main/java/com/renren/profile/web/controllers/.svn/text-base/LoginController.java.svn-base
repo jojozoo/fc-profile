@@ -1,0 +1,92 @@
+package com.renren.profile.web.controllers;
+
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+
+import javax.annotation.ParametersAreNonnullByDefault;
+
+import net.paoding.rose.web.Invocation;
+import net.paoding.rose.web.annotation.Param;
+import net.paoding.rose.web.annotation.rest.Get;
+
+import org.apache.commons.lang.StringUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.renren.profile.biz.logic.UserLoginService;
+import com.renren.profile.biz.logic.UserService;
+import com.renren.profile.biz.model.OALoginInfo;
+import com.renren.profile.biz.model.User;
+import com.renren.profile.web.access.ProfileHostHolder;
+import com.renren.profile.web.access.ProfileSecurityManager;
+import com.renren.profile.web.annotations.LoginRequired;
+import com.renren.profile.web.controllers.internal.BaseController;
+import com.renren.profile.web.util.OALogin;
+import com.xiaonei.platform.component.application.profile.actionbutton.ProfileMobileClientButtonBlock;
+import com.xiaonei.tools.profiler.ProfilerManager;
+
+public class LoginController extends BaseController {
+
+    @Autowired
+    private ProfileHostHolder profileHostHolder;
+
+    @Autowired
+    private UserLoginService  userLoginService;
+
+    @Get("")
+    public String index(@Param("to") String toUrl) throws UnsupportedEncodingException {
+        if (profileHostHolder.getUser() != null) {
+            if (StringUtils.isNotEmpty(toUrl)) {
+                return "r:" + toUrl;
+            }
+            return "r:/info/my";
+        }
+        toUrl = StringUtils.trimToEmpty(toUrl);
+        String callback = URLEncoder.encode(OA_REDIRECT_URL_USER_INFO + "?to=" + URLEncoder.encode(toUrl, "UTF-8"), "UTF-8");
+        return "r:" + OA_URL + "?ru=" + callback;
+    }
+
+    // FIXME 删除这个
+    @Get("as/{owner:\\d+}")
+    public String loginas(Invocation inv, @Param("owner") Integer ownerId) {
+        boolean canLoginAs = inv.getRequest().getSession().getAttribute("$profile.canloginas") != null;
+        if (!canLoginAs) {
+            if (ProfileSecurityManager.isRoot(currentUserId())) {
+                canLoginAs = true;
+                inv.getRequest().getSession().setAttribute("$profile.canloginas", "true");
+            }
+        }
+        if (canLoginAs) {
+            inv.getRequest().getSession().setAttribute(SESSION_KEY_LOGINED_USER, ownerId);
+            return "r:/info/my";
+        }
+        return "e:404";
+    }
+
+    /**
+     * 登录信息
+     * 
+     * @param inv
+     * @return
+     */
+    @Get("oacallback")
+    public String oacallback(Invocation inv, @Param("to") String toUrl) {
+
+        OALoginInfo loginInfo = OALogin.getUsrInfo(inv.getRequest(), inv.getResponse());
+        if (loginInfo == null) {
+            // FIXME 登陆失败，OA服务器出错
+            return "r:/login";
+        }
+
+        User user = userLoginService.saveOAUserInfo(loginInfo);
+        inv.getRequest().getSession().setAttribute(SESSION_KEY_LOGINED_USER, user == null ? null : Integer.valueOf(user.getId()));
+        // inv.getRequest().getSession().setAttribute(SESSION_KEY_LOGINED_MYFOLLOW,
+        // loginInfo.getRlist());
+
+        if (StringUtils.isNotEmpty(toUrl)) {
+            return "r:" + toUrl;
+        }
+
+        return "r:/info/my";
+    }
+
+}

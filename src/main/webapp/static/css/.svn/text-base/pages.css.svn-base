@@ -1,0 +1,41 @@
+/* page */
+.pages {
+	display: block;
+	width: 100%;
+	padding-top: 10px;
+	padding-bottom:10px; 
+	border-top: 1px dashed #84ACC6;
+	text-align: center;
+}
+
+.pages.spliter{
+	border-top: 1px dashed #84ACC6;
+}
+
+.pages a {
+	font-size: 12px;
+	padding: 3px 3px 2px;
+}
+
+.pages a,.pages a:LINK,.pages a:HOVER,.pages a:VISITED {
+	color: #005EAC;
+	text-decoration: none;
+}
+
+.pages a.current {
+	background: none repeat scroll 0 0 transparent;
+	border-bottom: 2px solid #005EAC;
+	color: #005EAC;
+}
+
+.pages a:HOVER {
+	background: none repeat scroll 0 0 #005EAC;
+	border-bottom: 2px solid #005EAC;
+	border-color: #D8DFEA #D8DFEA #005EAC;
+	color: #FFFFFF;
+}
+
+.pages a.current:HOVER {
+	background: none repeat scroll 0 0 transparent;
+	color: #005EAC;
+}

@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/tech_system/!svn/ver/951/renren-profile/trunk/src/main/java/com/renren/profile/web/taglibs
+END
+MenuTag.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/tech_system/!svn/ver/662/renren-profile/trunk/src/main/java/com/renren/profile/web/taglibs/MenuTag.java
+END
+MessageTag.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/tech_system/!svn/ver/913/renren-profile/trunk/src/main/java/com/renren/profile/web/taglibs/MessageTag.java
+END
+FormatTimeTag.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/tech_system/!svn/ver/111/renren-profile/trunk/src/main/java/com/renren/profile/web/taglibs/FormatTimeTag.java
+END
+SecurityTag.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/tech_system/!svn/ver/916/renren-profile/trunk/src/main/java/com/renren/profile/web/taglibs/SecurityTag.java
+END
+HtmlTextTag.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/tech_system/!svn/ver/433/renren-profile/trunk/src/main/java/com/renren/profile/web/taglibs/HtmlTextTag.java
+END
+PageTag.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/tech_system/!svn/ver/642/renren-profile/trunk/src/main/java/com/renren/profile/web/taglibs/PageTag.java
+END
+SubStringTag.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/tech_system/!svn/ver/111/renren-profile/trunk/src/main/java/com/renren/profile/web/taglibs/SubStringTag.java
+END
+SecurityFunction.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/tech_system/!svn/ver/951/renren-profile/trunk/src/main/java/com/renren/profile/web/taglibs/SecurityFunction.java
+END
+TextFunctions.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/tech_system/!svn/ver/433/renren-profile/trunk/src/main/java/com/renren/profile/web/taglibs/TextFunctions.java
+END

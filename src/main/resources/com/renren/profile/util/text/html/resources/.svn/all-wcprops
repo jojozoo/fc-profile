@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/tech_system/!svn/ver/433/renren-profile/trunk/src/main/resources/com/renren/profile/util/text/html/resources
+END
+html-corrector_zh_CN.properties
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/tech_system/!svn/ver/433/renren-profile/trunk/src/main/resources/com/renren/profile/util/text/html/resources/html-corrector_zh_CN.properties
+END
+html-corrector.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/tech_system/!svn/ver/433/renren-profile/trunk/src/main/resources/com/renren/profile/util/text/html/resources/html-corrector.xsd
+END
+html-corrector.xml
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/tech_system/!svn/ver/433/renren-profile/trunk/src/main/resources/com/renren/profile/util/text/html/resources/html-corrector.xml
+END
+html-corrector_en_US.properties
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/tech_system/!svn/ver/433/renren-profile/trunk/src/main/resources/com/renren/profile/util/text/html/resources/html-corrector_en_US.properties
+END
+html-corrector-only-keep-content.xml
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/tech_system/!svn/ver/433/renren-profile/trunk/src/main/resources/com/renren/profile/util/text/html/resources/html-corrector-only-keep-content.xml
+END

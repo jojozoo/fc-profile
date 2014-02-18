@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
+	xmlns:resin="urn:java:com.caucho.resin"
+	version="2.4">
+	<context-param>
+		<param-name>log4jConfigLocation</param-name>
+		<param-value>/WEB-INF/log4j.xml</param-value>
+	</context-param>
+	<context-param>
+		<param-name>portalExecutorCorePoolSize</param-name>
+		<param-value>1</param-value>
+	</context-param>
+	<filter>
+		<filter-name>SetCharacterEncoding</filter-name>
+		<filter-class>com.renren.profile.web.base.CharacterEncodingFilter</filter-class>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>UTF-8</param-value>
+		</init-param>
+	</filter>
+
+	<filter>
+		<filter-name>OpiWrapperFilter</filter-name>
+		<filter-class>com.xiaonei.platform.core.opt.base.wrapper.OpiWrapperFilter</filter-class>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>SetCharacterEncoding</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>OpiWrapperFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+	<filter>
+		<filter-name>roseFilter</filter-name>
+		<filter-class>net.paoding.rose.RoseFilter</filter-class>
+		<init-param>
+			<param-name>load</param-name>
+			<param-value>com.renren.profile.web.controllers</param-value>
+		</init-param>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>roseFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+		<dispatcher>REQUEST</dispatcher>
+		<dispatcher>FORWARD</dispatcher>
+		<dispatcher>INCLUDE</dispatcher>
+	</filter-mapping>
+	
+	<listener>
+		<listener-class>com.xiaonei.platform.core.opt.base.action.InitiateListener</listener-class>
+	</listener>
+	<listener>
+		<listener-class>com.renren.profile.web.listeners.InitConstantsListener</listener-class>
+	</listener>
+	<listener>
+		<listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>
+	</listener>
+	<welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
+	<!-- portal并发数 -->
+	<context-param>
+		<param-name>portalExecutorCorePoolSize</param-name>
+		<param-value>200</param-value>
+	</context-param>
+</web-app>

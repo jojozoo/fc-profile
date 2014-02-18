@@ -1,0 +1,63 @@
+package com.renren.profile.web.interceptors;
+
+import java.net.URLEncoder;
+
+import net.paoding.rose.web.Invocation;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.renren.profile.RenrenProfileAjaxCodes;
+import com.renren.profile.RenrenProfileConstants;
+import com.renren.profile.biz.logic.UserService;
+import com.renren.profile.biz.model.User;
+import com.renren.profile.web.access.ProfileHostHolder;
+import com.renren.profile.web.annotations.AjaxJson;
+import com.renren.profile.web.annotations.LoginRequired;
+import com.renren.profile.web.base.HtmlPageImpl;
+import com.renren.profile.web.base.RoseUtils;
+import com.renren.profile.web.util.ClassUtils;
+
+public class LoginInterceptor extends AbstractControllerInterceptorAdapter {
+
+    @Autowired
+    private ProfileHostHolder profileHostHolder;
+
+    @Autowired
+    private UserService           userService;
+
+    @Override
+    public int getPriority() {
+        return 100009;
+    }
+
+    @Override
+    protected Object before(Invocation inv) throws Exception {
+        Integer userId = (Integer) inv.getRequest().getSession().getAttribute(RenrenProfileConstants.SESSION_KEY_LOGINED_USER);
+        User user = null;
+        if(userId != null && userId >0){
+            user = userService.query(userId);
+        }
+        
+        profileHostHolder.setUser(user);
+
+        inv.addModel("_user", user);
+        int owner = RoseUtils.getResourceOwner(inv);
+        if (owner > 0) {
+            User _owner = userService.query(owner);
+            inv.addModel("_owner", _owner);
+        }
+
+        if (user == null && ClassUtils.isAnnotationPresentOnMethodAndClass(inv, LoginRequired.class)) {
+            if (ClassUtils.isAnnotationPresentOnMethodAndClass(inv, AjaxJson.class)) {
+                HtmlPageImpl page = (HtmlPageImpl) RoseUtils.currentHtmlMessages(inv);
+                page.code(RenrenProfileAjaxCodes.NEED_LOGIN);
+                return false;
+            } else {
+                String toUrl = URLEncoder.encode(inv.getRequestPath().getUri(), "UTF-8");
+                return "r:/login?to=" + toUrl; // 要求登陆
+            }
+        }
+
+        return true;
+    }
+}

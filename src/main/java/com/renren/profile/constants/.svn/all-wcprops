@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/tech_system/!svn/ver/979/renren-profile/trunk/src/main/java/com/renren/profile/constants
+END
+ProfileBuildinRole.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/tech_system/!svn/ver/916/renren-profile/trunk/src/main/java/com/renren/profile/constants/ProfileBuildinRole.java
+END
+ProfileActionCategory.java
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/tech_system/!svn/ver/916/renren-profile/trunk/src/main/java/com/renren/profile/constants/ProfileActionCategory.java
+END
+ProfilePerfProjectWeight.java
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/tech_system/!svn/ver/916/renren-profile/trunk/src/main/java/com/renren/profile/constants/ProfilePerfProjectWeight.java
+END
+ProfileAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/tech_system/!svn/ver/921/renren-profile/trunk/src/main/java/com/renren/profile/constants/ProfileAction.java
+END
+ProfileRelation.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/tech_system/!svn/ver/916/renren-profile/trunk/src/main/java/com/renren/profile/constants/ProfileRelation.java
+END

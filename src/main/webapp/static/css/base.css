@@ -1,0 +1,150 @@
+/* 默认样式 */
+body,button,input,select,textarea {
+	font: 12px/1.125 Arial, Helvetica, sans-serif;
+	_font-family: "SimSun";
+}
+
+body,h1,h2,h3,h4,h5,h6,dl,dt,dd,ul,ol,li,th,td,p,blockquote,pre,form,fieldset,legend,input,button,textarea,hr
+	{
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	overflow-y: scroll !important;
+	overflow-y: auto;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+table td {
+	padding: 2px;
+}
+
+table p {
+	margin: 0;
+}
+
+li {
+	list-style: none;
+}
+
+img {
+	border: 0;
+}
+
+q:before,q:after {
+	content: '';
+}
+
+input,textarea {
+	outline-style: none;
+}
+
+input[type="text"],input[type="password"],textarea {
+	outline-style: none;
+	-webkit-appearance: none;
+}
+
+textarea {
+	resize: none;
+}
+
+address,caption,cite,code,dfn,em,i,th,var {
+	font-style: normal;
+	font-weight: normal;
+}
+
+fieldset {
+	border: solid 1px #e5f2f9;
+	padding: 10px;
+	margin: 0 0 5px;
+}
+
+legend {
+	color: #000;
+	padding: 2px;
+}
+
+abbr,acronym {
+	border: 0;
+	font-variant: normal;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a.button {
+	cursor: pointer;
+}
+
+a.button:hover,a.button:visited,a.button:link {
+	text-decoration: none;
+}
+
+.fl {
+	float: left;
+}
+
+.fr {
+	float: right;
+}
+
+.fc { /*clear float*/
+	clear: both;
+}
+
+.clearfix{
+	display: block;
+}
+.clearfix:after {
+	content: ".";
+	display: block;
+	clear: both;
+	height: 0;
+	visibility: hidden;
+}
+
+.short-input,.middle-input,.long-input,.full-input {
+	border: 1px solid #84ACC6;
+}
+
+input.short-input,input.middle-input,input.long-input,input.full-input {
+	height: 20px;
+	line-height: 20px;
+}
+
+textarea.short-input,textarea.middle-input,textarea.long-input,textarea.full-input {
+	height: 80px;
+	line-height: 20px;
+}
+
+select.short-input,select.middle-input,select.long-input,select.full-input {
+	height: 20px;
+	line-height: 20px;
+}
+	
+.short-input {
+	width: 100px;
+}
+
+.middle-input {
+	width: 300px;
+}
+
+.long-input {
+	width: 500px;
+}
+
+.full-input {
+	width: 95%;
+}
+

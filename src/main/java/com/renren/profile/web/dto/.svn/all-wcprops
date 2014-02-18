@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/tech_system/!svn/ver/943/renren-profile/trunk/src/main/java/com/renren/profile/web/dto
+END
+UserInviteInfoDTO.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/tech_system/!svn/ver/942/renren-profile/trunk/src/main/java/com/renren/profile/web/dto/UserInviteInfoDTO.java
+END
+UserAccessInfoDTO.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/tech_system/!svn/ver/942/renren-profile/trunk/src/main/java/com/renren/profile/web/dto/UserAccessInfoDTO.java
+END
+UserExtendInfoDTO.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/tech_system/!svn/ver/943/renren-profile/trunk/src/main/java/com/renren/profile/web/dto/UserExtendInfoDTO.java
+END

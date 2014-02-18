@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/tech_system/!svn/ver/1058/renren-profile/trunk/src/main/webapp/views/admin
+END
+role_create.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/tech_system/!svn/ver/393/renren-profile/trunk/src/main/webapp/views/admin/role_create.jsp
+END
+role_edit.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/tech_system/!svn/ver/249/renren-profile/trunk/src/main/webapp/views/admin/role_edit.jsp
+END
+user_add.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/tech_system/!svn/ver/660/renren-profile/trunk/src/main/webapp/views/admin/user_add.jsp
+END
+promotion_history.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/tech_system/!svn/ver/991/renren-profile/trunk/src/main/webapp/views/admin/promotion_history.jsp
+END
+security_actions.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/tech_system/!svn/ver/249/renren-profile/trunk/src/main/webapp/views/admin/security_actions.jsp
+END
+user_list.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/tech_system/!svn/ver/683/renren-profile/trunk/src/main/webapp/views/admin/user_list.jsp
+END
+perf_time.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/tech_system/!svn/ver/705/renren-profile/trunk/src/main/webapp/views/admin/perf_time.jsp
+END
+role_list.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/tech_system/!svn/ver/918/renren-profile/trunk/src/main/webapp/views/admin/role_list.jsp
+END
+promotion_view.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/tech_system/!svn/ver/1058/renren-profile/trunk/src/main/webapp/views/admin/promotion_view.jsp
+END
+promotion_list.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/tech_system/!svn/ver/995/renren-profile/trunk/src/main/webapp/views/admin/promotion_list.jsp
+END
+user_edit.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/tech_system/!svn/ver/660/renren-profile/trunk/src/main/webapp/views/admin/user_edit.jsp
+END

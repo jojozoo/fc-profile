@@ -1,0 +1,55 @@
+/* ajax form */
+[node-type=field-message]{
+	font-weight: normal;
+	font-size: 12px;
+}
+
+[node-type=form-message]{
+	font-weight: normal;
+	font-size: 12px;
+}
+
+.field-error {
+	background: url("/static/images/field-error.gif") no-repeat;/* scroll 4px 7px #FFCCCC;*/
+	/*border-radius: 3px 3px 3px 3px;*/
+	margin-left: 3px;
+	padding-left: 18px;
+	color: red;
+}
+
+.form-error{
+	padding-left: 10px;
+	color: red;
+}
+
+.field-label{
+	display: inline-block;
+	width: 100px;
+	height: 30px;
+	padding-right: 10px;
+	font-weight: bold;
+	text-align: right;
+}
+
+.field-top{
+	vertical-align: top;
+}
+
+form input {
+	border: 1px solid #84ACC6;
+	height: 20px;
+	line-height: 20px;
+	margin-left: 4px;
+}
+
+form textarea{
+	border: 1px solid #84ACC6;
+	height: 80px;
+	margin-left: 4px;
+}
+
+form select{
+	border: 1px solid #84ACC6;
+	height: 20px;
+	line-height: 20px;
+}

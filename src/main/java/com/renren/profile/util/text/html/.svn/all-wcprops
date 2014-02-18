@@ -1,0 +1,125 @@
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/tech_system/!svn/ver/433/renren-profile/trunk/src/main/java/com/renren/profile/util/text/html
+END
+HTMLEntityEncoder.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/tech_system/!svn/ver/433/renren-profile/trunk/src/main/java/com/renren/profile/util/text/html/HTMLEntityEncoder.java
+END
+MagicSAXFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/tech_system/!svn/ver/433/renren-profile/trunk/src/main/java/com/renren/profile/util/text/html/MagicSAXFilter.java
+END
+CssScanner.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/tech_system/!svn/ver/433/renren-profile/trunk/src/main/java/com/renren/profile/util/text/html/CssScanner.java
+END
+AbstractHtmlScanner.java
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/tech_system/!svn/ver/433/renren-profile/trunk/src/main/java/com/renren/profile/util/text/html/AbstractHtmlScanner.java
+END
+Attribute.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/tech_system/!svn/ver/433/renren-profile/trunk/src/main/java/com/renren/profile/util/text/html/Attribute.java
+END
+CleanResults.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/tech_system/!svn/ver/433/renren-profile/trunk/src/main/java/com/renren/profile/util/text/html/CleanResults.java
+END
+RegexPattern.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/tech_system/!svn/ver/433/renren-profile/trunk/src/main/java/com/renren/profile/util/text/html/RegexPattern.java
+END
+Tag.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/tech_system/!svn/ver/433/renren-profile/trunk/src/main/java/com/renren/profile/util/text/html/Tag.java
+END
+Constants.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/tech_system/!svn/ver/433/renren-profile/trunk/src/main/java/com/renren/profile/util/text/html/Constants.java
+END
+HtmlCorrectRule.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/tech_system/!svn/ver/433/renren-profile/trunk/src/main/java/com/renren/profile/util/text/html/HtmlCorrectRule.java
+END
+URIUtils.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/tech_system/!svn/ver/433/renren-profile/trunk/src/main/java/com/renren/profile/util/text/html/URIUtils.java
+END
+Property.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/tech_system/!svn/ver/433/renren-profile/trunk/src/main/java/com/renren/profile/util/text/html/Property.java
+END
+ParentTag.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/tech_system/!svn/ver/433/renren-profile/trunk/src/main/java/com/renren/profile/util/text/html/ParentTag.java
+END
+CssHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/tech_system/!svn/ver/433/renren-profile/trunk/src/main/java/com/renren/profile/util/text/html/CssHandler.java
+END
+HtmlCorrector.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/tech_system/!svn/ver/433/renren-profile/trunk/src/main/java/com/renren/profile/util/text/html/HtmlCorrector.java
+END
+HtmlSAXScanner.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/tech_system/!svn/ver/433/renren-profile/trunk/src/main/java/com/renren/profile/util/text/html/HtmlSAXScanner.java
+END
+HtmlFilterUtils.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/tech_system/!svn/ver/433/renren-profile/trunk/src/main/java/com/renren/profile/util/text/html/HtmlFilterUtils.java
+END
+ErrorMessageUtil.java
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/tech_system/!svn/ver/433/renren-profile/trunk/src/main/java/com/renren/profile/util/text/html/ErrorMessageUtil.java
+END
+CssValidator.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/tech_system/!svn/ver/433/renren-profile/trunk/src/main/java/com/renren/profile/util/text/html/CssValidator.java
+END
+XMLUtil.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/tech_system/!svn/ver/433/renren-profile/trunk/src/main/java/com/renren/profile/util/text/html/XMLUtil.java
+END

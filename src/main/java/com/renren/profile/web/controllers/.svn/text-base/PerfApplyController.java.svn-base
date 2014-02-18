@@ -1,0 +1,164 @@
+package com.renren.profile.web.controllers;
+
+import java.util.Collection;
+import java.util.List;
+
+import org.apache.commons.lang.StringUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import net.paoding.rose.web.Invocation;
+import net.paoding.rose.web.annotation.Param;
+import net.paoding.rose.web.annotation.rest.Get;
+import net.paoding.rose.web.annotation.rest.Post;
+
+import com.google.common.base.Function;
+import com.google.common.collect.Collections2;
+import com.renren.profile.biz.logic.UserPerfService;
+import com.renren.profile.biz.model.PerfTime;
+import com.renren.profile.biz.model.User;
+import com.renren.profile.biz.model.UserInvitation;
+import com.renren.profile.web.annotations.AjaxJson;
+import com.renren.profile.web.controllers.internal.LoginRequiredController;
+import com.renren.profile.web.dto.UserAccessInfoDTO;
+import com.renren.profile.web.dto.UserInviteInfoDTO;
+import com.renren.profile.web.util.JsonUtils;
+import com.renren.profile.web.util.JsonUtils.JsonBuilder;
+
+public class PerfApplyController extends LoginRequiredController{
+	
+	@Autowired
+	UserPerfService userPerfService;
+	
+	@Get("myPerf")
+	public String perfInfo(Invocation inv){
+		
+		User     user     = this.currentUser();
+		PerfTime perfTime = userPerfService.getUserCurrentPerf(); 
+		
+		// 说明考核时间已经结束或者此季度考核还没有开始
+		if(perfTime == null || perfTime.getStatus() == 2 )
+			return "r:404";
+		
+		// 查看用户的自评是否已经提交，如果没有提交邀请别人的信息是不可见的
+		boolean isSelfAccessSumbit = userPerfService.isSelfAccessSumbit(user.getId(),perfTime.getId());
+		
+		List<UserInviteInfoDTO> inviteUserDtoList  = userPerfService.getUserInvitationInfo(user.getId(),perfTime.getId());
+		List<UserInviteInfoDTO> assessUserDtoList  = userPerfService.getAccessUserInfo(user.getId(),perfTime.getId());
+		
+		inv.addModel("user", user);
+		inv.addModel("perfTime", perfTime);
+		inv.addModel("inviteUserDtoList", inviteUserDtoList);
+		inv.addModel("assessUserDtoList", assessUserDtoList);
+		inv.addModel("isSelfAccessSumbit",isSelfAccessSumbit);
+		inv.addModel("addStatus", inv.getRequest().getParameter("error"));
+	
+		return "perf_eachother_apply";
+	}
+	
+	@Post("search")
+	@AjaxJson
+	public String searchInvitationUser(Invocation inv,@Param("keywords") String keywords){
+		
+		JsonBuilder jsBuilder = JsonUtils.builder();
+        String escapedKeyword = StringUtils.trimToNull(escapeSql(keywords));
+        if (StringUtils.isEmpty(escapedKeyword)){ 
+        	jsBuilder.put("isSuccess", true);
+        	jsBuilder.put("error", "输入关键字错误");
+        	return "@" + jsBuilder.toString();
+        }
+         
+        List<User> userList = userPerfService.getMatchPatternInfo(keywords);
+        Collection<String> emailList = Collections2.transform(userList, new Function<User,String>(){
+
+			@Override
+			public String apply(User user) {
+				
+				return user == null ? null : user.getEmail();
+			}
+
+        	
+        });
+        jsBuilder.put("isSuccess", true);
+		jsBuilder.put("emailList", emailList);
+		
+		return "@" + jsBuilder.toString();
+		
+		
+        
+	}
+	
+	@Post("add")
+	public String addInviUserInfo(Invocation inv,@Param("keywords") String keywords){
+		
+		if(StringUtils.isEmpty(keywords))
+			return "r:/perfApply/myPerf?error=1";
+		
+		User   user   = this.currentUser();
+	    User inviUser = userPerfService.getUserInfo(keywords);
+	    
+	    
+	    // 邀请人没有查询到，或者邀请人是本人的主管，就会弹出警告,否则向邀请表添加一条信息
+	    if(inviUser == null || inviUser.getId() == user.getManagerId()){
+	    	
+	    	return "r:/perfApply/myPerf?error=2";
+	    	
+	    }else{
+	    	
+	    	 // 本人邀请好友的数目不能大于三个
+	    	Integer number =userPerfService.countUserInvitedFriends(user.getId(), inviUser.getId());
+	    	if(number!=null && number > 3 )
+	    		return "r:/perfApply/myPerf?error=5";
+	    	
+	    	// 不能邀请自己
+	    	if(user.getId() == inviUser.getId())
+	    		return "r:/perfApply/myPerf?error=4";
+	    	
+	    	// 重复邀请人
+		    UserInvitation userInvi = userPerfService.testIsUserInvitedForPeerPerf(user.getId(), inviUser.getId());
+		    if(userInvi !=null){
+		    	return "r:/perfApply/myPerf?error=3";
+		    }
+	    	
+	    	int addstatus = userPerfService.addUserInvitation(user.getId(), inviUser.getId());
+	    	return addstatus == 0 ? "" : "r:/perfApply/myPerf";
+
+	    }
+	    
+	}
+	
+	@Post("del/{inviteId:\\d+}")
+	public String delInviUserInfo(Invocation inv,@Param("inviteId") int inviteId){
+		
+		if(inviteId == 0)
+			return "/r:404";
+		
+		int delStatus = userPerfService.delUserInvitation(this.currentUserId(),inviteId);
+		
+		return  delStatus == 0 ? "r:404" : "r:/perfApply/myPerf";
+		
+	}
+	
+	@Get("myReport")
+	public String accessMyReportUser(Invocation inv){
+		
+		int      userId   = this.currentUserId();
+		PerfTime perfTime = userPerfService.getUserCurrentPerf();
+		if(perfTime == null)
+			return "r:/404";
+			
+		
+		List<UserAccessInfoDTO> myFollowList = userPerfService.getMyReportUserInfo(userId,perfTime.getId());
+		
+		inv.addModel("userList", myFollowList);
+		inv.addModel("perfTime", perfTime);
+			
+		return "perf_myreport_access";
+		
+	}
+	
+	private String escapeSql(String keyword) {
+	
+	   return StringUtils.remove(keyword, "%_; '\"");
+	}
+
+}

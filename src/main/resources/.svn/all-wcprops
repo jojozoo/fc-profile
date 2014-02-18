@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/tech_system/!svn/ver/455/renren-profile/trunk/src/main/resources
+END
+applicationContext-services.xml
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/tech_system/!svn/ver/455/renren-profile/trunk/src/main/resources/applicationContext-services.xml
+END
+applicationContext-datasource-test.xml
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/tech_system/!svn/ver/455/renren-profile/trunk/src/main/resources/applicationContext-datasource-test.xml
+END

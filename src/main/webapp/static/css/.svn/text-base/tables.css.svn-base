@@ -1,0 +1,114 @@
+/* common table */
+table.common-table {
+	border: 1px solid #e4e4e4;
+	border-collapse: collapse;
+	width: 100%;
+	margin-bottom: 4px;
+}
+
+table.common-table th,table.common-table td{
+	border: solid 1px #666;
+	height: 24px;
+	line-height: 24px;
+}
+table.common-table thead th {
+	background: #9cf;
+	font-weight: bold;
+}
+
+/* data table*/
+table.data-list {
+	border: 1px solid #e4e4e4;
+	border-collapse: collapse;
+	width: 100%;
+	margin-bottom: 4px;
+}
+
+table.data-list tbody td,table.list tbody tr:hover td {
+	border: solid 1px #d7d7d7;
+}
+
+table.data-list thead th {
+	border-width: 1px;
+	border-style: solid;
+	border-top-color: #d7d7d7;
+	border-right-color: #d7d7d7;
+	border-left-color: #d7d7d7;
+	border-bottom-color: #999999;
+}
+
+table.data-list th {
+	background-color: #EEEEEE;
+	padding: 4px;
+	white-space: nowrap;
+}
+
+table.data-list td {
+	vertical-align: top;
+}
+
+table.data-list td.id {
+	width: 2%;
+	text-align: center;
+}
+
+table.data-list td.checkbox {
+	width: 15px;
+	padding: 0px;
+}
+
+table.data-list td.center {
+	text-align: center;
+}
+
+table.data-list td.buttons {
+	width: 15%;
+	white-space: nowrap;
+	text-align: right;
+}
+
+table.data-list td.buttons a {
+	padding-right: 0.6em;
+}
+
+table.data-list caption {
+	text-align: left;
+	padding: 0.5em 0.5em 0.5em 0;
+}
+
+table.data-list tr.odd {
+	background-color: #f6f7f8;
+}
+
+table.data-list tr.even {
+	background-color: #fff;
+}
+
+table.data-list tbody tr:hover {
+	background-color: #ffffdd;
+}
+
+
+
+/* user list table*/
+table.user-full-table {
+	width: 100%;
+	table-layout: fixed;
+}
+
+table.user-full-table td.user-headpic {
+	width: 52px;
+}
+
+table.user-full-table td.actionlist {
+	width: 100px;
+}
+
+table.user-full-table tr {
+	border-bottom: 1px solid #84ACC6;
+}
+
+
+table.user-full-table{
+	border-bottom: none;
+}

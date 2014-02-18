@@ -1,0 +1,22 @@
+package com.renren.profile;
+
+
+public interface RenrenProfileConstants {
+    // 字面常量
+    String DB_CATALOG                   = "";
+    String EMPTY_HEAD_PIC_URL           = "/static/images/man_headpic.gif";
+    String OA_URL                       = "http://passport.renren-inc.com/login/login.jsp";
+
+    String OA_REDIRECT_URL_USER_INFO    = "http://profile.renren-inc.com/login/oacallback";
+
+    String SESSION_KEY_LOGINED_USER     = "$$profile.logined_user";
+
+    String SESSION_KEY_LOGINED_MYFOLLOW = "$$profile.my_follow";
+
+    String HTTP_KEY_OWNER               = "owner";
+
+    int    PERF_TIME_START              = 1;
+
+    int    PERF_TIME_END                = 1;
+    
+}

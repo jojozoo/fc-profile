@@ -1,0 +1,134 @@
+package com.renren.profile.biz.logic;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.renren.profile.RenrenProfileConstants;
+import com.renren.profile.biz.dao.UserProfileDAO;
+import com.renren.profile.biz.model.Department;
+import com.renren.profile.biz.model.OALoginInfo;
+import com.renren.profile.biz.model.User;
+import com.renren.profile.biz.model.UserProfile;
+import com.renren.profile.util.time.TimeUtils;
+import com.sso.api.bean.HumresBean;
+import com.sso.api.bean.Orgunitlink;
+
+@Service
+public class UserLoginService implements RenrenProfileConstants {
+
+    @Autowired
+    private UserService        userService;
+
+    @Autowired
+    private DepartmentService  departmentService;
+
+    @Autowired
+    private UserProfileDAO userProfileDAO;
+
+    public User saveOAUserInfo(OALoginInfo loginInfo) {
+
+        HumresBean hum = loginInfo.getHumres();
+        Orgunitlink link = loginInfo.getLink();
+
+        if (hum != null || link != null) {
+
+            User user = userService.query(hum.getId());
+            User pUser = userService.query(hum.getExtrefobjfield10());
+            if (user != null) { // 表示用户已经登陆本系统,且上一级的用户也登陆则更新上级id号
+                if (pUser != null) {
+                    user.setManagerId(pUser.getId());
+                    userService.update(user);
+                }
+                return user;
+            }
+
+            // 查询部门信息，如果存在本部门的信息且上级已经登陆，那么就需要更新部门名称、部门的负责人、用户信息的部门Id，
+            // 否则；查询自己的上一级的信息，如果不存在，那么存放上一级的信息（部门名称为-），保存本部门信息
+            user = addPartmentInfo(hum, link, pUser);
+
+            // 保存用户信息
+            user.setOaId(hum.getId());
+            user.setName(hum.getObjname());
+            user.setEmail(hum.getEmail());
+            user.setStatus(hum.getHrstatus() != null ? 0 : 1);
+            user.setHeadPic(hum.getSmallpic());
+            Integer userId = userService.save(user);
+            if (userId == null || userId == 0) {
+                User oldUser = userService.query(hum.getId());
+                if (oldUser != null) {
+                    return oldUser;
+                } else {
+                    return null;
+                }
+            }
+            user.setId(userId);
+            
+            // 保存用户详细信息
+            UserProfile userProfile = new UserProfile();
+            userProfile.setMobile(hum.getTel2());
+            userProfile.setUserId(userId);
+            userProfileDAO.save(userProfile);
+            return user;
+        }
+        return null;
+    }
+
+    /***
+     * 部门信息的添加
+     * 
+     * @param hum
+     * @param link
+     * @param pUser
+     * @return
+     */
+    private User addPartmentInfo(HumresBean hum, Orgunitlink link, User pUser) {
+
+        Department department = departmentService.queryByOaId(hum.getOrgid());
+        User user = new User();
+        if (department != null) {
+
+            department.setDepartmentName(hum.getOrgidname());
+            if (pUser != null) {
+                user.setManagerId(pUser.getId());
+                department.setManagerId(pUser.getId());
+            }
+            departmentService.update(department);
+
+            user.setDepartmentId(department.getId());
+
+        } else {
+
+            Department parDepartment = departmentService.queryByOaId(link.getPid());
+            department = new Department();
+            if (parDepartment == null) { // 上级部门为空，需要保存上级部门信息且上级部门名称，需要上级领导登陆就更新
+
+                parDepartment = new Department();
+                parDepartment.setOaId(link.getPid());
+                parDepartment.setDepartmentName("-");
+                parDepartment.setEditTime(TimeUtils.FetchTime.now());
+
+                int parentId = departmentService.save(parDepartment);
+                if (parentId != 0)
+                    department.setParentDepartment(parentId);
+
+            }else{
+            	department.setParentDepartment(parDepartment.getId());
+			}
+            
+            department.setOaId(hum.getOrgid());
+            department.setDepartmentName(hum.getOrgidname());
+            department.setEditTime(TimeUtils.FetchTime.now());
+
+            if (pUser != null) {
+                department.setManagerId(pUser.getId());
+                user.setManagerId(pUser.getId());
+            }
+
+            Integer departmentId = departmentService.save(department);
+            if (departmentId != null && departmentId.intValue() != 0)
+                user.setDepartmentId(departmentId);
+        }
+        return user;
+    }
+
+}

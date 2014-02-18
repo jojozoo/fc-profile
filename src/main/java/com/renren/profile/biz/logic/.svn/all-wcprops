@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/tech_system/!svn/ver/1055/renren-profile/trunk/src/main/java/com/renren/profile/biz/logic
+END
+UserService.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/tech_system/!svn/ver/913/renren-profile/trunk/src/main/java/com/renren/profile/biz/logic/UserService.java
+END
+UserRoleService.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/tech_system/!svn/ver/916/renren-profile/trunk/src/main/java/com/renren/profile/biz/logic/UserRoleService.java
+END
+DepartmentService.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/tech_system/!svn/ver/913/renren-profile/trunk/src/main/java/com/renren/profile/biz/logic/DepartmentService.java
+END
+UserLoginService.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/tech_system/!svn/ver/896/renren-profile/trunk/src/main/java/com/renren/profile/biz/logic/UserLoginService.java
+END
+ProfileSecurityService.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/tech_system/!svn/ver/916/renren-profile/trunk/src/main/java/com/renren/profile/biz/logic/ProfileSecurityService.java
+END
+PerfTimeService.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/tech_system/!svn/ver/979/renren-profile/trunk/src/main/java/com/renren/profile/biz/logic/PerfTimeService.java
+END
+UserPerfService.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/tech_system/!svn/ver/1055/renren-profile/trunk/src/main/java/com/renren/profile/biz/logic/UserPerfService.java
+END

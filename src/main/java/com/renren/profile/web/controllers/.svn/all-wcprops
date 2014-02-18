@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/tech_system/!svn/ver/1055/renren-profile/trunk/src/main/java/com/renren/profile/web/controllers
+END
+InfoController.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/tech_system/!svn/ver/984/renren-profile/trunk/src/main/java/com/renren/profile/web/controllers/InfoController.java
+END
+WeeklyreportController.java
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/tech_system/!svn/ver/937/renren-profile/trunk/src/main/java/com/renren/profile/web/controllers/WeeklyreportController.java
+END
+ResumeController.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/tech_system/!svn/ver/952/renren-profile/trunk/src/main/java/com/renren/profile/web/controllers/ResumeController.java
+END
+PerfApplyController.java
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/tech_system/!svn/ver/1055/renren-profile/trunk/src/main/java/com/renren/profile/web/controllers/PerfApplyController.java
+END
+applicationContext-interceptors.xml
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/tech_system/!svn/ver/330/renren-profile/trunk/src/main/java/com/renren/profile/web/controllers/applicationContext-interceptors.xml
+END
+KpiController.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/tech_system/!svn/ver/952/renren-profile/trunk/src/main/java/com/renren/profile/web/controllers/KpiController.java
+END
+SearchController.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/tech_system/!svn/ver/896/renren-profile/trunk/src/main/java/com/renren/profile/web/controllers/SearchController.java
+END
+IndexController.java
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/tech_system/!svn/ver/763/renren-profile/trunk/src/main/java/com/renren/profile/web/controllers/IndexController.java
+END
+LoginController.java
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/tech_system/!svn/ver/941/renren-profile/trunk/src/main/java/com/renren/profile/web/controllers/LoginController.java
+END
+UserSelfController.java
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/tech_system/!svn/ver/896/renren-profile/trunk/src/main/java/com/renren/profile/web/controllers/UserSelfController.java
+END
+LogoutController.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/tech_system/!svn/ver/936/renren-profile/trunk/src/main/java/com/renren/profile/web/controllers/LogoutController.java
+END

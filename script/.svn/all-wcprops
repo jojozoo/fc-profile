@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/tech_system/!svn/ver/653/renren-profile/trunk/script
+END
+static.sh
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/tech_system/!svn/ver/21/renren-profile/trunk/script/static.sh
+END
+redeploy.sh
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/tech_system/!svn/ver/653/renren-profile/trunk/script/redeploy.sh
+END

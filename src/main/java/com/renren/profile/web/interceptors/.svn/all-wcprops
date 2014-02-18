@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/tech_system/!svn/ver/934/renren-profile/trunk/src/main/java/com/renren/profile/web/interceptors
+END
+HtmlPageInterceptor.java
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/tech_system/!svn/ver/934/renren-profile/trunk/src/main/java/com/renren/profile/web/interceptors/HtmlPageInterceptor.java
+END
+AbstractControllerInterceptorAdapter.java
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/tech_system/!svn/ver/580/renren-profile/trunk/src/main/java/com/renren/profile/web/interceptors/AbstractControllerInterceptorAdapter.java
+END
+LoginInterceptor.java
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/tech_system/!svn/ver/933/renren-profile/trunk/src/main/java/com/renren/profile/web/interceptors/LoginInterceptor.java
+END
+ProfileSecurityInterceptor.java
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/tech_system/!svn/ver/933/renren-profile/trunk/src/main/java/com/renren/profile/web/interceptors/ProfileSecurityInterceptor.java
+END

@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/tech_system/!svn/ver/580/renren-profile/trunk/src/main/java/com/renren/profile/web/base
+END
+HtmlPage.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/tech_system/!svn/ver/457/renren-profile/trunk/src/main/java/com/renren/profile/web/base/HtmlPage.java
+END
+HtmlPageImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/tech_system/!svn/ver/457/renren-profile/trunk/src/main/java/com/renren/profile/web/base/HtmlPageImpl.java
+END
+CharacterEncodingFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/tech_system/!svn/ver/285/renren-profile/trunk/src/main/java/com/renren/profile/web/base/CharacterEncodingFilter.java
+END
+FormValidator.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/tech_system/!svn/ver/506/renren-profile/trunk/src/main/java/com/renren/profile/web/base/FormValidator.java
+END
+RoseUtils.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/tech_system/!svn/ver/580/renren-profile/trunk/src/main/java/com/renren/profile/web/base/RoseUtils.java
+END

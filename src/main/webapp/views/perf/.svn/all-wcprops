@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/tech_system/!svn/ver/1047/renren-profile/trunk/src/main/webapp/views/perf
+END
+perf_self.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/tech_system/!svn/ver/1047/renren-profile/trunk/src/main/webapp/views/perf/perf_self.jsp
+END
+perf_peer.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/tech_system/!svn/ver/919/renren-profile/trunk/src/main/webapp/views/perf/perf_peer.jsp
+END
+perf_summary.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/tech_system/!svn/ver/969/renren-profile/trunk/src/main/webapp/views/perf/perf_summary.jsp
+END
+perf_index.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/tech_system/!svn/ver/992/renren-profile/trunk/src/main/webapp/views/perf/perf_index.jsp
+END

@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/tech_system/!svn/ver/916/renren-profile/trunk/src/main/java/com/renren/profile/web/annotations
+END
+ProfileHtmlPure.java
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/tech_system/!svn/ver/441/renren-profile/trunk/src/main/java/com/renren/profile/web/annotations/ProfileHtmlPure.java
+END
+ProfileHtmlEscape.java
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/tech_system/!svn/ver/441/renren-profile/trunk/src/main/java/com/renren/profile/web/annotations/ProfileHtmlEscape.java
+END
+ProfileHtmlCorrect.java
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/tech_system/!svn/ver/441/renren-profile/trunk/src/main/java/com/renren/profile/web/annotations/ProfileHtmlCorrect.java
+END
+ProfileSecurity.java
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/tech_system/!svn/ver/916/renren-profile/trunk/src/main/java/com/renren/profile/web/annotations/ProfileSecurity.java
+END
+LoginRequired.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/tech_system/!svn/ver/5/renren-profile/trunk/src/main/java/com/renren/profile/web/annotations/LoginRequired.java
+END
+ProfileHtmlBean.java
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/tech_system/!svn/ver/441/renren-profile/trunk/src/main/java/com/renren/profile/web/annotations/ProfileHtmlBean.java
+END
+ProfileRootSecurity.java
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/tech_system/!svn/ver/583/renren-profile/trunk/src/main/java/com/renren/profile/web/annotations/ProfileRootSecurity.java
+END
+AjaxJson.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/tech_system/!svn/ver/5/renren-profile/trunk/src/main/java/com/renren/profile/web/annotations/AjaxJson.java
+END

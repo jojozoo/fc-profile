@@ -1,0 +1,85 @@
+package com.renren.profile.biz.logic;
+
+import java.util.Collection;
+import java.util.List;
+import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.renren.profile.biz.dao.UserDAO;
+import com.renren.profile.biz.model.User;
+
+@Service
+public class UserService {
+    @Autowired
+    UserDAO userDAO;
+
+    public List<User> queryAll(int offset, int count) {
+        return userDAO.queryAll(offset, count);
+    }
+
+    public List<User> queryAllList(Collection<Integer> ids) {
+        return userDAO.queryAllList(ids);
+    }
+
+    public Map<Integer, User> queryAllMap(Collection<Integer> ids) {
+        return userDAO.queryAllMap(ids);
+    }
+
+    public int countAll() {
+        return userDAO.countAll();
+    }
+
+    public User queryByEmail(String email) {
+        return userDAO.queryByEmail(email);
+    }
+
+    public List<User> queryByUserIds(List<Integer> userIdList) {
+        return userDAO.queryByUserIds(userIdList);
+    }
+
+    public User query(int id) {
+        return userDAO.query(id);
+    }
+
+    public Map<Integer, User> query(Collection<Integer> ids) {
+        return userDAO.query(ids);
+    }
+
+    public List<User> queryAllMyFollow(int id) {
+        return userDAO.queryAllMyFollow(id);
+    }
+
+    public Integer queryLeader(int userId) {
+        return userDAO.queryLeader(userId);
+    }
+
+    public Integer queryDepartment(int userId) {
+        return userDAO.queryDepartment(userId);
+    }
+
+    public List<User> queryByCondition(String condition, int offset, int count) {
+        return userDAO.queryByCondition(condition, offset, count);
+    }
+
+    public int update(User model) {
+        return userDAO.update(model);
+    }
+
+    public int updateUserHeadUrl(String headUrl, int userId) {
+        return userDAO.updateUserHeadUrl(headUrl, userId);
+    }
+
+    public int updateUserShowLevel(int is_show, int userId) {
+        return userDAO.updateUserShowLevel(is_show, userId);
+    }
+
+    public Integer save(User model) {
+        return userDAO.save(model);
+    }
+
+    public void delete(int id) {
+        userDAO.delete(id);
+    }
+}

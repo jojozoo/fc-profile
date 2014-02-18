@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/tech_system/!svn/ver/950/renren-profile/trunk/src/main/webapp/WEB-INF
+END
+web.xml
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/tech_system/!svn/ver/917/renren-profile/trunk/src/main/webapp/WEB-INF/web.xml
+END
+log4j.xml
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/tech_system/!svn/ver/68/renren-profile/trunk/src/main/webapp/WEB-INF/log4j.xml
+END

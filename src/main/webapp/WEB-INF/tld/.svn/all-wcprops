@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/tech_system/!svn/ver/950/renren-profile/trunk/src/main/webapp/WEB-INF/tld
+END
+renren-profile-functions.tld
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/tech_system/!svn/ver/950/renren-profile/trunk/src/main/webapp/WEB-INF/tld/renren-profile-functions.tld
+END
+struts-logic.tld
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/tech_system/!svn/ver/5/renren-profile/trunk/src/main/webapp/WEB-INF/tld/struts-logic.tld
+END
+c.tld
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/tech_system/!svn/ver/5/renren-profile/trunk/src/main/webapp/WEB-INF/tld/c.tld
+END
+taglib.tld
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/tech_system/!svn/ver/5/renren-profile/trunk/src/main/webapp/WEB-INF/tld/taglib.tld
+END
+xiaonei-core.tld
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/tech_system/!svn/ver/5/renren-profile/trunk/src/main/webapp/WEB-INF/tld/xiaonei-core.tld
+END
+fmt.tld
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/tech_system/!svn/ver/5/renren-profile/trunk/src/main/webapp/WEB-INF/tld/fmt.tld
+END
+struts-html.tld
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/tech_system/!svn/ver/5/renren-profile/trunk/src/main/webapp/WEB-INF/tld/struts-html.tld
+END
+renren-profile.tld
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/tech_system/!svn/ver/642/renren-profile/trunk/src/main/webapp/WEB-INF/tld/renren-profile.tld
+END

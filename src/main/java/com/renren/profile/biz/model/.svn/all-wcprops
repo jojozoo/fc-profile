@@ -1,0 +1,119 @@
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/tech_system/!svn/ver/986/renren-profile/trunk/src/main/java/com/renren/profile/biz/model
+END
+PromotionManage.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/tech_system/!svn/ver/603/renren-profile/trunk/src/main/java/com/renren/profile/biz/model/PromotionManage.java
+END
+PeerPerfProject.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/tech_system/!svn/ver/916/renren-profile/trunk/src/main/java/com/renren/profile/biz/model/PeerPerfProject.java
+END
+UserProfile.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/tech_system/!svn/ver/600/renren-profile/trunk/src/main/java/com/renren/profile/biz/model/UserProfile.java
+END
+Resume.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/tech_system/!svn/ver/31/renren-profile/trunk/src/main/java/com/renren/profile/biz/model/Resume.java
+END
+UserRole.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/tech_system/!svn/ver/63/renren-profile/trunk/src/main/java/com/renren/profile/biz/model/UserRole.java
+END
+Role.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/tech_system/!svn/ver/63/renren-profile/trunk/src/main/java/com/renren/profile/biz/model/Role.java
+END
+SecurityRelationSetting.java
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/tech_system/!svn/ver/186/renren-profile/trunk/src/main/java/com/renren/profile/biz/model/SecurityRelationSetting.java
+END
+Department.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/tech_system/!svn/ver/229/renren-profile/trunk/src/main/java/com/renren/profile/biz/model/Department.java
+END
+OALoginInfo.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/tech_system/!svn/ver/255/renren-profile/trunk/src/main/java/com/renren/profile/biz/model/OALoginInfo.java
+END
+PeerPerf.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/tech_system/!svn/ver/737/renren-profile/trunk/src/main/java/com/renren/profile/biz/model/PeerPerf.java
+END
+PerfTime.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/tech_system/!svn/ver/979/renren-profile/trunk/src/main/java/com/renren/profile/biz/model/PerfTime.java
+END
+User.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/tech_system/!svn/ver/896/renren-profile/trunk/src/main/java/com/renren/profile/biz/model/User.java
+END
+UserPerfProject.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/tech_system/!svn/ver/916/renren-profile/trunk/src/main/java/com/renren/profile/biz/model/UserPerfProject.java
+END
+UserInvitation.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/tech_system/!svn/ver/753/renren-profile/trunk/src/main/java/com/renren/profile/biz/model/UserInvitation.java
+END
+Kpi.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/tech_system/!svn/ver/478/renren-profile/trunk/src/main/java/com/renren/profile/biz/model/Kpi.java
+END
+SecurityRoleSetting.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/tech_system/!svn/ver/186/renren-profile/trunk/src/main/java/com/renren/profile/biz/model/SecurityRoleSetting.java
+END
+BusinessTag.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/tech_system/!svn/ver/63/renren-profile/trunk/src/main/java/com/renren/profile/biz/model/BusinessTag.java
+END
+UserPerf.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/tech_system/!svn/ver/986/renren-profile/trunk/src/main/java/com/renren/profile/biz/model/UserPerf.java
+END
+WeeklyReport.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/tech_system/!svn/ver/937/renren-profile/trunk/src/main/java/com/renren/profile/biz/model/WeeklyReport.java
+END

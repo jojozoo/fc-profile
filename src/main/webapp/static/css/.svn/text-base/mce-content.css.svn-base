@@ -1,0 +1,7 @@
+.mce-content ul{
+	list-style-type: square;
+}
+
+.mce-content ol{
+	list-style-type: decimal;
+}

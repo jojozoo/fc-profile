@@ -1,0 +1,174 @@
+package com.renren.profile.web.controllers.admin;
+
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
+import net.paoding.rose.web.Invocation;
+import net.paoding.rose.web.annotation.Param;
+import net.paoding.rose.web.annotation.rest.Get;
+import net.paoding.rose.web.annotation.rest.Post;
+
+import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.lang.StringUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.renren.profile.biz.dao.RoleDAO;
+import com.renren.profile.biz.dao.SecurityRoleSettingDAO;
+import com.renren.profile.biz.model.Role;
+import com.renren.profile.biz.model.SecurityRoleSetting;
+import com.renren.profile.constants.ProfileAction;
+import com.renren.profile.constants.ProfileActionCategory;
+import com.renren.profile.util.time.TimeFetchUtils;
+import com.renren.profile.util.time.TimeUtils;
+import com.renren.profile.web.annotations.AjaxJson;
+import com.renren.profile.web.base.FormValidator;
+import com.renren.profile.web.base.HtmlPage;
+import com.renren.profile.web.controllers.internal.LoginRequiredController;
+import com.xiaonei.commons.interceptors.injection.messages.PageMessages;
+
+public class RolesController extends LoginRequiredController {
+    @Autowired
+    RoleDAO                roleDAO;
+
+    @Autowired
+    SecurityRoleSettingDAO securityRoleSettingDAO;
+
+    @Get({ "", "list" })
+    public String get_list(Invocation inv) {
+        List<Role> roles = roleDAO.queryAll();
+        inv.addModel("roles", roles);
+        return "role_list";
+    }
+
+    @Get("create")
+    public String get_create(Invocation inv) {
+        renderActions(inv, 0);
+        return "role_create";
+    }
+
+    @Post("create")
+    @AjaxJson
+    public synchronized void post_create(HtmlPage page, @Param("name") String name,
+            @Param("actions") List<Integer> actionIds) {
+        $: try {
+            name = StringUtils.trimToNull(name);
+            FormValidator fv = page.formValidator();
+            fv.require(name, "name", "角色名称不能为空");
+            if (fv.isFailed()) {
+                break $;
+            }
+
+            Role role = new Role();
+            role.setName(name);
+            role.setEditorId(1);
+            role.setEditorName("系统 ");
+            role.setEditTime(TimeUtils.FetchTime.now());
+            Integer roleId = roleDAO.save(role);
+            addNewActionIds(roleId, actionIds);
+            LOG.info("create_user_role", "id", roleId, "name", name, "editor", role.getEditorId());
+            page.redirect("/admin/roles");
+        } catch (Exception e) {
+            LOG.error(e, "Unkown", name);
+            page.error("服务端发生错误");
+        }
+    }
+
+    @Get("edit/{id:\\d+}")
+    public String get_edit(Invocation inv, @Param("id") int id) {
+        Role role = roleDAO.query(id);
+        if (role == null) {
+            return "e:404";
+        }
+        inv.addModel("role", role);
+        renderActions(inv, id);
+        return "role_edit";
+    }
+
+    @Post("edit/{id:\\d+}")
+    public synchronized String post_edit(Invocation inv, PageMessages pmsgs, @Param("id") int id, @Param("name") String name,
+            @Param("actions") Set<Integer> newActionIds) {
+        $: try {
+            name = StringUtils.trimToNull(name);
+            if (name == null) {
+                pmsgs.addError("角色名称不能为空");
+                break $;
+            }
+            Role role = roleDAO.query(id);
+            if (role == null) {
+                return "e:404";
+            }
+            inv.addModel("role", role);
+
+            role.setName(name);
+            role.setEditorId(1);
+            role.setEditorName("系统");
+            role.setEditTime(TimeUtils.FetchTime.now());
+            roleDAO.update(role);
+
+            // 编辑权限列表
+            Set<Integer> oldActionIds = securityRoleSettingDAO.queryActionIdSetByRoleId(id);
+            if (oldActionIds == null) {
+                oldActionIds = new HashSet<Integer>();
+            }
+            if (newActionIds == null) {// 删除所有权限
+                newActionIds = new HashSet<Integer>();
+            }
+
+			Collection<Integer> needAddedActionIds = CollectionUtils.subtract(newActionIds, oldActionIds);
+            Collection<Integer> needDeletedActionIds = CollectionUtils.subtract(oldActionIds, newActionIds);
+
+            if (!needDeletedActionIds.isEmpty()) {
+                securityRoleSettingDAO.removeActionIdsOfRoleId(id, needDeletedActionIds);
+            }
+            if (!needAddedActionIds.isEmpty()) {
+                addNewActionIds(id, needAddedActionIds);
+            }
+
+            LOG.info("update_user_role", "id", id, "name", name, "editor", role.getEditorId());
+            return "r:/admin/roles";
+        } catch (Exception e) {
+            LOG.error(e, "Unkown", name);
+            pmsgs.addError("服务端发生错误");
+        }
+        renderActions(inv, id);
+        return "role_edit";
+    }
+
+    private void addNewActionIds(Integer roleId, Collection<Integer> actionIds) {
+        if (roleId == null || actionIds == null) {
+            return;
+        }
+        SecurityRoleSetting securityRoleSetting = new SecurityRoleSetting();
+        securityRoleSetting.setRoleId(roleId);
+        securityRoleSetting.setEditorId(1);
+        securityRoleSetting.setEditorName("系统");
+        securityRoleSetting.setEditTime(TimeFetchUtils.TIMESTAMP.now());
+        for (Integer actionId : actionIds) {
+            securityRoleSetting.setActionId(actionId);
+            securityRoleSettingDAO.save(securityRoleSetting);
+        }
+    }
+
+    private void renderActions(Invocation inv, int roleId) {
+        inv.addModel("actionCategories", ProfileActionCategory.values());
+        inv.addModel("actionCategoryMap", ProfileAction.getActionCategoryMap());
+        if (roleId > 0) {
+            inv.addModel("action_set", securityRoleSettingDAO.queryActionIdSetByRoleId(roleId));
+        }
+    }
+
+    @Post("delete/{id:\\d+}")
+    public String post_delete(PageMessages pmsgs, @Param("id") int id) {
+        $: try {
+            roleDAO.delete(id);
+            LOG.info("delete_user_role", "id", id, "editor", 1);
+            return "r:/admin/roles";
+        } catch (Exception e) {
+            LOG.error(e, "Unkown", id);
+            pmsgs.addError("服务端发生错误");
+        }
+        return "role_edit";
+    }
+}
