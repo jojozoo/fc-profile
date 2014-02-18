@@ -1,4 +1,4 @@
-package com.orientalcomics.profile.web.annotations; 
+package com.renren.profile.web.annotations; 
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;

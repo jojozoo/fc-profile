@@ -1,0 +1,99 @@
+<link rel="stylesheet" type="text/css" href="/static/css/splitPage.css" />
+
+<script language="javascript">
+	function deleteCheck(shadowId){
+		if(confirm('真要的删除用户?删除要小心再小心使用!!!!')){
+			window.location.href="/manage/delshadow?shadowId="+shadowId;
+			return true;
+		}
+		
+		return false;
+	}
+	
+	function backCheck(shadowId){
+		if(confirm('确认数据没问题,恢复用户?')){
+			window.location.href="/manage/recovershadow?shadowId="+shadowId;
+			return true;
+		}
+		
+		return false;
+	}
+</script>
+
+
+<div>
+
+<span>${msg}</span>
+
+<table align="center" border="1">
+	<tr align="center">
+		<td>序号</td>
+		<td>登录名</td>
+		<td>Email</td>
+		<td>密码</td>
+		<td>创建时间</td>
+		<td>删除状态</td>
+		<td>操作</td>
+		<td>删除操作</td>
+	</tr>
+		
+#foreach($shadow in $shadowList)
+	<tr align="center">
+		 <td>$velocityCount</td>
+	     <td><input type="text" name="loginName" id="shadowName_${shadow.id}" value="$!{shadow.shadowName}"></input></td>
+	     <td><input type="text" name="email" id="email_${shadow.id}" value="$!{shadow.email}"></input></td>
+		 <td><input type="text" name="loginPassword" id="passwrd_${shadow.id}" value="$!{shadow.passwd}"></input></td>
+	     <td>${shadow.createTime}</td>
+	     <td><input type="text" name="isDeleted" id="isDeleted_${shadow.id}" value="${shadow.isDeleted}" size="1" disabled="true"></input></td>
+	     
+	     <td>
+	      	#if(${shadow.isDeleted} == 0)
+	    		<input type="button" value="删除用户" onclick="deleteCheck(${shadow.id})"/>
+	    	#else
+	    		<input type="button" value="恢复用户" onclick="backCheck(${shadow.id})"/>
+	    	#end
+		  </td>	     
+	</tr>
+#end		
+	
+	<tr>
+		<td colspan="20" style="align:center">
+			<div class="page">
+				<span>共$totalNum条记录</span>
+				<form action="/admin/editshadow" method="post" style="align:center">
+					<div class="lis">$pageList</div>
+				</form>
+			</div>
+		</td>
+	</tr>
+
+</table>
+
+
+<br/>
+<br/>
+<br/>
+<br/>
+<div align="center">添加用户</div>
+<br/>
+<div align="center">
+<form action="/admin/shadow" method="post" " style="align:center"><br/>
+	<table>
+		<tr>
+			<td>用户名</td>
+			<td><input type="text" name="loginName" id="shadowName" /></td>
+		</tr>
+		<tr>
+			<td>密码</td>
+			<td><input type="text" name="loginPassword" id="password"/></td>
+		</tr>
+		<tr>
+			<td>邮箱</td>
+			<td><input type="text" name="email" id="email"/></td>
+		</tr>
+	</table>
+	<br/>
+	<input type="submit" value="确认" /><span id="msg" style="color:red"></span>
+</form>
+</div>
+
