@@ -42,7 +42,7 @@ public interface ShadowDAO {
     @SQL("select " + FIELDS_ALL + " from " + TABLE + " where `email` = :1")
     public Shadow queryByEmail(String email);
     
-    @SQL("select " + FIELDS_ALL + " from " + TABLE + " where `name` = :1")
+    @SQL("select " + FIELDS_ALL + " from " + TABLE + " where `login_name` = :1")
     public Shadow queryByName(String name);
     
     String SQL_UPDATE_MODEL_FILEDS_WITHOUT_PK = "login_name=:model.loginName,email=:model.email,login_passwd=:model.loginPassword,create_date=:createDate";
