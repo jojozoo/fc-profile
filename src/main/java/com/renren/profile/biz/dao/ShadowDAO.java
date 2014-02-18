@@ -46,12 +46,15 @@ public interface ShadowDAO {
     @SQL("select " + FIELDS_ALL + " from " + TABLE + " where `login_name` = :1")
     public Shadow queryByName(String name);
     
-    String SQL_UPDATE_MODEL_FILEDS_WITHOUT_PK = "login_name=:model.loginName,email=:model.email,login_passwd=:model.loginPassword,create_date=:createDate";
+    @SQL("select " + FIELDS_ALL + " from " + TABLE + " where `login_name` = :1,`login_passwd`=:2")
+    public Shadow query(String name,String passwd);
+    
+    String SQL_UPDATE_MODEL_FILEDS_WITHOUT_PK = "login_name=:model.loginName,email=:model.email,login_passwd=:model.loginPasswd,create_date=:createDate";
 
     @SQL("update " + TABLE + " set " + SQL_UPDATE_MODEL_FILEDS_WITHOUT_PK + " where user_id=:1.userId")
     public int update(@SQLParam("model") Shadow model);
 
-    @SQL("insert ignore into " + TABLE + " (" + FIELDS_WITHOUT_PK + ") VALUES (:model.loginName,:model.email,:model.loginPassword")
+    @SQL("insert ignore into " + TABLE + " (" + FIELDS_WITHOUT_PK + ") VALUES (:model.loginName,:model.email,:model.loginPasswd")
     @ReturnGeneratedKeys
     public Integer save(@SQLParam("model") Shadow model);
 

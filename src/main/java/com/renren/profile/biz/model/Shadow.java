@@ -15,7 +15,7 @@ public class Shadow {
 	
 	String email;
 	
-	String loginPassword;
+	String loginPasswd;
 	
 	Timestamp createDate;
 
@@ -35,12 +35,12 @@ public class Shadow {
 		this.loginName = loginName;
 	}
 
-	public String getLoginPassword() {
-		return loginPassword;
+	public String getLoginPasswd() {
+		return loginPasswd;
 	}
 
-	public void setLoginPassword(String loginPassword) {
-		this.loginPassword = loginPassword;
+	public void setLoginPasswd(String loginPasswd) {
+		this.loginPasswd = loginPasswd;
 	}
 
 	public Timestamp getCreateDate() {

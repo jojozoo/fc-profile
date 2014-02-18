@@ -6,8 +6,8 @@ import org.springframework.stereotype.Service;
 import com.renren.profile.RenrenProfileConstants;
 import com.renren.profile.biz.dao.ShadowDAO;
 import com.renren.profile.biz.dao.UserProfileDAO;
+import com.renren.profile.biz.model.Shadow;
 import com.renren.profile.biz.model.User;
-import com.renren.profile.biz.model.UserShadow;
 
 @Service
 public class UserLoginService implements RenrenProfileConstants {
@@ -34,7 +34,7 @@ public class UserLoginService implements RenrenProfileConstants {
     public User loginUser(String name,String passwd) {
 
         if (name != null && passwd != null) {
-        	UserShadow shadow = userShadowDAO.query(name, passwd);
+        	Shadow shadow = userShadowDAO.query(name, passwd);
         	if(shadow != null){
         		User user = userService.query(shadow.getUserId());
         		return user;
