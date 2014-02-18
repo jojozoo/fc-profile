@@ -82,7 +82,7 @@ public class UserPerfService implements RenrenProfileConstants {
 
 	/***
      * 根据条件：人名或者邮件名称模糊查询用户信息
-     * 
+     *       
      * @param matchStr
      * @return
      */
