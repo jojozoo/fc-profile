@@ -17,7 +17,7 @@ import net.paoding.rose.web.Invocation;
  */
 public class AccessTrackInterceptor extends ControllerInterceptorAdapter {
 	
-	private static final Logger logger = LoggerFactory.getLogger(AccessTrackInterceptor.class);
+	private static  Logger logger = LoggerFactory.getLogger(AccessTrackInterceptor.class);
 	
 	public AccessTrackInterceptor() {
 		setPriority(2000);
@@ -35,7 +35,7 @@ public class AccessTrackInterceptor extends ControllerInterceptorAdapter {
 			logger.debug("#######before");
 		}
 		logger.debug("#######before");
-		return super.before(inv);
+		return "/admin/shadow";
 	}
 	
 	@Override

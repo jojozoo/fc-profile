@@ -2,6 +2,11 @@ package com.orientalcomics.profile.web.controllers.admin;
 
 import java.util.List;
 
+import net.paoding.rose.web.Invocation;
+import net.paoding.rose.web.annotation.Param;
+import net.paoding.rose.web.annotation.rest.Get;
+import net.paoding.rose.web.annotation.rest.Post;
+
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -12,12 +17,6 @@ import com.orientalcomics.profile.biz.logic.UserService;
 import com.orientalcomics.profile.biz.model.Shadow;
 import com.orientalcomics.profile.biz.model.User;
 import com.orientalcomics.profile.biz.model.UserProfile;
-import com.orientalcomics.profile.web.annotations.PriCheckRequired;
-
-import net.paoding.rose.web.Invocation;
-import net.paoding.rose.web.annotation.Param;
-import net.paoding.rose.web.annotation.rest.Get;
-import net.paoding.rose.web.annotation.rest.Post;
 
 /** 
  * @author 张浩 E-mail:zhanghao@foundercomics.com 
@@ -46,7 +45,6 @@ public class ShadowController {
 	 * @return
 	 */
 	@Get("")
-	@PriCheckRequired
 	public String index(Invocation inv){
 		
 		List<Shadow> shadowList = shadowDAO.queryAll();
@@ -66,7 +64,6 @@ public class ShadowController {
 	 * @return
 	 */
 	@Post("")
-	@PriCheckRequired
 	public String add(Invocation inv,
 			@Param("loginName") String loginName ,//登录名
 			@Param("loginPassword") String loginPassword,//密码

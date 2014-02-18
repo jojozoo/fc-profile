@@ -33,6 +33,7 @@ import com.orientalcomics.profile.core.base.FormValidator;
 import com.orientalcomics.profile.core.base.HtmlPage;
 import com.orientalcomics.profile.util.common.Collections0;
 import com.orientalcomics.profile.web.annotations.Ajaxable;
+import com.orientalcomics.profile.web.annotations.PriCheckRequired;
 import com.orientalcomics.profile.web.annotations.ProfileHtmlEscape;
 import com.orientalcomics.profile.web.annotations.ProfileSecurity;
 import com.orientalcomics.profile.web.constants.AjaxType;
@@ -81,6 +82,7 @@ public class UserController extends LoginRequiredController {
      * @return
      */
     @Get({ "", "/list" })
+    @PriCheckRequired
     public String list(Invocation inv, PageMessages pageMessages, @Param("ul_keyword") String keyword, @Param("curpage") int curPage) {
         List<User> userList;
 //        String escapedKeyword = StringUtils.trimToNull(keyword);
