@@ -13,6 +13,8 @@ public class Shadow {
 	
 	String loginName;
 	
+	String email;
+	
 	String loginPassword;
 	
 	Timestamp createDate;
@@ -47,6 +49,14 @@ public class Shadow {
 
 	public void setCreateDate(Timestamp createDate) {
 		this.createDate = createDate;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 	
 	
