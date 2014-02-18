@@ -50,7 +50,7 @@ public interface ShadowDAO {
     @SQL("update " + TABLE + " set " + SQL_UPDATE_MODEL_FILEDS_WITHOUT_PK + " where user_id=:1.userId")
     public int update(@SQLParam("model") Shadow model);
 
-    @SQL("insert ignore into " + TABLE + " (" + FIELDS_WITHOUT_PK + ") VALUES (:model.userId,:model.loginName,:model.email,:model.loginPassword,now()")
+    @SQL("insert ignore into " + TABLE + " (" + FIELDS_WITHOUT_PK + ") VALUES (:model.loginName,:model.email,:model.loginPassword,now()")
     @ReturnGeneratedKeys
     public Integer save(@SQLParam("model") Shadow model);
 
