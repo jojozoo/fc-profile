@@ -1,4 +1,4 @@
-package com.renren.profile.web.access;
+package com.renren.profile.web.interceptors;
 
 import com.renren.profile.biz.model.User;
 

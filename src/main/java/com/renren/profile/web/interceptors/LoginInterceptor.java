@@ -13,7 +13,6 @@ import com.renren.profile.biz.logic.UserService;
 import com.renren.profile.biz.logic.UserTokenService;
 import com.renren.profile.biz.model.User;
 import com.renren.profile.biz.model.access.UserToken;
-import com.renren.profile.web.access.ProfileHostHolder;
 import com.renren.profile.web.annotations.AjaxJson;
 import com.renren.profile.web.annotations.LoginRequired;
 import com.renren.profile.web.base.HtmlPageImpl;

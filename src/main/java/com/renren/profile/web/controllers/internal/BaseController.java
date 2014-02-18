@@ -11,9 +11,9 @@ import com.renren.profile.RenrenProfileConstants;
 import com.renren.profile.biz.model.User;
 import com.renren.profile.util.logging.ILogger;
 import com.renren.profile.util.logging.ProfileLogger;
-import com.renren.profile.web.access.ProfileHostHolder;
 import com.renren.profile.web.config.ProfileConfigHelper;
 import com.renren.profile.web.config.ProfileConfigs.PageSizeConfigView;
+import com.renren.profile.web.interceptors.ProfileHostHolder;
 
 @Ignored
 public abstract class BaseController implements RenrenProfileConstants {

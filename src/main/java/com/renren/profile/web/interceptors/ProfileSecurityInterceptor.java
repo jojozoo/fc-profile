@@ -11,7 +11,6 @@ import com.renren.profile.RenrenProfileAjaxCodes;
 import com.renren.profile.biz.logic.ProfileSecurityService;
 import com.renren.profile.biz.model.User;
 import com.renren.profile.constants.ProfileAction;
-import com.renren.profile.web.access.ProfileHostHolder;
 import com.renren.profile.web.annotations.AjaxJson;
 import com.renren.profile.web.annotations.ProfileRootSecurity;
 import com.renren.profile.web.annotations.ProfileSecurity;

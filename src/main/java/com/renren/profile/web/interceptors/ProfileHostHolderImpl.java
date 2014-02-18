@@ -1,4 +1,4 @@
-package com.renren.profile.web.access;
+package com.renren.profile.web.interceptors;
 
 import net.paoding.rose.web.Invocation;
 import net.paoding.rose.web.InvocationLocal;
