@@ -5,9 +5,7 @@ import java.lang.annotation.Annotation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.orientalcomics.profile.util.logging.ILogger;
 import com.orientalcomics.profile.web.annotations.PriCheckRequired;
-import com.orientalcomics.profile.web.interceptors.LoginInterceptor;
 
 import net.paoding.rose.web.ControllerInterceptorAdapter;
 import net.paoding.rose.web.Invocation;
@@ -33,11 +31,10 @@ public class AccessTrackInterceptor extends ControllerInterceptorAdapter {
 	@Override
 	public Object before(Invocation inv)throws Exception{
 		
-		System.out.println("#######before");
 		if(logger.isDebugEnabled()){
 			logger.debug("#######before");
 		}
-		
+		logger.debug("#######before");
 		return super.before(inv);
 	}
 	

@@ -9,8 +9,15 @@
 		</layout>
 	</appender>
 	<logger name="com.orientalcomics.profile" additivity="false">
-		<level value="all" />
+		<level value="debug" />
 		<appender-ref ref="COMMON" />
+	</logger>
+	
+	<logger
+		name="net.paoding.rose"
+		additivity="false">
+		<level value="debug" />
+		<appender-ref ref="stdout" />
 	</logger>
 	<root>
 		<level value="debug" />
