@@ -8,12 +8,12 @@
 			<param name="ConversionPattern" value="|%d{yyyy-MM-dd HH:mm:ss.SSS}|%m%n" />
 		</layout>
 	</appender>
-	<logger name="com.renren.profile" additivity="false">
+	<logger name="com.orientalcomics.profile" additivity="false">
 		<level value="all" />
 		<appender-ref ref="COMMON" />
 	</logger>
 	<root>
-		<level value="info" />
+		<level value="debug" />
 		<appender-ref ref="COMMON" />
 	</root>
 </log4j:configuration>
