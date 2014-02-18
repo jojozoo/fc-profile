@@ -31,6 +31,7 @@ public class ProfileHostHolderImpl implements ProfileHostHolder {
         }
     }
 
+    @Override
     public void setUser(User user) {
         inv.getRequest().setAttribute(KEY_CUR_USER, user);
     }
