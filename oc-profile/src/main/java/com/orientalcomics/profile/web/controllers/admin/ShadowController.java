@@ -73,34 +73,34 @@ public class ShadowController {
 		String trimedName = StringUtils.trimToNull(loginName);
 		if(trimedName == null){
 			inv.addModel("msg", "登录名为空");
-			return "shadow.vm";
+			return "f:/admin/shadow";
 		}
 		
 		String trimedPassword = StringUtils.trimToNull(loginPassword);
 		if(trimedPassword == null){
 			inv.addModel("msg", "密码为空");
-			return "shadow.vm";
+			return "f:/admin/shadow";
 		}
 		
 		
 		String trimedEmail = StringUtils.trimToNull(email);
 		if(trimedEmail == null){
 			inv.addModel("msg", "Email为空");
-			return "shadow.vm";
+			return "f:/admin/shadow";
 		}
 		
 		Shadow shadow = shadowDAO.queryByName(trimedName);
 		
 		if(shadow != null){
 			inv.addModel("msg", "登录名被占用");
-			return "shadow.vm";
+			return "f:/admin/shadow";
 		}
 		
 		shadow = shadowDAO.queryByEmail(trimedEmail);
 		
 		if(shadow != null){
 			inv.addModel("msg", "Email被占用");
-			return "shadow.vm";
+			return "f:/admin/shadow";
 		}
 		
 		//添加用户
@@ -118,24 +118,18 @@ public class ShadowController {
 			user.setId(userId);
 			user.setEmail(trimedEmail);
 			
-			Integer id = userService.save(user);
-			if(id != null && id != 0){
-				//user save成功
-				 UserProfile profile = new UserProfile();
-	             profile.setUserId(userId);
-
-	             userProfileDAO.save(profile);
-			}else{
-				inv.addModel("msg", "Profile创建失败");
-				return "shadow.vm";
-			}
+			userService.save(user);
+			//user save成功
+			UserProfile profile = new UserProfile();
+	        profile.setUserId(userId);
+	        userProfileDAO.save(profile);
 		}else{
-			inv.addModel("msg", "用户创建失败");
-			return "shadow.vm";
+			inv.addModel("msg", "用户shadow创建失败");
+			return "f:/admin/shadow";
 		}
 		
 		
-		return "shadow.vm";
+		return "f:/admin/shadow";
 	}
 }
  
