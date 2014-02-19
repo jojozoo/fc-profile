@@ -106,7 +106,7 @@ public class ShadowController {
 		//添加用户
 		shadow = new Shadow();
 		shadow.setLoginName(trimedName);
-		shadow.setLoginPassword(trimedPassword);
+		shadow.setLoginPasswd(trimedPassword);
 		shadow.setEmail(trimedEmail);
 		Integer userId = shadowDAO.save(shadow);
 		
