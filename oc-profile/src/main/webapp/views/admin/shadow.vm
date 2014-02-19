@@ -32,25 +32,21 @@
 		<td>Email</td>
 		<td>密码</td>
 		<td>创建时间</td>
-		<td>删除状态</td>
 		<td>操作</td>
-		<td>删除操作</td>
 	</tr>
 		
 #foreach($shadow in $shadowList)
 	<tr align="center">
 		 <td>$velocityCount</td>
-	     <td><input type="text" name="loginName" id="shadowName_${shadow.id}" value="$!{shadow.shadowName}"></input></td>
-	     <td><input type="text" name="email" id="email_${shadow.id}" value="$!{shadow.email}"></input></td>
-		 <td><input type="text" name="loginPassword" id="passwrd_${shadow.id}" value="$!{shadow.passwd}"></input></td>
-	     <td>${shadow.createTime}</td>
-	     <td><input type="text" name="isDeleted" id="isDeleted_${shadow.id}" value="${shadow.isDeleted}" size="1" disabled="true"></input></td>
-	     
+	     <td><input type="text" name="loginName" id="shadowName_${shadow.userId}" value="$!{shadow.loginName}"></input></td>
+	     <td><input type="text" name="email" id="email_${shadow.userId}" value="$!{shadow.email}"></input></td>
+		 <td><input type="text" name="loginPassword" id="passwrd_${shadow.userId}" value="$!{shadow.loginPasswd}"></input></td>
+	     <td>${shadow.createDate}</td>
 	     <td>
 	      	#if(${shadow.isDeleted} == 0)
-	    		<input type="button" value="删除用户" onclick="deleteCheck(${shadow.id})"/>
+	    		<input type="button" value="删除用户" onclick="deleteCheck(${shadow.userId})"/>
 	    	#else
-	    		<input type="button" value="恢复用户" onclick="backCheck(${shadow.id})"/>
+	    		<input type="button" value="恢复用户" onclick="backCheck(${shadow.userId})"/>
 	    	#end
 		  </td>	     
 	</tr>

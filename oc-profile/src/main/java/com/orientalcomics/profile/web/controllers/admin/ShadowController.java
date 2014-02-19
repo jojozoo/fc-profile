@@ -51,6 +51,11 @@ public class ShadowController {
 		
 		inv.addModel("shadowList",shadowList);
 		
+		
+		inv.addModel("totalNum",shadowList.size());
+		
+		inv.addModel("pageList",0);
+		
 		return "shadow.vm";
 	}
 	
@@ -73,34 +78,34 @@ public class ShadowController {
 		String trimedName = StringUtils.trimToNull(loginName);
 		if(trimedName == null){
 			inv.addModel("msg", "登录名为空");
-			return "f:/admin/shadow";
+			return "shadow.vm";
 		}
 		
 		String trimedPassword = StringUtils.trimToNull(loginPassword);
 		if(trimedPassword == null){
 			inv.addModel("msg", "密码为空");
-			return "f:/admin/shadow";
+			return "shadow.vm";
 		}
 		
 		
 		String trimedEmail = StringUtils.trimToNull(email);
 		if(trimedEmail == null){
 			inv.addModel("msg", "Email为空");
-			return "f:/admin/shadow";
+			return "shadow.vm";
 		}
 		
 		Shadow shadow = shadowDAO.queryByName(trimedName);
 		
 		if(shadow != null){
 			inv.addModel("msg", "登录名被占用");
-			return "f:/admin/shadow";
+			return "shadow.vm";
 		}
 		
 		shadow = shadowDAO.queryByEmail(trimedEmail);
 		
 		if(shadow != null){
 			inv.addModel("msg", "Email被占用");
-			return "f:/admin/shadow";
+			return "shadow.vm";
 		}
 		
 		//添加用户
@@ -125,11 +130,18 @@ public class ShadowController {
 	        userProfileDAO.save(profile);
 		}else{
 			inv.addModel("msg", "用户shadow创建失败");
-			return "f:/admin/shadow";
+			return "shadow.vm";
 		}
 		
+		List<Shadow> shadowList = shadowDAO.queryAll();
 		
-		return "f:/admin/shadow";
+		inv.addModel("shadowList",shadowList);
+		
+		inv.addModel("totalNum",shadowList.size());
+		
+		inv.addModel("pageList",0);
+		
+		return "shadow.vm";
 	}
 }
  
