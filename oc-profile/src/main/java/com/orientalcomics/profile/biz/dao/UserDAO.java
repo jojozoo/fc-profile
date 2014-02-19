@@ -264,8 +264,8 @@ public interface UserDAO {
     @SQL("insert ignore into "
             + TABLE
             + " ("
-            + FIELDS_WITHOUT_PK
-            + ") VALUES (:model.name,:model.number,:model.email,:model.tinyUrl,:model.mainUrl,:model.status,:model.pemissionLevel,:model.jobTitle,:model.level,:model.showLevel,:model.departmentId,:model.managerId,:model.virtualRewardItemId,:model.kpiOpen)")
+            + FIELDS_ALL
+            + ") VALUES (:model.id,:model.name,:model.number,:model.email,:model.tinyUrl,:model.mainUrl,:model.status,:model.pemissionLevel,:model.jobTitle,:model.level,:model.showLevel,:model.departmentId,:model.managerId,:model.virtualRewardItemId,:model.kpiOpen)")
     @ReturnGeneratedKeys
     public Integer save(@SQLParam("model") User model);
 
