@@ -30,7 +30,7 @@ public interface ShadowDAO {
     String FIELDS_WITHOUT_PK = "login_name,email,login_passwd,create_date";
     String FIELDS_ALL        = FIELD_PK + "," + FIELDS_WITHOUT_PK;
 
-    @SQL("select " + FIELDS_ALL + " from $TABLE")
+    @SQL("select " + FIELDS_ALL + " from " + TABLE)
     public List<Shadow> queryAll();
 
     @SQL("select COUNT(" + FIELD_PK + ") from " + TABLE)

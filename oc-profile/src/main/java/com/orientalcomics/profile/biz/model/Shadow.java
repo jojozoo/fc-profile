@@ -39,7 +39,7 @@ public class Shadow {
 		return loginPasswd;
 	}
 
-	public void setLoginPassword(String loginPasswd) {
+	public void setLoginPasswd(String loginPasswd) {
 		this.loginPasswd = loginPasswd;
 	}
 
