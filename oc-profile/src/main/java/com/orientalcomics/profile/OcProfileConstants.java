@@ -27,7 +27,8 @@ public interface OcProfileConstants {
 
     // webhost在resin.xml中配置
     String                     PROFILE_CONF_HOST         = (String) ObjectUtils.defaultIfNull(StringUtils.trimToNull(System.getProperty("webhost")), "who");
-    String                     PROFILE_MAIN_DOMAIN       = PROFILE_CONF_HOST + ".d.xiaonei.com";
+//    String                     PROFILE_MAIN_DOMAIN       = PROFILE_CONF_HOST + ".d.xiaonei.com";
+    String                     PROFILE_MAIN_DOMAIN       = "223.4.99.214:8083";
 
     String                     PROFILE_MAIN_URL          = "http://" + PROFILE_MAIN_DOMAIN;
 
