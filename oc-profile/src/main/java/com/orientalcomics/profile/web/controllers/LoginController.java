@@ -11,6 +11,8 @@ import net.paoding.rose.web.annotation.rest.Post;
 
 import org.apache.commons.lang.RandomStringUtils;
 import org.apache.commons.lang.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.orientalcomics.profile.biz.logic.UserLoginService;
@@ -39,6 +41,9 @@ public class LoginController extends BaseController {
     @Autowired
     UserTokenService          userTokenService;
 
+    
+    private static final Logger logger = LoggerFactory.getLogger(LoginController.class);
+    
     @Get("")
     public String index(@Param("to") String toUrl) throws UnsupportedEncodingException {
         if (profileHostHolder.getUser() != null) {
@@ -68,7 +73,7 @@ public class LoginController extends BaseController {
     @Post("")
 	public String login(Invocation inv,
 			@Param("loginName") String name,//登录名
-			@Param("passwd") String pass,//登录密码
+			@Param("loginPassword") String pass,//登录密码
 			@Param("to") String toUrl
 			) {
     	
@@ -76,12 +81,16 @@ public class LoginController extends BaseController {
     	String trimedPass = StringUtils.trimToNull(pass);
     	
     	if(trimedName == null || trimedPass == null){
+    		logger.debug("trimedName is null or trimed passs is null");
     		return "r:/login";
     	}
     	
-    	
         User user = userLoginService.checkUserByNameAndPass(trimedName,trimedPass);
 
+        if(user == null){
+        	logger.debug("### login failed");
+    		return "r:/login";
+        }
         //查找token，如果已经有了就token就直接放过cookie,没有的话就生成一个
         UserToken oldUserToken = userTokenService.getToken(user.getId());
         UserToken userToken = new UserToken();

@@ -22,9 +22,9 @@
 	<%@include file="/inc/header.jsp"%>
 
 	<div id="container">
-	<form method="POST" action="/login/">
-		<input type="text" name="name"> </input></br>
-		<input type="password" name="passwd"> </input></br>
+	<form method="POST" action="/login">
+		<input type="text" name="loginName"> </input></br>
+		<input type="password" name="loginPassword"> </input></br>
 		<input type="hidden"></input></br>
 		<input type="submit">登录</input>
 	</form>

@@ -81,10 +81,8 @@ public class UserLoginService implements OcProfileConstants {
 			return null;
 		}
 		
-		
-		
-		
-		return null;
+		User user = userService.query(shadow.getUserId());
+		return user;
 	}
 
 }
