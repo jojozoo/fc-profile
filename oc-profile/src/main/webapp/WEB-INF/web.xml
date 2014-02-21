@@ -19,9 +19,13 @@
         <param-value>/WEB-INF/log4j.xml</param-value>
     </context-param>
 
-    <listener>
-        <listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>
-    </listener>
+	<listener>
+		<listener-class>com.orientalcomics.profile.web.listeners.InitConstantsListener</listener-class>
+	</listener>
+	<listener>
+		<listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>
+	</listener>
+	
     <filter>
         <filter-name>roseFilter</filter-name>
         <filter-class>net.paoding.rose.RoseFilter</filter-class>

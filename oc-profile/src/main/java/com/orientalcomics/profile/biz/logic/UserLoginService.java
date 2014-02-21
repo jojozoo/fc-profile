@@ -4,7 +4,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.orientalcomics.profile.OcProfileConstants;
+import com.orientalcomics.profile.biz.dao.ShadowDAO;
 import com.orientalcomics.profile.biz.dao.UserProfileDAO;
+import com.orientalcomics.profile.biz.model.Shadow;
 import com.orientalcomics.profile.biz.model.User;
 
 @Service
@@ -15,23 +17,12 @@ public class UserLoginService implements OcProfileConstants {
 
     @Autowired
     private UserProfileDAO    userProfileDAO;
-
     
-    /**
-     * 验证用户是否能登录成功
-     * @param name
-     * @param passwd
-     * @return
-     */
-    public User verifyByNameAndPass(String name,String passwd){
-    	
-    	
-    	
-    	
-    	return null;
-    	
-    }
+    @Autowired
+    private UserTokenService userTokenService;
     
+    @Autowired
+    private ShadowDAO   shadowDAO;    
 
     public User saveOAUserInfo() {
     	
@@ -74,5 +65,26 @@ public class UserLoginService implements OcProfileConstants {
 //        }
         return null;
     }
+
+
+    /**
+     * 查看用户名和密码是否可用
+     * @param trimedName
+     * @param trimedPass
+     * @return {@link User}
+     */
+	public User checkUserByNameAndPass(String trimedName, String trimedPass) {
+		
+		Shadow shadow = shadowDAO.queryByNameAndPass(trimedName,trimedPass);
+		
+		if(shadow == null){//查找失败
+			return null;
+		}
+		
+		
+		
+		
+		return null;
+	}
 
 }

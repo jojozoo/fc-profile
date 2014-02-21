@@ -56,5 +56,8 @@ public interface ShadowDAO {
 
     @SQL("delete from " + TABLE + " where `user_id` = :1")
     public void delete(int id);
+
+    @SQL("select " + FIELDS_ALL + " from " + TABLE + " where `login_name` = :1 and `login_passwd` = :2")
+	public Shadow queryByNameAndPass(String trimedName, String trimedPass);
 }
  

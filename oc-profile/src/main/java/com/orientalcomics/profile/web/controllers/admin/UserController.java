@@ -82,7 +82,6 @@ public class UserController extends LoginRequiredController {
      * @return
      */
     @Get({ "", "/list" })
-    @PriCheckRequired
     public String list(Invocation inv, PageMessages pageMessages, @Param("ul_keyword") String keyword, @Param("curpage") int curPage) {
         List<User> userList;
 //        String escapedKeyword = StringUtils.trimToNull(keyword);
