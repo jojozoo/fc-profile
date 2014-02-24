@@ -105,7 +105,7 @@ public class DepartmentController {
 			department.setParentDepartment(parentDepartment);			
 		}
 		
-		Integer departmentId = departmentDAO.save(department);
+		Integer departmentId = departmentDAO.saveForAdmin(department);
 		
 		if	(departmentId != null && departmentId != 0){
 

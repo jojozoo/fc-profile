@@ -59,6 +59,11 @@ public interface DepartmentDAO {
             + ") VALUES (:model.departmentName,:model.parentDepartment,:model.editTime,:model.editorId,:model.managerId)")
     @ReturnGeneratedKeys
     public Integer save(@SQLParam("model") Department model);
+    
+    @SQL("insert ignore into " + TABLE + " (" + FIELDS_WITHOUT_PK
+            + ") VALUES (:model.departmentName,0,now(),:model.editorId,:model.managerId)")
+    @ReturnGeneratedKeys
+    public Integer saveForAdmin(@SQLParam("model") Department model);
 
     @SQL("delete from " + TABLE + " where `id` = :1")
     public void delete(int id);
