@@ -15,8 +15,6 @@ public class Department {
     // 自增id,department_id
     private int       id               = 0;
 
-    private String    oaId             = StringUtils.EMPTY;
-
     // 部门名称
     private String    departmentName   = StringUtils.EMPTY;
 
@@ -50,20 +48,6 @@ public class Department {
      */
     public void setId(int id) {
         this.id = id;
-    }
-
-    /**
-     * get oaId
-     */
-    public String getOaId() {
-        return this.oaId;
-    }
-
-    /**
-     * set oaId
-     */
-    public void setOaId(String oaId) {
-        this.oaId = StringUtils.trimToEmpty(oaId);
     }
 
     /**

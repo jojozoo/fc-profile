@@ -33,7 +33,7 @@ public interface DepartmentDAO {
     @SQL("select " + FIELDS_ALL + " from " + TABLE)
     public Map<Integer,Department> queryAll();
     
-    @SQL("select " + FIELDS_ALL + " from " + TABLE + " where department_name like '%人人网%' and id not in (select parent_department  from department)")
+    @SQL("select " + FIELDS_ALL + " from " + TABLE + " where department_name like '%动漫%' and id not in (select parent_department  from department)")
     public List<Department> getBaseDepartment();
     
 
@@ -42,6 +42,10 @@ public interface DepartmentDAO {
 
     @SQL("select " + FIELDS_ALL + " from " + TABLE + " where `id` = :1")
     public Department query(int id);
+    
+    @SQL("select " + FIELDS_ALL + " from " + TABLE + " where `department_name` = :1")
+    public Department queryByName(String name);
+    
 
     @SQL("select " + FIELDS_ALL + " from " + TABLE + " where `id` in (:1)")
     public List<Department> queryByIds(Collection<Integer> ids);

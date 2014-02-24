@@ -88,7 +88,7 @@
                             </td>
                             <td>
                                    <c:choose>
-									   <c:when test="${not empty ${item.department}">
+									   <c:when test="${not empty item.department}">
 									    ${item.department.departmentName }
 									   </c:when>
 									   

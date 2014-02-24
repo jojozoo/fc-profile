@@ -1,0 +1,89 @@
+<link rel="stylesheet" type="text/css" href="/static/css/splitPage.css" />
+
+<script language="javascript">
+	function deleteCheck(departmentId){
+		if(confirm('真要的删除部门?删除要小心再小心使用!!!!')){
+			window.location.href="/admin/delDepartment?departmentId="+departmentId;
+			return true;
+		}
+		
+		return false;
+	}
+	
+	function backCheck(departmentId){
+		if(confirm('确认数据没问题,恢复部门?')){
+			window.location.href="/admin/recoverDepartment?departmentId="+departmentId;
+			return true;
+		}
+		
+		return false;
+	}
+</script>
+
+
+<div>
+
+<span>${msg}</span>
+
+<table align="center" border="1">
+	<tr align="center">
+		<td>序号</td>
+		<td>id</td>
+		<td>部门名称</td>
+		<td>上级部门id</td>
+		<td>负责人</td>
+		<td>操作人</td>
+	</tr>
+		
+#foreach($department in $departmentList)
+	<tr align="center">
+		 <td>$velocityCount</td>
+	     <td><input type="text" name="id" id="id_${department.id}" value="$!{department.id}"></input></td>
+	     <td><input type="text" name="departmentName" id="name_${department.id}" value="$!{department.departmentName}"></input></td>
+		 <td><input type="text" name="parentDepartment" id="parentDepartment_${department.id}" value="$!{department.parentDepartment}"></input></td>
+		 <td><input type="text" name="managerId" id="managerId_${department.id}" value="$!{department.managerId}"></input></td>
+		 <td><input type="text" name="editorId" id="editorId_${department.id}" value="$!{department.editorId}"></input></td>	     
+	</tr>
+#end		
+	
+	<tr>
+		<td colspan="20" style="align:center">
+			<div class="page">
+				<span>共$totalNum条记录</span>
+				<form action="/admin/department" method="post" style="align:center">
+					<div class="lis">$pageList</div>
+				</form>
+			</div>
+		</td>
+	</tr>
+
+</table>
+
+
+<br/>
+<br/>
+<br/>
+<br/>
+<div align="center">添加用户</div>
+<br/>
+<div align="center">
+<form action="/admin/department" method="post" " style="align:center"><br/>
+	<table>
+		<tr>
+			<td>部门名</td>
+			<td><input type="text" name="departmentName" id="departmentName" /></td>
+		</tr>
+		<tr>
+			<td>上级部门Id</td>
+			<td><input type="text" name="parentDepartment" id="parentDepartment"/></td>
+		</tr>
+		<tr>
+			<td>负责人Id</td>
+			<td><input type="text" name="managerId" id="managerId"/></td>
+		</tr>
+	</table>
+	<br/>
+	<input type="submit" value="确认" /><span id="msg" style="color:red"></span>
+</form>
+</div>
+
