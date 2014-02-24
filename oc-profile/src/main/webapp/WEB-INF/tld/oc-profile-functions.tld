@@ -63,9 +63,15 @@
 		<function-signature>boolean access(java.lang.Object)</function-signature>
 	</function>
 	<function>
-		<description>boolean access_user_owner(Object actions,int user,int owner)</description>
+		<description>boolean access_user(java.lang.Object,int user)</description>
+		<name>access_user</name>
+		<function-class>com.renren.profile.web.taglibs.SecurityFunction</function-class>
+		<function-signature>boolean accessForUser(java.lang.Object,int user)</function-signature>
+	</function>
+	<function>
+		<description>boolean access_user_owner(java.lang.Object,int user,int owner)</description>
 		<name>access_user_owner</name>
 		<function-class>com.orientalcomics.profile.web.taglibs.SecurityFunction</function-class>
-		<function-signature>boolean accessForUserAndOwner(java.lang.Object actions,int user,int owner)</function-signature>
+		<function-signature>boolean accessForUserAndOwner(java.lang.Object,int user,int owner)</function-signature>
 	</function>
 </taglib>
