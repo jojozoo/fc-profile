@@ -172,7 +172,7 @@ version="2.0">
 	<tag>
 		<description>Formats a date and/or time using the supplied styles and pattern</description>
 		<name>formatDate</name>
-		<tag-class>com.renren.profile.web.taglibs.FormatTimeTag</tag-class>
+		<tag-class>com.orientalcomics.profile.web.taglibs.FormatTimeTag</tag-class>
 		<body-content>empty</body-content>
 		<attribute>
 			<description>Date and/or time to be formatted.</description>

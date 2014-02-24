@@ -11,6 +11,12 @@
 		<function-signature>java.lang.String escapeHtml(java.lang.String)</function-signature>
 	</function>
 	<function>
+    		<description>Url Encode(use UTF-8)</description>
+    		<name>urlEncode</name>
+    		<function-class>com.orientalcomics.profile.web.taglibs.TextFunctions</function-class>
+    		<function-signature>java.lang.String urlEncode(java.lang.String)</function-signature>
+    </function>
+	<function>
 		<name>escapeJavaScript</name>
 		<function-class>com.orientalcomics.profile.web.taglibs.TextFunctions</function-class>
 		<function-signature>java.lang.String escapeJavaScript(java.lang.String)</function-signature>

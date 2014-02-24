@@ -406,6 +406,23 @@ CREATE TABLE `user_role` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Table structure for table `profile_config`
+--
+
+DROP TABLE IF EXISTS `profile_config`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `profile_config` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(128) NOT NULL,
+  `value` varchar(128) NOT NULL,
+  `des` varchar(128) ,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+--
 -- Table structure for table `user_token`
 --
 
