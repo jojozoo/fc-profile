@@ -1,13 +1,11 @@
+<%@ page contentType="text/html; charset=UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://struts.apache.org/tags-logic" prefix="logic"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@ taglib uri="/WEB-INF/tld/oc-profile.tld" prefix="profile"%>
 <%@ taglib uri="/WEB-INF/tld/oc-profile-functions.tld" prefix="profilefn"%>
-<!--  
-<div id="browser-warning" style="display: none;">
-		<div class="message-warning">IEç¯å¢ä¸æ¬ç³»ç»æªéè¿æµè¯ï¼é¨ååè½æ æ³ä½¿ç¨ãå»ºè®®æ¨ä½¿ç¨ChromeæFirefox!</div>
-</div>
--->
+
+
 <div id="left-nav" class="nav">
 	<c:if test="${_user!=null }">
 		<div class="nav-box">
@@ -72,10 +70,10 @@
 			<profile:menu prefix="resume">
 				<c:choose>
 					<c:when test="${profilefn:access('view_resume') }">
-						<a class="title" href="/resume/my/view">æçç®å</a>
+						<a class="title" href="/resume/my/view">我的简历</a>
 					</c:when>
 					<c:otherwise>
-						<span class="title">个人简历 </span>
+						<span class="title">WeeklyReport</span>
 					</c:otherwise>
 				</c:choose>
 			</profile:menu>
@@ -84,7 +82,7 @@
 			<profile:menu prefix="weeklyreport">
 				<c:choose>
 					<c:when test="${profilefn:access('view_weekly_report') }">
-						<a class="title" href="/weeklyreport/my">æçå¨æ¥</a>
+						<a class="title" href="/weeklyreport/my">周报</a>
 					</c:when>
 					<c:otherwise>
 						<span class="title">周报</span>
@@ -102,7 +100,7 @@
 			<profile:menu prefix="kpi">
 				<c:choose>
 					<c:when test="${profilefn:access('view_kpi') }">
-						<a class="title" href="/kpi/index">æçKPI</a>
+						<a class="title" href="/kpi/index">KPI</a>
 					</c:when>
 					<c:otherwise>
 						<span class="title">我的KPI</span>
@@ -113,7 +111,7 @@
 		
 		<dl>
 			<profile:menu prefix="svn">
-				<a class="title" href="/svn/index">SVN  &nbsp <img src="/static/images/new.gif"></a>
+				<a class="title" href="/svn/index">SVN<img src="/static/images/new.gif"></a>
 			</profile:menu>
 		</dl>
 		
@@ -135,7 +133,7 @@
 				<c:set var="_visiable" value="${(_current_perf_time.status == c_perf_time_status$started || _current_perf_time.status == c_perf_time_status$will_end) && _kpi_status == 1}"></c:set>
 				<c:set var="_show_done_img" value="${_self_perf_status == c_self_perf_status$submitted }"></c:set>
 				<c:if test="${_visiable }">
-					<a class="title" href="/perf/self">æçèªè¯</a>
+					<a class="title" href="/perf/self">自评</a>
 				</c:if>
 				<c:if test="${not _visiable}">
 					<span class="title">
