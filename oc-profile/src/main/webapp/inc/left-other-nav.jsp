@@ -9,7 +9,7 @@
 		<div class="nav-box">
 		<dl class="person_info clearfix">
 				<dt>
-					<a title="${_owner.name}" href="/info/${_owner.id}"> <img alt="${_owner.name}" width="80" src="${_owner.mainUrl()}"></a>
+					<a title="${_owner.name}" href="/info/${_owner.id}"> <img alt="${_owner.name}" width="80" src="${_owner.mainUrl}"></a>
 				</dt>
 				<dd>
 					<a title="${_owner.name}" href="/info/${_owner.id}">${_owner.name}</a>
