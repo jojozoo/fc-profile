@@ -46,9 +46,9 @@
 					</c:otherwise>
 				</c:choose> 
 				</dt>		
-				<c:if test="${not empty _user.virtualRewardItem()}">
+				<c:if test="${not empty _user.virtualRewardItem}">
 					<dd>
-						<img alt="${_user.virtualRewardItem().name}" width="30" src="${_user.virtualRewardItem().img}">
+						<img alt="${_user.virtualRewardItem.name}" width="30" src="${_user.virtualRewardItem.img}">
 					</dd>
 				</c:if>
 			</dl>
