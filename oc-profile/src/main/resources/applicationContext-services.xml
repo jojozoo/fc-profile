@@ -15,4 +15,6 @@ default-lazy-init="false">
 	<context:component-scan base-package="com.orientalcomics.profile.biz.logic"></context:component-scan>
 	<context:component-scan base-package="com.orientalcomics.profile.biz.security"></context:component-scan>
 	<context:component-scan base-package="com.orientalcomics.profile.web.access"></context:component-scan>
+	<context:component-scan base-package="com.orientalcomics.profile.web.params"></context:component-scan>
+	<context:component-scan base-package="com.orientalcomics.profile.core.base"></context:component-scan>
 </beans>
