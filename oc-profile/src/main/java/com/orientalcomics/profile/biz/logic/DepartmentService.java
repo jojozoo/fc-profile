@@ -57,10 +57,6 @@ public class DepartmentService {
 	public List<Department> queryByIds(Collection<Integer> ids) {
 		return departmentDAO.queryByIds(ids);
 	}
-	
-	public Department queryByOaId(String oaId) {
-		return departmentDAO.query(oaId);
-	}
 
     public Department queryById(int departmentId) {
         return departmentDAO.query(departmentId);
