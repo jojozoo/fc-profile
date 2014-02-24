@@ -348,11 +348,11 @@ public class User implements DepartmentAssignable {
 
     private transient RewardItem virtualRewardItem;
 
-    public void virtualRewardItem(RewardItem item) {
+    public void setVirtualRewardItem(RewardItem item) {
         this.virtualRewardItem = item;
     }
 
-    public RewardItem getVirRewardItem() {
+    public RewardItem getVirtualRewardItem() {
         return virtualRewardItem;
     }
 
