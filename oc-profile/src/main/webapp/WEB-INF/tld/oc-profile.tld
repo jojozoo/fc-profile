@@ -246,7 +246,7 @@ version="2.0">
 		<body-content>scriptless</body-content>
 		<attribute>
 			<description>ProfileAction's Id/name, or 'root'.</description>
-			<name>action</name>
+			<name>actions</name>
 			<required>true</required>
 			<rtexprvalue>true</rtexprvalue>
 		</attribute>
