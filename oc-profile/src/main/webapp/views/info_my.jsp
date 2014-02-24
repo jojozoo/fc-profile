@@ -181,7 +181,7 @@
 			</div>
 			<div class="user-info-box content-box">
 				<div class="user-headpic">
-					<p><img alt="${user.name}" width="200px" src="${user.mainUrl()}"></p>
+					<p><img alt="${user.name}" width="200px" src="${user.mainUrl}"></p>
 					<a class="change-headpic button btn_b" href="javascript:void(0);">
 						<span>
 							修改头像
@@ -293,7 +293,7 @@
 									
 									<td class="user-headpic">
 										<a href="/info/${item.user.id }">
-											<img width="50px" src="${item.user.tinyUrl()}">
+											<img width="50px" src="${item.user.tinyUrl}">
 										</a>
 									</td>
 									<td>
