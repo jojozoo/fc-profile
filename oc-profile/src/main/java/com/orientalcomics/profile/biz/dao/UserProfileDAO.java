@@ -106,13 +106,6 @@ public interface UserProfileDAO {
     @SQL("update " + TABLE + " set ext_number=:1 where user_id=:2")
     public int updateUserExtNumber(String extNumber, int userId);
 
-    /**
-     * 修改用户人人主页链接
-     * 
-     * @return
-     */
-    @SQL("update " + TABLE + " set renren_link=:1 where user_id=:2")
-    public int updateUserRenrenLink(String renrenLink, int userId);
     
     /**
      * 插入数据

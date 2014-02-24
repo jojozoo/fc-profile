@@ -253,10 +253,6 @@
 								<td class="editable" edit-id="qq">${userProfile.qq > 0 ? userProfile.qq : ''}</td>
 							</tr>
 							<tr>
-								<th>人人主页:</th>
-								<td class="editable" edit-id="renrenLink">${userProfile.renrenLink != '' ? userProfile.renrenLink : ''}</td>
-							</tr>
-							<tr>
 								<th>兴趣爱好:</th>
 								<td class="editable" edit-id="hobby" edit-type="textarea" edit-height="100">${userProfile.hobby}</td>
 							</tr>
