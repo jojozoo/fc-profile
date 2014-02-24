@@ -138,6 +138,13 @@
 		<version>1.0-rc5</version>
 	</dependency>
 
+	<!-- jstl 版本 -->
+	<dependency>
+  		<groupId>org.glassfish.web</groupId>
+  		<artifactId>jstl-impl</artifactId>
+  		<version>1.2</version>
+	</dependency>
+		
   </dependencies>
   <build>
     <finalName>oc-profile</finalName>
