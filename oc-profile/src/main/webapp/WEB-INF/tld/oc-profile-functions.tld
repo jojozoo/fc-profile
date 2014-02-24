@@ -57,9 +57,9 @@
 		<function-signature>boolean hasPermission(int action, int user, int owner)</function-signature>
 	</function>
 		<function>
-		<description>boolean access(Object actions)</description>
+		<description>boolean access(java.lang.Object actions)</description>
 		<name>access</name>
 		<function-class>com.orientalcomics.profile.web.taglibs.SecurityFunction</function-class>
-		<function-signature>boolean access(Object actions)</function-signature>
+		<function-signature>boolean access(java.lang.Object actions)</function-signature>
 	</function>
 </taglib>

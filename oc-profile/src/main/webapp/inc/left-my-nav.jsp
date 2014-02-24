@@ -132,7 +132,7 @@
 				<img class="status-icon" src="/static/images/status-done.png" />
 			</c:set>
 			<profile:menu prefix="perf_self" sub="true">
-				<c:set var="_visiable" value="${(_current_perf_time.status() == c_perf_time_status$started || _current_perf_time.status() == c_perf_time_status$will_end) && _kpi_status == 1}"></c:set>
+				<c:set var="_visiable" value="${(_current_perf_time.status == c_perf_time_status$started || _current_perf_time.status == c_perf_time_status$will_end) && _kpi_status == 1}"></c:set>
 				<c:set var="_show_done_img" value="${_self_perf_status == c_self_perf_status$submitted }"></c:set>
 				<c:if test="${_visiable }">
 					<a class="title" href="/perf/self">æçèªè¯</a>
