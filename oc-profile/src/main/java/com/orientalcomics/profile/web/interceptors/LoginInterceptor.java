@@ -13,9 +13,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.orientalcomics.profile.OcProfileAjaxCodes;
 import com.orientalcomics.profile.OcProfileConstants;
+import com.orientalcomics.profile.biz.dao.RewardFlowerDAO;
 import com.orientalcomics.profile.biz.dao.SystemPageDAO;
+import com.orientalcomics.profile.biz.logic.RewardItemService;
 import com.orientalcomics.profile.biz.logic.UserService;
 import com.orientalcomics.profile.biz.logic.UserTokenService;
+import com.orientalcomics.profile.biz.model.RewardItem;
 import com.orientalcomics.profile.biz.model.User;
 import com.orientalcomics.profile.biz.model.UserToken;
 import com.orientalcomics.profile.core.base.BaseUtil;
@@ -37,20 +40,14 @@ public class LoginInterceptor extends AbstractControllerInterceptorAdapter {
     @Autowired
     private UserTokenService  userTokenService;
 
-//    @Autowired
-//    private RewardItemService rewardItemService;
-//
-//    @Autowired
-//	private ScoreCountDAO scoreCountDAO;
-//    
-//    @Autowired
-//    private ScoreService scoreService;
-    
+    @Autowired
+    private RewardItemService rewardItemService;
+
     @Autowired
     private SystemPageDAO systemPageDAO;
     
-//    @Autowired
-//    private RewardFlowerDAO rewardFlowerDAO;
+    @Autowired
+    private RewardFlowerDAO rewardFlowerDAO;
 
     @Override
     public PriorityType getPriorityType() {
@@ -108,29 +105,19 @@ public class LoginInterceptor extends AbstractControllerInterceptorAdapter {
         }
         
 
-//        // add by hao.zhang 增加勋章
-//        if (user != null && user.getVirtualRewardItemId() != 0) {
-//            RewardItem item = rewardItemService.query(user.getVirtualRewardItemId());
-//            inv.addModel("_userVirtualRewardItem", item);
-//        }
-//
-//        int owner = RoseUtils.getResourceOwner(inv);
-//        if (owner > 0) {
-//            User _owner = userService.query(owner);
-//            inv.addModel("_owner", _owner);
-//            inv.addModel("_owner_is_leader", userService.countSubordinates(owner) > 0);
-//            
-//            ScoreCount scoreCount = scoreCountDAO.queryScoreCountByUserId(_owner.getId());
-//            if (scoreCount != null)
-//            	inv.addModel("_owner_score_count", scoreCount.getTotalScore());
-//            	
-//            SystemPage scoreRankUrl = scoreService.getScoreUrl(_owner.getId());
-//            if (null == scoreRankUrl) {
-//            	scoreRankUrl = systemPageDAO.getSystemPageById(1);
-//            }
-//            inv.addModel("_owner_score_rank", scoreRankUrl);
-//            inv.addModel("_owner_reward_flower", rewardFlowerDAO.getRewardFlower(_owner.getId(), 3));
-//        }
+        // add by hao.zhang 增加勋章
+        if (user != null && user.getVirtualRewardItemId() != 0) {
+            RewardItem item = rewardItemService.query(user.getVirtualRewardItemId());
+            inv.addModel("_userVirtualRewardItem", item);
+        }
+
+        int owner = RoseUtils.getResourceOwner(inv);
+        if (owner > 0) {
+            User _owner = userService.query(owner);
+            inv.addModel("_owner", _owner);
+            inv.addModel("_owner_is_leader", userService.countSubordinates(owner) > 0);
+            inv.addModel("_owner_reward_flower", rewardFlowerDAO.getRewardFlower(_owner.getId(), 3));
+        }
         
         if (user == null && ClassUtils.isAnnotationPresentOnMethodAndClass(inv, LoginRequired.class)) {
             HtmlPageImpl page = (HtmlPageImpl) RoseUtils.currentHtmlMessages(inv);
