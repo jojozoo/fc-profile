@@ -87,7 +87,15 @@
                                     ${item.jobTitle}
                             </td>
                             <td>
-                                    ${item.department.departmentName }
+                                   <c:choose>
+									   <c:when test="${not empty ${item.department}">
+									    ${item.department.departmentName }
+									   </c:when>
+									   
+									   <c:otherwise> 
+									   	没有可用的部门信息
+									   </c:otherwise>
+									</c:choose>
                             </td>
                             <td class="actionlist">
                                 <a href="/admin/user/edit/${item.id+0}">编辑</a> <a href="javascript:;"
