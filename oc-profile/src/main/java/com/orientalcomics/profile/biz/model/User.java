@@ -352,7 +352,7 @@ public class User implements DepartmentAssignable {
         this.virtualRewardItem = item;
     }
 
-    public RewardItem virRewardItem() {
+    public RewardItem getVirRewardItem() {
         return virtualRewardItem;
     }
 
