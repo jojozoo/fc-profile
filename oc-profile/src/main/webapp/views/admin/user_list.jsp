@@ -87,7 +87,7 @@
                                     ${item.jobTitle}
                             </td>
                             <td>
-                                    ${item.department().departmentName }
+                                    ${item.department.departmentName }
                             </td>
                             <td class="actionlist">
                                 <a href="/admin/user/edit/${item.id+0}">编辑</a> <a href="javascript:;"
