@@ -159,7 +159,7 @@
 			</profile:menu>
 			<c:if test="${_is_leader}">
 				<profile:menu prefix="perf_subordinates" sub="true">
-					<c:set var="_visiable" value="${_current_perf_time.status() == c_perf_time_status$started || _current_perf_time.status() == c_perf_time_status$will_end}"></c:set>
+					<c:set var="_visiable" value="${_current_perf_time.status == c_perf_time_status$started || _current_perf_time.status == c_perf_time_status$will_end}"></c:set>
 					<c:set var="_show_done_img" value="${_peer_perf_status == c_self_perf_status$complete_invitations }"></c:set><%--æ·»å æ¡ä»¶ --%>
 					<c:if test="${_visiable }">
 						<a class="title" href="/perfApply/myReport">è¯ä»·ä¸å±${_show_done_img ? _done_img:''}</a>
@@ -173,7 +173,7 @@
 			</c:if>
 			<c:if test="${_is_leader}">
 				<profile:menu prefix="perf_adjust_score" sub="true">
-					<c:set var="_visiable" value="${_current_perf_time.status() == c_perf_time_status$started || _current_perf_time.status() == c_perf_time_status$will_end}"></c:set>
+					<c:set var="_visiable" value="${_current_perf_time.status == c_perf_time_status$started || _current_perf_time.status == c_perf_time_status$will_end}"></c:set>
 					<c:set var="_show_done_img" value="${_peer_perf_status == c_self_perf_status$complete_invitations }"></c:set><%--æ·»å æ¡ä»¶ --%>
 					<c:if test="${_visiable }">
 						<a class="title" href="/perf/adjustScore">ç»©æè°å${_show_done_img ? _done_img:''}</a>
