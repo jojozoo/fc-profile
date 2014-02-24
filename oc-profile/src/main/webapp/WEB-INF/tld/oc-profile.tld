@@ -263,4 +263,15 @@ version="2.0">
 			<rtexprvalue>true</rtexprvalue>
 		</attribute>
 	</tag>
+		<tag>
+			<description>default if blank</description>
+			<name>default</name>
+			<tag-class>com.orientalcomics.profile.web.taglibs.EmptyTag</tag-class>
+			<body-content>scriptless</body-content>
+		    <attribute>
+            <name>def</name>
+          	<required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+	</tag>
 </taglib>
