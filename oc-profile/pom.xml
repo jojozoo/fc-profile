@@ -145,6 +145,29 @@
   		<version>1.2</version>
 	</dependency>
 		
+	<!-- 发邮件 -->
+	<dependency>
+		<groupId>org.apache.commons</groupId>
+		<artifactId>commons-email</artifactId>
+		<version>1.2</version>
+	</dependency>
+	<!-- 导出excel -->
+	<dependency>
+	  <groupId>net.sourceforge.jexcelapi</groupId>
+	  <artifactId>jxl</artifactId>
+	  <version>2.6.10</version>
+	</dependency>
+      <dependency>
+	  <groupId>jaxen</groupId>
+	  <artifactId>jaxen</artifactId>
+	 <version>1.1</version>
+	</dependency>
+	<dependency>
+		<groupId>opensymphony</groupId>
+		<artifactId>quartz</artifactId>
+		<version>1.4.0</version>  
+	</dependency>
+		
   </dependencies>
   <build>
     <finalName>oc-profile</finalName>
