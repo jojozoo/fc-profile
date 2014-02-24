@@ -73,7 +73,7 @@
                         <tr class="user-item">
                             <td class="user-headpic">
                                 <a href="/info/${item.id }" target="_blank">
-                                    <img width="50" height="50" src="${item.tinyUrl()}">
+                                    <img width="50" height="50" src="${item.tinyUrl}">
                                 </a>
                             </td>
                             <td class="user-info">
