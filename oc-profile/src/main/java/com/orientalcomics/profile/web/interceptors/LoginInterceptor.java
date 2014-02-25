@@ -127,7 +127,7 @@ public class LoginInterceptor extends AbstractControllerInterceptorAdapter {
             if(logger.isDebugEnabled()){
             	logger.debug("未登录，被拦截");
             }
-            return "f:/login";
+            return "r:/login";
         }
         return true;
     }

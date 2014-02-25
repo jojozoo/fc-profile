@@ -24,7 +24,7 @@ public class IndexController extends BaseController {
 
 	@Get("")
 	public String index() {
-		return "f:/info/my";
+		return "r:/info/my";
 	}
 
 	@Get("export")
@@ -38,14 +38,14 @@ public class IndexController extends BaseController {
 		statisticsService.genExcelData(noUploadUser,"no-image.xls");
 		statisticsService.genExcelData(mapUser,"no-login.xls");
 
-		return "f:/info/my";
+		return "r:/info/my";
 	}
 	
 	
 	@Get("perfScore/{id:\\d+}")
 	public String updatePerfScore(@Param("id") int perfTimeId) throws Exception {
 		statisticsService.insertPerfData(statisticsService.getPerfScoreExcelData("/data/profile-data/excel/Q1.xls",6),perfTimeId);
-		return "f:/info/my";
+		return "r:/info/my";
 	}
 	
 }
