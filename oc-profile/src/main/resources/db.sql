@@ -439,6 +439,30 @@ CREATE TABLE `user_token` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Table structure for table `reward_flower`
+--
+
+DROP TABLE IF EXISTS `reward_flower`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `reward_flower` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `from_id` int(11) NOT NULL,
+  `to_id` int(11) NOT NULL,
+  `perf_time_id` int(11) NOT NULL,
+  `reason` text NOT NULL,
+  `image_url` varchar(256) NOT NULL,
+  `status` tinyint(2) NOT NULL DEFAULT 0,
+  `user_name` varchar(128) NOT NULL,
+  `edit_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  KEY `from_idx` (`from_id`),
+  KEY `to_idx` (`to_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+--
 -- Table structure for table `weekly_report`
 --
 
@@ -452,7 +476,29 @@ CREATE TABLE `weekly_report` (
   `status` tinyint(4) DEFAULT '0',
   `content_done` text NOT NULL,
   `content_plan` text NOT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  KEY `user_idx` (`user_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `weekly_report`
+--
+
+DROP TABLE IF EXISTS `weekly_report_comment`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `weekly_report_comment` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `weekly_report_id` int(11) NOT NULL,
+  `comment_user` int(11) NOT NULL,
+  `comment_user_name` varchar(128) NOT NULL,
+  `comment` text NOT NULL,
+  `week_date` datetime NOT NULL,
+  `edit_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  KEY `weekly_report_idx` (`weekly_report_id`),
+  KEY `comment_userx` (`comment_user`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;

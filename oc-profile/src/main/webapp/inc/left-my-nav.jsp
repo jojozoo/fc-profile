@@ -46,7 +46,7 @@
 						<a class="title" href="/info/my">我</a>
 					</c:when>
 					<c:otherwise>
-						<span class="title">XXX</span>
+						<span class="title">我的信息</span>
 					</c:otherwise>
 				</c:choose>
 			</profile:menu>
@@ -76,7 +76,7 @@
 			</profile:menu>
 			<c:if test="${_is_leader}"> 
 				<profile:menu prefix="weeklyreport_subordinates" sub="true">
-					<a class="title" href="/weeklyreport/my/subordinates">ä¸å±æ±æ»</a>
+					<a class="title" href="/weeklyreport/my/subordinates">下属周报</a>
 				</profile:menu>
 			</c:if>
 		</dl>
@@ -207,7 +207,7 @@
 		<dl>
 			<profile:menu prefix="patent">
 				<a target="_blank" class="title" href="/patent" title="ç³è¯·ä¸å©">ç³è¯·ä¸å©
-				 &nbsp </a>
+				 &nbsp; </a>
 			</profile:menu>
 		</dl>
 	</div>
