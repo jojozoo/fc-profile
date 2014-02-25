@@ -179,11 +179,11 @@ public class WeeklyReport {
         this.isSupplementary = isSupplementary;
     }
 
-    public Date startDate() {
+    public Date getStartDate() {
         return DateTimeUtil.getMondayOfWeek(weekDate);
     }
 
-    public Date endDate() {
+    public Date getEndDate() {
         return DateTimeUtil.getSundayOfWeek(weekDate);
     }
 
