@@ -185,12 +185,14 @@ public class WeeklyreportController extends LoginRequiredController {
             }
             String[] emailToArray = null;
             try {
-                emailToArray = EmailUtils.correctEmails(StringUtils.split(emailTos, ";"), EMAIL_DOMAIN, false);
+                emailToArray = EmailUtils.correctEmails(StringUtils.split(emailTos, ";"), EMAIL_DOMAIN, true);
             } catch (Exception e) {
+            	LOG.error("emailtos", "Email必须满足<" + EMAIL_MAIN_PATTERN + ">@" + EMAIL_DOMAIN);
                 fv.error("emailtos", "Email必须满足<" + EMAIL_MAIN_PATTERN + ">@" + EMAIL_DOMAIN);
             }
             String correctedEmailTos = StringUtils.join(emailToArray, ";");
             if (fv.isFailed()) {
+            	LOG.error("error", "参数验证失败");
                 break $;
             }
             boolean isPreviewAction = "preview".equalsIgnoreCase(action);

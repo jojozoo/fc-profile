@@ -60,4 +60,9 @@ public class EmailUtils implements OcProfileConstants {
         }
         return main + "@" + domain;
     }
+    public static void main(String[] args) {
+		String emailto = EmailUtils.correctEmail("zhanghao@foundercomics.com","foundercomics.com",true);
+		System.out.println(""+emailto);
+		
+	}
 }
