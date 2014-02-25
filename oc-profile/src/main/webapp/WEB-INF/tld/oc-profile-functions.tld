@@ -74,4 +74,10 @@
 		<function-class>com.orientalcomics.profile.web.taglibs.SecurityFunction</function-class>
 		<function-signature>boolean accessForUserAndOwner(java.lang.Object,int ,int )</function-signature>
 	</function>
+	<function>
+      <name>contains</name>
+      <function-class>com.orientalcomics.profile.web.taglibs.SetUtil</function-class>
+      <function-signature>boolean contains(java.util.Collection,
+          java.lang.Object)</function-signature>
+  </function>
 </taglib>

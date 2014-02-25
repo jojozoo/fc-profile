@@ -177,7 +177,7 @@
 										</c:if>
 										)
 									</strong>
-									<c:if test="${editableIds.contains(report.id)  }">
+									<c:if test="${profilefn:contains(editableIds, report.id)}">
 										<span class="title-action">
 											<a href="/weeklyreport/my/edit?id=${report.id}" class="action">编辑</a>
 										</span>
