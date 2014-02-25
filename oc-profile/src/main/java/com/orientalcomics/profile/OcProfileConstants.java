@@ -43,9 +43,9 @@ public interface OcProfileConstants {
 
 //    Version                    LUCENE_VERSION            = Version.LUCENE_35;
 
-    String                     EMAIL_HOST                = "smtp.renren-inc.com";
+    String                     EMAIL_HOST                = "smtp.gmail.com";
 
-    String                     SEND_EMAIL_HOST           = "renren.devops@renren-inc.com";
+    String                     SEND_EMAIL_HOST           = "no-reply@foundercomics.com";
 
     String                     SEND_EMAIL_HOST_NAME      = "who系统技术运维部";
 
@@ -54,7 +54,7 @@ public interface OcProfileConstants {
     int                        MIN_LOGIN_DAYS            = 2;                                                                                               // 用户在MIN_LOGIN_DAYS内登录时，不更新UserToken
     int                        MAX_LOGIN_DAYS            = 3;                                                                                               // 用户的Cookie保留这么长时间
     String                     EMAIL_MAIN_PATTERN        = "^[a-zA-z_.0-9]+$";
-    String                     EMAIL_DOMAIN              = "renren-inc.com";
+    String                     EMAIL_DOMAIN              = "foundercomcis.com";
 
     // 上线时间
     Date                       ONLINE_TIME               = TimeUtils.FetchTime.create(2012, 4, 23);                                                          // 上线时间

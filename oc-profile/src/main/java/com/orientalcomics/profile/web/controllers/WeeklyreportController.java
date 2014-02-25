@@ -235,21 +235,6 @@ public class WeeklyreportController extends LoginRequiredController {
             report.setEmailTos(correctedEmailTos);
             weeklyReportDAO.update(report);
             
-//            //对于提交的周报进行加分,周闻博 2012-08-29 修改
-//            if(newStatus == WeeklyReportStatus.SUBMITTED && !isSupplementary){
-//            	if (DateTimeUtil.getCurrDate().before(DateTimeUtil.getSaturdayOfWeek((report.getWeekDate())))) {
-//	            	ScoreRule scoreRule = scoreService.getScoreRuleById(1);
-//	            	ScoreInfo scoreInfo = new ScoreInfo();
-//	            	scoreInfo.setUserId(currentUserId());
-//	            	scoreInfo.setFromId(scoreRule.getId());
-//	            	scoreInfo.setFromInfo(scoreRule.getProjectName());
-//	            	scoreInfo.setScore(scoreRule.getPerScore());
-//	            	scoreInfo.setStatus(0);
-//	            	scoreInfo.setDateTime(new Timestamp(new Date().getTime()));
-//	            	
-//	            	scoreService.addScore(scoreInfo);
-//            	}
-//            }
             // success
             if (isSubmitAction) {
                 sendWorklyReportEmail(report, this.currentUser());
