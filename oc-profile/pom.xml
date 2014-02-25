@@ -167,7 +167,14 @@
 		<artifactId>quartz</artifactId>
 		<version>1.4.0</version>  
 	</dependency>
-		
+	
+	<!-- html parser -->	
+	<dependency>
+	  <groupId>org.htmlparser</groupId>
+	  <artifactId>htmlparser</artifactId>
+	  <version>2.1</version>
+	</dependency>
+	
   </dependencies>
   <build>
     <finalName>oc-profile</finalName>

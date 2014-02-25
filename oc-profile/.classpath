@@ -132,4 +132,6 @@
   <classpathentry kind="var" path="M2_REPO/xalan/xalan/2.6.0/xalan-2.6.0.jar"/>
   <classpathentry kind="var" path="M2_REPO/com/ibm/icu/icu4j/2.6.1/icu4j-2.6.1.jar"/>
   <classpathentry kind="var" path="M2_REPO/opensymphony/quartz/1.4.0/quartz-1.4.0.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/htmlparser/htmlparser/2.1/htmlparser-2.1.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/htmlparser/htmllexer/2.1/htmllexer-2.1.jar"/>
 </classpath>

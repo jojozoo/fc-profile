@@ -18,21 +18,6 @@
 				<dd>
 					<a class="name" title="${_user.name}" href="/info/${_user.id }">${_user.name}</a>
 				</dd>
-				<dt style="margin-top:4px;">
-					<a href="/score/index/rank"><c:if test='${_score_rank != null }'>${_score_rank.systemKey}</c:if></a>
-					<img src="<c:if test='${ _score_rank != null }'>${ _score_rank.descript }</c:if>" />
-				</dt>
-			    <dt style="margin-top:7px;">
-					<a class="name" href="/score/index">ç§¯å&nbsp;</a>
-					<c:choose>
-					<c:when test="${_score_count!=null}">
-						${_score_count }
-					</c:when>
-					<c:otherwise>
-						0
-					</c:otherwise>
-				</c:choose> 
-				</dt>
 				 <dt style="margin-top:7px;">
 					<a class="name" href="/reward/index">小红花&nbsp;</a>
 					<c:choose>
@@ -137,7 +122,7 @@
 				</c:if>
 				<c:if test="${not _visiable}">
 					<span class="title">
-						æçèªè¯
+						我的自评
 					</span>
 				</c:if>
 			</profile:menu>
@@ -147,24 +132,24 @@
 				
 				<c:set var="_show_done_img" value="${_peer_perf_status == c_self_perf_status$complete_invitations }"></c:set>
 				<c:if test="${_visiable || _peerAccess }">
-					<a class="title" href="/perfApply/myPerf">æçäºè¯${_peerAccess ? '<span style=color:red>*</span>' : ''}</a>
+					<a class="title" href="/perfApply/myPerf">我的自评{_peerAccess ? '<span style=color:red>*</span>' : ''}</a>
 				</c:if>
 				<c:if test="${not _visiable && !_peerAccess}">
 					<span class="title">
-						æçäºè¯
+						我的自评
 					</span>
 				</c:if>
 			</profile:menu>
 			<c:if test="${_is_leader}">
 				<profile:menu prefix="perf_subordinates" sub="true">
 					<c:set var="_visiable" value="${_current_perf_time.status == c_perf_time_status$started || _current_perf_time.status == c_perf_time_status$will_end}"></c:set>
-					<c:set var="_show_done_img" value="${_peer_perf_status == c_self_perf_status$complete_invitations }"></c:set><%--æ·»å æ¡ä»¶ --%>
+					<c:set var="_show_done_img" value="${_peer_perf_status == c_self_perf_status$complete_invitations }"></c:set>
 					<c:if test="${_visiable }">
-						<a class="title" href="/perfApply/myReport">è¯ä»·ä¸å±${_show_done_img ? _done_img:''}</a>
+						<a class="title" href="/perfApply/myReport">我的自评{_show_done_img ? _done_img:''}</a>
 					</c:if>
 					<c:if test="${not _visiable}">
 						<span class="title">
-							è¯ä»·ä¸å±
+							
 						</span>
 					</c:if>
 				</profile:menu>
@@ -172,13 +157,13 @@
 			<c:if test="${_is_leader}">
 				<profile:menu prefix="perf_adjust_score" sub="true">
 					<c:set var="_visiable" value="${_current_perf_time.status == c_perf_time_status$started || _current_perf_time.status == c_perf_time_status$will_end}"></c:set>
-					<c:set var="_show_done_img" value="${_peer_perf_status == c_self_perf_status$complete_invitations }"></c:set><%--æ·»å æ¡ä»¶ --%>
+					<c:set var="_show_done_img" value="${_peer_perf_status == c_self_perf_status$complete_invitations }"></c:set>
 					<c:if test="${_visiable }">
-						<a class="title" href="/perf/adjustScore">ç»©æè°å${_show_done_img ? _done_img:''}</a>
+						<a class="title" href="/perf/adjustScore">评分{_show_done_img ? _done_img:''}</a>
 					</c:if>
 					<c:if test="${not _visiable}">
 						<span class="title">
-							ç»©æè°å
+							评分
 						</span>
 					</c:if>
 				</profile:menu>
@@ -217,19 +202,6 @@
 			</profile:menu>
 			<profile:menu prefix="reward_send" sub="true">
 				<a class="title" href="/reward/flower">æè¦ç®è±</a>
-			</profile:menu>
-			<!--  
-			<profile:menu prefix="reward_obtain" sub="true">
-				<a class="title" href="/reward/exchange">æè¦åæ¢</a>
-			</profile:menu>
-			-->
-		</dl>
-		<dl>
-			<profile:menu prefix="score">
-				<a class="title" href="/score/index">æçç§¯å</a>
-			</profile:menu>
-			<profile:menu prefix="score_rank" sub="true">
-				<a class="title" href="/score/index/rank">ç§¯åæè¡æ¦</a>
 			</profile:menu>
 		</dl>
 		<dl>
