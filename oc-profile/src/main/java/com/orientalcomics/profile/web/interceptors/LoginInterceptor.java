@@ -77,8 +77,9 @@ public class LoginInterceptor extends AbstractControllerInterceptorAdapter {
 
     @Override
     protected Object before(Invocation inv) throws Exception {
-    	
-    	logger.info("######### comming before");
+    	if(logger.isDebugEnabled()){
+        	logger.debug("######### comming before");
+        }
         User user = null;
         
         // loginas
@@ -126,11 +127,8 @@ public class LoginInterceptor extends AbstractControllerInterceptorAdapter {
             if(logger.isDebugEnabled()){
             	logger.debug("未登录，被拦截");
             }
-            return "r:" + "/login?rf=r&domain="
-            + OcProfileConstants.PROFILE_MAIN_DOMAIN + "&origURL="
-            + BaseUtil.getResourceFullLocation(inv.getRequest());
+            return "r:/login";
         }
-        logger.info("######### comming before 111");
         return true;
     }
 }
