@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<anti-spam-rules xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="xiaonei.xsd">
+	
+	<directives>
+		<directive name="omitXmlDeclaration" value="true"/>
+		<directive name="omitDoctypeDeclaration" value="true"/>
+		<directive name="maxInputSize" value="1200000"/>
+		<directive name="useXHTML" value="false"/>
+		<directive name="formatOutput" value="true"/>
+		<directive name="embedStyleSheets" value="false"/>
+	</directives>
+
+	<!-- 
+	
+	Tag.name = a, b, div, body, etc.
+	Tag.action = filter: remove tags, but keep content, validate: keep content as long as it passes rules, remove: remove tag and contents
+	Attribute.name = id, class, href, align, width, etc.
+	Attribute.onInvalid = what to do when the attribute is invalid, e.g., remove the tag (removeTag), remove the attribute (removeAttribute), filter the tag (filterTag)
+	Attribute.description = What rules in English you want to tell the users they can have for this attribute. Include helpful things so they'll be able to tune their HTML
+	 
+	 -->
+
+	<!-- 
+	Some attributes are common to all (or most) HTML tags. There aren't many that qualify for this. You have to make sure there's no
+	collisions between any of these attribute names with attribute names of other tags that are for different purposes.
+	-->
+	
+	<tag-rules>
+	
+		<!-- You can mess with this stuff if you know what you're doing -->
+		
+		<tag name="html" action="filter"/>
+		
+		<tag name="body" action="filter">
+		</tag>
+		
+		<tag name="meta" action="remove"/>
+
+		<tag name="head" action="remove"/>
+
+		<!-- since we're validating the style sheets this is safe to have - switch to "truncate" if the user's html will appear in the html body -->
+		<tag name="title" action="remove"/>
+
+
+		<!-- Tags related to JavaScript -->
+
+		<tag name="script" action="remove"/>
+		<tag name="noscript" action="remove"/> <!-- although no javascript can fire inside a noscript tag, css is still a viable attack vector -->
+		
+		
+		
+		<!-- Frame & related tags -->
+		
+		<tag name="iframe" action="remove"/>
+		<tag name="frameset" action="remove"/>
+		<tag name="frame" action="remove"/>
+		
+		
+		
+		<!-- Form related tags -->
+		
+		<tag name="label" action="remove">
+		</tag>
+		
+
+		<!--
+			If you wish to enable any of the form related tags, change the tag's action below from "filter" or "remove" to "validate". The attributes have been 
+			hardened so this is safe to do, if it's something you want to allow. Beware the <><ing possibilities!
+		 -->
+			
+		<tag name="form" action="remove"/>
+		
+		<tag name="button" action="remove">
+		</tag>
+		
+		<tag name="input" action="remove">
+		</tag>
+		
+		<tag name="select" action="remove">
+		</tag>
+		
+		<tag name="option" action="remove">
+		</tag>
+		
+		<tag name="textarea" action="remove">
+		</tag>
+		
+		
+		
+		
+		<!-- All formatting tags -->
+		
+		<tag name="h1" action="filter"/>
+		<tag name="h2" action="filter"/>
+		<tag name="h3" action="filter"/>
+		<tag name="h4" action="filter"/>
+		<tag name="h5" action="filter"/>
+		<tag name="h6" action="filter"/>
+
+		<tag name="p" action="filter">
+		</tag>
+		
+		<tag name="i" action="filter"/>
+		<tag name="b" action="filter"/>
+		<tag name="u" action="filter"/>
+		<tag name="strong" action="filter"/>
+		
+		<tag name="em" action="filter"/>
+		<tag name="small" action="filter"/>
+		<tag name="big" action="filter"/>
+		<tag name="pre" action="filter"/>
+		<tag name="code" action="filter"/>
+		<tag name="cite" action="filter"/>
+		<tag name="samp" action="filter"/>
+		<tag name="sub" action="filter"/>
+		<tag name="sup" action="filter"/>
+		<tag name="strike" action="filter"/>
+		<tag name="center" action="filter"/>
+		<tag name="blockquote" action="filter"/>
+		
+		<tag name="hr" action="remove"/>
+		<tag name="br" action="remove"/>
+		
+		<tag name="col" action="remove"/>
+		
+		<tag name="font" action="remove">
+		</tag>
+		
+
+		<!-- Anchor and anchor related tags -->
+		
+		<tag name="a" action="filter">
+		</tag>
+
+		<tag name="map" action="remove"/>
+
+		<!-- base tag removed per demo - this could be enabled with literal-list values you allow -->
+		<tag name="base" action="remove">
+		</tag>
+		
+		
+		
+		<!-- Stylesheet Tags -->
+		
+		<tag name="style" action="remove">
+		</tag>
+		
+		<tag name="span" action="filter">
+		</tag>
+		<tag name="div" action="filter">
+		</tag>
+		
+		<!-- <attribute name="id"/>  what could an attacker do if they could overwrite an existing div definition? prolly something bad -->
+		<!-- <attribute name="class"/> what could an attacker do if they could specify any class in the namespace? prolly something bad -->
+
+		
+		
+		
+		
+		<!-- Image & image related tags -->
+		
+		<tag name="img" action="remove">
+		</tag>
+
+		<!-- no way to do this safely without hooking up the same code to @import to embed the remote stylesheet (malicious user could change offsite resource to be malicious after validation -->
+		<!-- <attribute name="href" onInvalid="removeTag"/>  -->
+			
+		<tag name="link" action="remove">
+		</tag>
+		
+		
+		
+				
+
+		<!-- List tags -->
+
+		<tag name="ul" action="filter"/>
+		<tag name="ol" action="filter"/>
+		<tag name="li" action="filter"/>
+		
+
+		
+		
+		<!-- Dictionary tags -->
+		
+		<tag name="dd" action="filter"/>
+		<tag name="dl" action="filter"/>
+		<tag name="dt" action="filter"/>
+		
+
+
+		
+		<!-- Table tags (tbody, thead, tfoot)-->
+		
+		<tag name="thead" action="filter">
+		</tag>
+		
+		<tag name="tbody" action="filter">
+		</tag>
+		
+		<tag name="tfoot" action="filter">
+		</tag>
+		
+		<tag name="table" action="filter">
+		</tag>
+		
+		<tag name="td" action="filter">
+		</tag>
+		
+		<tag name="th" action="filter">
+		</tag>
+		
+		<tag name="tr" action="filter">
+		</tag>
+		
+		<tag name="colgroup" action="filter">
+		</tag>
+		
+		<tag name="col" action="filter">
+		</tag>
+				
+		<tag name="fieldset" action="filter"/>
+		<tag name="legend" action="filter"/>
+		
+	</tag-rules>
+
+</anti-spam-rules>
