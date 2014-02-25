@@ -263,7 +263,7 @@ public class UserController extends LoginRequiredController {
                 // 重定向
                 page.redirect("/admin/user");
             } catch (Exception e) {
-                LOG.error(e, "addUser");
+                LOG.error("addUser excepiot:"+e.getMessage());
                 break $;
             }
 
@@ -379,7 +379,7 @@ public class UserController extends LoginRequiredController {
 
             page.redirect("/admin/user");
         } catch (Exception e) {
-            LOG.error(e, "userId", userId);
+            LOG.error("userId:" + userId + "e:"+e.getLocalizedMessage());
             page.error("服务端发生错误");
         }
     }

@@ -245,7 +245,7 @@ public class WeeklyreportController extends LoginRequiredController {
                 page.info("保存成功");
             }
         } catch (Exception e) {
-            LOG.error(e, "id", id, "content_done", StringUtils.abbreviate(contentDone, 10), "content_plan",
+            LOG.error("id:" +id + ",content_done:" + StringUtils.abbreviate(contentDone, 10) + ",content_plan:" +
                     StringUtils.abbreviate(contentPlan, 10));
             page.error("服务端发生错误");
         }
