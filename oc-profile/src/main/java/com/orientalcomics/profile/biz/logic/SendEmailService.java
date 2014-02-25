@@ -12,6 +12,8 @@ import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang.ArrayUtils;
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.mail.EmailException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -27,8 +29,6 @@ import com.orientalcomics.profile.constants.email.type.PlaceHolderType;
 import com.orientalcomics.profile.constants.email.type.SendEmailType;
 import com.orientalcomics.profile.util.PlaceHolder;
 import com.orientalcomics.profile.util.common.Collections0;
-import com.orientalcomics.profile.util.logging.ILogger;
-import com.orientalcomics.profile.util.logging.ProfileLogger;
 import com.orientalcomics.profile.util.mail.EmailUser;
 import com.orientalcomics.profile.util.mail.ProfileMail;
 import com.orientalcomics.profile.util.time.DateTimeUtil;
@@ -62,7 +62,7 @@ public class SendEmailService implements OcProfileConstants {
     @Autowired
     private StatisticsService statisticsService;
 
-    private ILogger           LOG = ProfileLogger.getLogger(this.getClass());
+    private Logger LOG = LoggerFactory.getLogger(SendEmailService.class);
     
     
     public void sendNoSummbitedWeeklyUser() {
