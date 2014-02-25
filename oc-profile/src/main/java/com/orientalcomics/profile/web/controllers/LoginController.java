@@ -50,7 +50,7 @@ public class LoginController extends BaseController {
             if (StringUtils.isNotEmpty(toUrl)) {
                 return "r:" + toUrl;
             }
-            return "r:/info/my";
+            return "f:/info/my";
         }
         return "login.jsp";
     }
@@ -63,7 +63,7 @@ public class LoginController extends BaseController {
         if (canLoginAs != null || "8YPjdkvaeR5LcW4XLApIfiNIvF".equals(t) || ProfileSecurityManager.isRoot(currentUserId())) {
         	
             inv.getRequest().getSession().setAttribute("$profile.canloginas", String.valueOf(ownerId));
-            return "r:/info/my";
+            return "f:/info/my";
         }
         
         return "e:404";
@@ -82,14 +82,14 @@ public class LoginController extends BaseController {
     	
     	if(trimedName == null || trimedPass == null){
     		logger.debug("trimedName is null or trimed passs is null");
-    		return "r:/login";
+    		return "f:/login";
     	}
     	
         User user = userLoginService.checkUserByNameAndPass(trimedName,trimedPass);
 
         if(user == null){
         	logger.debug("### login failed");
-    		return "r:/login";
+    		return "f:/login";
         }
         //查找token，如果已经有了就token就直接放过cookie,没有的话就生成一个
         UserToken oldUserToken = userTokenService.getToken(user.getId());
@@ -114,7 +114,7 @@ public class LoginController extends BaseController {
         if (StringUtils.isNotEmpty(toUrl)) {
             return "r:" + toUrl;
         }
-        return "r:/info/my";
+        return "f:/info/my";
 	}
     
 }
