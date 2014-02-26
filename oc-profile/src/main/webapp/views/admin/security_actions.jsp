@@ -71,12 +71,12 @@
 									 		<td class="caption">${action.name}</td>
 										  <c:forEach var="role" items="${roles}">
 										  	<td class="checkbox center">
-										  		<input title="${action.name},${role.name}" type="checkbox" name="roles" value="${action.id}:${role.id }" ${roleSet!=null && roleSet.contains(role.id) ? 'checked="checked"' : ''}>
+										  		<input title="${action.name},${role.name}" type="checkbox" name="roles" value="${action.id}:${role.id }" ${roleSet!=null && profilefn:contains(roleSet,role.id) ? 'checked="checked"' : ''}>
 										  	</td>
 										  </c:forEach>
 										  <c:forEach var="relation" items="${relations}">
 										  	<td class="checkbox center">
-										  		<input title="${action.name},${relation.name}" type="checkbox" name="relations" value="${action.id}:${relation.id }" ${relationSet!=null && relationSet.contains(relation.id) ? 'checked="checked"' : ''}>
+										  		<input title="${action.name},${relation.name}" type="checkbox" name="relations" value="${action.id}:${relation.id }" ${relationSet!=null && profilefn:contains(relationSet,relation.id) ? 'checked="checked"' : ''}>
 										  	</td>
 										  </c:forEach>
 										</tr>
