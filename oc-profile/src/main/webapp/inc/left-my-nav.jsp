@@ -206,7 +206,7 @@
 		</dl>
 		<dl>
 			<profile:menu prefix="patent">
-				<a target="_blank" class="title" href="/patent" title="patent">patent
+				<a target="_blank" class="title" href="/patent" title="patent">专利撰写
 				 &nbsp; </a>
 			</profile:menu>
 		</dl>

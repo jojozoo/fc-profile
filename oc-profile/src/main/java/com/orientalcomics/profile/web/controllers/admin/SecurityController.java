@@ -1,0 +1,233 @@
+package com.orientalcomics.profile.web.controllers.admin;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+
+import net.paoding.rose.web.Invocation;
+import net.paoding.rose.web.annotation.Param;
+import net.paoding.rose.web.annotation.rest.Get;
+import net.paoding.rose.web.annotation.rest.Post;
+
+import org.apache.commons.collections.MapUtils;
+import org.apache.commons.collections.SetUtils;
+import org.apache.commons.lang.ObjectUtils;
+import org.apache.commons.lang.StringUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.orientalcomics.profile.biz.dao.RoleDAO;
+import com.orientalcomics.profile.biz.dao.SecurityRelationSettingDAO;
+import com.orientalcomics.profile.biz.dao.SecurityRoleSettingDAO;
+import com.orientalcomics.profile.biz.model.Role;
+import com.orientalcomics.profile.biz.model.SecurityRelationSetting;
+import com.orientalcomics.profile.biz.model.SecurityRoleSetting;
+import com.orientalcomics.profile.biz.model.User;
+import com.orientalcomics.profile.constants.ProfileAction;
+import com.orientalcomics.profile.constants.ProfileActionCategory;
+import com.orientalcomics.profile.constants.ProfileBuildinRole;
+import com.orientalcomics.profile.constants.ProfileRelation;
+import com.orientalcomics.profile.util.common.Arrays0;
+import com.orientalcomics.profile.util.common.Collections0;
+import com.orientalcomics.profile.util.common.Numbers0;
+import com.orientalcomics.profile.util.time.TimeFetchUtils;
+import com.orientalcomics.profile.web.annotations.ProfileRootSecurity;
+import com.orientalcomics.profile.web.controllers.internal.LoginRequiredController;
+import com.orientalcomics.profile.web.interceptors.message.PageMessages;
+
+/**
+ * 权限设置
+ * 
+ * @author 黄兴海(xinghai.huang)
+ * @date 2012-2-27 下午1:26:53
+ */
+@ProfileRootSecurity
+public class SecurityController extends LoginRequiredController {
+    @Autowired
+    RoleDAO                    roleDAO;
+
+    @Autowired
+    SecurityRoleSettingDAO     securityRoleSettingDAO;
+    @Autowired
+    SecurityRelationSettingDAO securityRelationSettingDAO;
+
+    @Get("actions")
+    public String get_actions(Invocation inv) {
+        render_actions(inv);
+        return "security_actions";
+    }
+
+    @SuppressWarnings("unchecked")
+	@Post("actions")
+    public synchronized String post_actions(Invocation inv, PageMessages pmsgs,//
+            @Param("roles") String[] newRoleStringArray, @Param("relations") String[] newRelationStringArray) {
+        User user = currentUser();
+        $: try {
+            // roles
+            if (newRoleStringArray != null) {
+                Map<Integer, Set<Integer>> oldRoles = (Map<Integer, Set<Integer>>) ObjectUtils.defaultIfNull(getActionRoleSetMap(), MapUtils.EMPTY_MAP);
+                Map<Integer, Set<Integer>> newRoles = parseStringArrayToMap(newRoleStringArray);
+
+                for (Entry<Integer, Set<Integer>> item : newRoles.entrySet()) {
+                    Integer actionId = item.getKey();
+                    if (actionId != null) {
+                        Set<Integer> oldRoleIds = (Set<Integer>) ObjectUtils.defaultIfNull(oldRoles.get(actionId), SetUtils.EMPTY_SET);
+                        Set<Integer> newRoleIds = (Set<Integer>) ObjectUtils.defaultIfNull(newRoles.get(actionId), SetUtils.EMPTY_SET);
+                        Set<Integer> needAddedRoleIds = Collections0.subtract(newRoleIds, oldRoleIds);
+                        Set<Integer> needDeletedRoleIds = Collections0.subtract(oldRoleIds, newRoleIds);
+                        if (!needDeletedRoleIds.isEmpty()) {
+                            securityRoleSettingDAO.removeRoleIdsOfActionId(actionId, needDeletedRoleIds);
+                        }
+                        if (!needAddedRoleIds.isEmpty()) {
+                            addNewRoleIds(actionId, needAddedRoleIds, user);
+                        }
+                    }
+                }
+            }
+
+            // relations
+            if (newRelationStringArray != null) {
+                Map<Integer, Set<Integer>> oldRelations = (Map<Integer, Set<Integer>>) ObjectUtils.defaultIfNull(getActionRelationSetMap(), MapUtils.EMPTY_MAP);
+                Map<Integer, Set<Integer>> newRelations = parseStringArrayToMap(newRelationStringArray);
+
+                for (Entry<Integer, Set<Integer>> item : newRelations.entrySet()) {
+                    Integer actionId = item.getKey();
+                    if (actionId != null) {
+                        Set<Integer> oldRelationIds = (Set<Integer>) ObjectUtils.defaultIfNull(oldRelations.get(actionId), SetUtils.EMPTY_SET);
+                        Set<Integer> newRelationIds = (Set<Integer>) ObjectUtils.defaultIfNull(newRelations.get(actionId), SetUtils.EMPTY_SET);
+                        Set<Integer> needAddedRelationIds = Collections0.subtract(newRelationIds, oldRelationIds);
+                        Set<Integer> needDeletedRelationIds = Collections0.subtract(oldRelationIds, newRelationIds);
+
+                        if (!needDeletedRelationIds.isEmpty()) {
+                            securityRelationSettingDAO.removeRelationIdsOfActionId(actionId, needDeletedRelationIds);
+                        }
+                        if (!needAddedRelationIds.isEmpty()) {
+                            addNewRelationIds(actionId, needAddedRelationIds, user);
+                        }
+                    }
+                }
+            }
+
+            return "r:/admin/security/actions";
+        } catch (Exception e) {
+            LOG.error(e, "Unkown");
+            pmsgs.addError("服务端发生错误");
+        }
+        render_actions(inv);
+        return "security_actions";
+    }
+
+    private Map<Integer, Set<Integer>> parseStringArrayToMap(String[] strings) {
+        final Map<Integer, Set<Integer>> result = new HashMap<Integer, Set<Integer>>();
+        for (String string : strings) {
+            int[] items = Numbers0.toIntArray(StringUtils.split(string, ":"));
+            int key = Arrays0.get(items, 0);
+            if (key <= 0) {
+                continue;
+            }
+            Set<Integer> values = result.get(key);
+            if (values == null) {
+                values = new HashSet<Integer>();
+                result.put(key, values);
+            }
+
+            int value = Arrays0.get(items, 1);
+            if (value <= 0) {
+                continue;
+            }
+            values.add(value);
+        }
+        return result;
+    }
+
+    private void addNewRoleIds(Integer actionId, Collection<Integer> roleIds, User operator) {
+        if (actionId == null || roleIds == null) {
+            return;
+        }
+        SecurityRoleSetting securityRoleSetting = new SecurityRoleSetting();
+        securityRoleSetting.setActionId(actionId);
+        securityRoleSetting.setEditorId(operator.getId());
+        securityRoleSetting.setEditorName(operator.getName());
+        securityRoleSetting.setEditTime(TimeFetchUtils.TIMESTAMP.now());
+        for (Integer roleId : roleIds) {
+            securityRoleSetting.setRoleId(roleId);
+            securityRoleSettingDAO.save(securityRoleSetting);
+        }
+    }
+
+    private void addNewRelationIds(Integer actionId, Collection<Integer> relationIds, User operator) {
+        if (actionId == null || relationIds == null) {
+            return;
+        }
+        SecurityRelationSetting securityRelationSetting = new SecurityRelationSetting();
+        securityRelationSetting.setActionId(actionId);
+        securityRelationSetting.setEditorId(operator.getId());
+        securityRelationSetting.setEditorName(operator.getName());
+        securityRelationSetting.setEditTime(TimeFetchUtils.TIMESTAMP.now());
+        for (Integer relationId : relationIds) {
+            securityRelationSetting.setRelationId(relationId);
+            securityRelationSettingDAO.save(securityRelationSetting);
+        }
+    }
+
+    private void render_actions(Invocation inv) {
+        inv.addModel("categories", ProfileActionCategory.values());
+        inv.addModel("category_action_map", ProfileAction.getActionCategoryMap());
+
+        List<Role> roles = new ArrayList<Role>();
+        for (ProfileBuildinRole item : ProfileBuildinRole.values()) {
+            if (!item.isHidden()) {
+                Role role = new Role();
+                role.setId(item.getId());
+                role.setName(item.getName());
+                roles.add(role);
+            }
+        }
+        List<Role> daoRoles = roleDAO.queryAll();
+        if (daoRoles != null) {
+            roles.addAll(daoRoles);
+        }
+
+        inv.addModel("roles", roles);
+        inv.addModel("action_roleset_map", getActionRoleSetMap());
+        inv.addModel("relations", ProfileRelation.values());
+        inv.addModel("action_relationset_map", getActionRelationSetMap());
+    }
+
+    private Map<Integer/* action id */, Set<Integer>/* role ids */> getActionRoleSetMap() {
+        List<SecurityRoleSetting> securityRoleSettings = securityRoleSettingDAO.queryAll();
+        Map<Integer/* action id */, Set<Integer>/* role id set */> actionRoleSetMap = new HashMap<Integer, Set<Integer>>();
+        if (securityRoleSettings != null) {
+            for (SecurityRoleSetting securityRoleSetting : securityRoleSettings) {
+                Set<Integer> roleSet = actionRoleSetMap.get(securityRoleSetting.getActionId());
+                if (roleSet == null) {
+                    roleSet = new HashSet<Integer>();
+                    actionRoleSetMap.put(securityRoleSetting.getActionId(), roleSet);
+                }
+                roleSet.add(securityRoleSetting.getRoleId());
+            }
+        }
+        return actionRoleSetMap;
+    }
+
+    private Map<Integer/* action id */, Set<Integer>/* relation ids */> getActionRelationSetMap() {
+        List<SecurityRelationSetting> securityRelationSettings = securityRelationSettingDAO.queryAll();
+        Map<Integer/* action id */, Set<Integer>/* relation id set */> actionRelationSetMap = new HashMap<Integer, Set<Integer>>();
+        if (securityRelationSettings != null) {
+            for (SecurityRelationSetting securityRelationSetting : securityRelationSettings) {
+                Set<Integer> relationSet = actionRelationSetMap.get(securityRelationSetting.getActionId());
+                if (relationSet == null) {
+                    relationSet = new HashSet<Integer>();
+                    actionRelationSetMap.put(securityRelationSetting.getActionId(), relationSet);
+                }
+                relationSet.add(securityRelationSetting.getRelationId());
+            }
+        }
+        return actionRelationSetMap;
+    }
+
+}
