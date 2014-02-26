@@ -133,7 +133,7 @@ public class UserService {
       }
 	  
 	  for (User user : listUser) {
-          if (user.subordinateCount() == 0) {
+          if (user.getSubordinateCount() == 0) {
         	  retUser.add(user);
           }
       }
