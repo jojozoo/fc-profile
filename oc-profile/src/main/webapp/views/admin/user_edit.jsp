@@ -23,7 +23,7 @@
 			margin-top:15px;
 		}
 	</style>
-	<script type="text/javascript">
+<!-- 	<script type="text/javascript">
 		jQuery(function($){
 			(function() {
 				var inputObj =$('#boss-email-input');
@@ -39,7 +39,7 @@
 				});
 			})();
 		});
-	</script>
+	</script> -->
 </head>
 <body>
 	<%@include file="/inc/header.jsp" %>
@@ -63,7 +63,7 @@
 						</tr>
 						<tr>
 							<th>工号:</th>
-							<td><input type="text" name="number"  value="${user.number}" readonly="readonly"/>&nbsp &nbsp <span style=color:red>*</span></td>
+							<td><input type="text" name="number"  value="${user.number}"/>&nbsp &nbsp <span style=color:red>*</span></td>
 							<td><span node-type="field-message" message-for="number"></span></td>
 						</tr>
 						<tr>
@@ -73,12 +73,12 @@
 						</tr>
 						<tr>
 							<th>岗位:</th>
-							<td><input type="text" name="jobtitle"   value="${user.jobTitle}" readonly="readonly"/>&nbsp &nbsp <span style=color:red>*</span></td>
+							<td><input type="text" name="jobtitle"   value="${user.jobTitle}""/>&nbsp &nbsp <span style=color:red>*</span></td>
 							<td><span node-type="field-message" message-for=""jobtitle""></span></td>
 						</tr>
 						<tr>
 							<th>级别:</th>
-							<td><input type="text" name="level"  value="${user.level}"/>&nbsp &nbsp <span style=color:red>*</span></td>
+							<td><input type="text" name="level"  value="${user.level}"/> </td>
 							<td><span node-type="field-message" message-for="level"></span></td>
 						</tr>
 						<tr>

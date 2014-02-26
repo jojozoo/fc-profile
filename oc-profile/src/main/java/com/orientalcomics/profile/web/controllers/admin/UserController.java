@@ -333,7 +333,6 @@ public class UserController extends LoginRequiredController {
             }
             FormValidator fv = page.formValidator();
             fv.notBlank(name, "name", "名字不能为空");
-           // fv.notBlank(number, "number", "工号不能为空");
             fv.notBlank(email, "email", "邮箱不能为空").rangeLength(email, 1, 50,
                     "email", "Email只能由{1}到{2}个字符");
             fv.notBlank(jobTitle, "jobtitle", "岗位不能为空");
