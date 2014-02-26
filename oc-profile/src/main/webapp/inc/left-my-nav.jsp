@@ -58,7 +58,7 @@
 						<a class="title" href="/resume/my/view">我的简历</a>
 					</c:when>
 					<c:otherwise>
-						<span class="title">WeeklyReport</span>
+						<span class="title">周报管理</span>
 					</c:otherwise>
 				</c:choose>
 			</profile:menu>
@@ -96,7 +96,7 @@
 		
 		<dl>
 			<profile:menu prefix="svn">
-				<a class="title" href="/svn/index">SVN<img src="/static/images/new.gif"></a>
+				<a class="title" href="/svn/index">我的SVN<img src="/static/images/new.gif"></a>
 			</profile:menu>
 		</dl>
 		
@@ -132,7 +132,7 @@
 				
 				<c:set var="_show_done_img" value="${_peer_perf_status == c_self_perf_status$complete_invitations }"></c:set>
 				<c:if test="${_visiable || _peerAccess }">
-					<a class="title" href="/perfApply/myPerf">我的自评{_peerAccess ? '<span style=color:red>*</span>' : ''}</a>
+					<a class="title" href="/perfApply/myPerf">我的自评${_peerAccess ? '<span style=color:red>*</span>' : ''}</a>
 				</c:if>
 				<c:if test="${not _visiable && !_peerAccess}">
 					<span class="title">
@@ -198,15 +198,15 @@
 		
 		<dl>
 			<profile:menu prefix="reward">
-				<a class="title" href="/reward/index">çº¢è±å¥å±</a>
+				<a class="title" href="/reward/index">小红花</a>
 			</profile:menu>
 			<profile:menu prefix="reward_send" sub="true">
-				<a class="title" href="/reward/flower">æè¦ç®è±</a>
+				<a class="title" href="/reward/flower">送小红花</a>
 			</profile:menu>
 		</dl>
 		<dl>
 			<profile:menu prefix="patent">
-				<a target="_blank" class="title" href="/patent" title="ç³è¯·ä¸å©">ç³è¯·ä¸å©
+				<a target="_blank" class="title" href="/patent" title="patent">patent
 				 &nbsp; </a>
 			</profile:menu>
 		</dl>
