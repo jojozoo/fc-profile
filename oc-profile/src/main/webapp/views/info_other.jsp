@@ -98,12 +98,6 @@
 								<td>${userProfile.extNumber}</td>
 							</tr>
 							<tr>
-								<th>人人主页:</th>
-								<td>
-									<a target="_blank" href="${userProfile.renrenLink}" alt="点击这里看ta人人个人页面" title="点击这里看ta人人个人页面">${userProfile.renrenLink}</a>
-								</td>
-							</tr>
-							<tr>
 								<th>兴趣爱好:</th>
 								<td>${userProfile.hobby}</td>
 							</tr>
