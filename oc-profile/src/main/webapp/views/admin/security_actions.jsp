@@ -60,7 +60,7 @@
 										<c:set var="_row" value="${_row+1 }"></c:set>
 										<c:set var="roleSet" value="${action_roleset_map[action.id]}"></c:set>
 										<c:set var="relationSet" value="${action_relationset_map[action.id]}"></c:set>
-										
+
 										<input type="hidden" name="roles" value="${action.id}:0"><%--保证能提交一个 --%>
 										<input type="hidden" name="relations" value="${action.id}:0"><%--保证能提交一个 --%>
 										<tr class="${_row % 2 == 0 ? 'even' :'odd' }">

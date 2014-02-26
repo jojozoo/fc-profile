@@ -362,7 +362,7 @@ public class User implements DepartmentAssignable {
         this.subordinateCount = subordinateCount;
     }
 
-    public int subordinateCount() {
+    public int getSubordinateCount() {
         return subordinateCount;
     }
 }
