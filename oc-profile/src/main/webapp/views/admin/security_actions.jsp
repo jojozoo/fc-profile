@@ -3,6 +3,7 @@
 <%@ taglib uri="http://struts.apache.org/tags-logic" prefix="logic" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ taglib uri="/WEB-INF/tld/oc-profile.tld" prefix="profile"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <%@ taglib uri="/WEB-INF/tld/oc-profile-functions.tld" prefix="profilefn"%>
 
 <c:set var="nav_menu" value="admin_security_actions"></c:set>
@@ -53,7 +54,7 @@
 								<c:set var="_row" value="0"></c:set>
 								<c:forEach var="category" items="${categories}" varStatus="status">	
 									<c:set var="_actions" value="${category_action_map[category]}"></c:set>
-									<c:set var="_actions_length" value="${_actions.size+0}"></c:set>
+									<c:set var="_actions_length" value="${_actions.size()+0}"></c:set>
 									<c:forEach var="action" items="${_actions}" varStatus="_status">
 										<c:set var="_is_first" value="${_status.index == 0 }"></c:set>
 										<c:set var="_row" value="${_row+1 }"></c:set>
