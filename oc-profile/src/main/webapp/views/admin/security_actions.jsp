@@ -54,7 +54,7 @@
 								<c:set var="_row" value="0"></c:set>
 								<c:forEach var="category" items="${categories}" varStatus="status">	
 									<c:set var="_actions" value="${category_action_map[category]}"></c:set>
-									<c:set var="_actions_length" value="${_actions.size()+0}"></c:set>
+									<c:set var="_actions_length" value="${fn:length(_actions)+0}"></c:set>
 									<c:forEach var="action" items="${_actions}" varStatus="_status">
 										<c:set var="_is_first" value="${_status.index == 0 }"></c:set>
 										<c:set var="_row" value="${_row+1 }"></c:set>
