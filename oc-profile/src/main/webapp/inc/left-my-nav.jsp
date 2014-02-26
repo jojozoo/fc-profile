@@ -58,7 +58,7 @@
 						<a class="title" href="/resume/my/view">我的简历</a>
 					</c:when>
 					<c:otherwise>
-						<span class="title">周报管理</span>
+						<span class="title">简历管理</span>
 					</c:otherwise>
 				</c:choose>
 			</profile:menu>
@@ -67,10 +67,10 @@
 			<profile:menu prefix="weeklyreport">
 				<c:choose>
 					<c:when test="${profilefn:access('view_weekly_report') }">
-						<a class="title" href="/weeklyreport/my">周报</a>
+						<a class="title" href="/weeklyreport/my">周报管理</a>
 					</c:when>
 					<c:otherwise>
-						<span class="title">周报</span>
+						<span class="title">周报管理</span>
 					</c:otherwise>
 				</c:choose>
 			</profile:menu>

@@ -28,7 +28,7 @@ public class ProfileConfigHelper implements ApplicationContextAware {
     }
 
     private ProfileConfigHelper() {
-        store = new ProfileStore<Map<Integer, ProfileConfig>>("renren.profile.dbconfig.cache", "数据库配置") {
+        store = new ProfileStore<Map<Integer, ProfileConfig>>("orientalComics.profile.dbconfig.cache", "数据库配置") {
 
             @Override
             protected Map<Integer, ProfileConfig> newObject() {

@@ -16,7 +16,7 @@ public abstract class AbstractControllerInterceptorAdapter extends ControllerInt
     };
 
     @Override
-    public final int getPriority() {
+    public int getPriority() {
         PriorityType priorityType = getPriorityType();
         int order = priorityType == null ? PriorityType.values().length : priorityType.ordinal();
         return 1000000 - order;

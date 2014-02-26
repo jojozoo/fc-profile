@@ -4,8 +4,6 @@ import net.paoding.rose.web.Invocation;
 import net.paoding.rose.web.InvocationUtils;
 import net.paoding.rose.web.annotation.Ignored;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.orientalcomics.profile.OcProfileConstants;
@@ -15,9 +13,10 @@ import com.orientalcomics.profile.biz.model.User;
 import com.orientalcomics.profile.core.annotations.IgnorePassportValidation;
 import com.orientalcomics.profile.core.annotations.IgnoreUserStatusImportedValidation;
 import com.orientalcomics.profile.core.annotations.IgnoreUserStatusValidation;
+import com.orientalcomics.profile.util.logging.ILogger;
+import com.orientalcomics.profile.util.logging.ProfileLogger;
 import com.orientalcomics.profile.web.access.ProfileHostHolder;
 import com.orientalcomics.profile.web.constants.AjaxType;
-import com.orientalcomics.profile.web.interceptors.LoginInterceptor;
 import com.orientalcomics.profile.web.utils.AjaxUtils;
 
 @Ignored
@@ -26,7 +25,7 @@ import com.orientalcomics.profile.web.utils.AjaxUtils;
 @IgnoreUserStatusValidation
 public abstract class BaseController implements OcProfileConstants {
 
-	protected Logger LOG = LoggerFactory.getLogger(LoginInterceptor.class);
+    protected ILogger             LOG = ProfileLogger.getLogger(this.getClass());
 	
     @Autowired
     protected ProfileConfigHelper configHelper;
