@@ -44,7 +44,7 @@
 	});
 	
 	jQuery(function($){
-		(function() {
+/* 		(function() {
 			var cache = {}, lastXhr;
 			var inputObj =$('#user-input');
 			inputObj.suggest({
@@ -58,7 +58,7 @@
 					return false;
 				}
 			});
-		})();
+		})(); */
 		
 		$('#add-user-btn').click(function(){
 			var email = $('#user-input').val();

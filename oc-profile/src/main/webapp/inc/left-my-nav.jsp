@@ -96,7 +96,7 @@
 		
 		<dl>
 			<profile:menu prefix="svn">
-				<a class="title" href="/svn/index">我的SVN<img src="/static/images/new.gif"></a>
+				<a class="title" href="/svn/index">我的SVN</a>
 			</profile:menu>
 		</dl>
 		
