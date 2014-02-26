@@ -23,10 +23,9 @@
 
 	<div id="container">
 	<form method="POST" action="/login">
-		<input type="text" name="loginName"> </input></br>
-		<input type="password" name="loginPassword"> </input></br>
-		<input type="hidden"></input></br>
-		<input type="submit">登录</input>
+		<input type="text" name="loginName"/></br>
+		<input type="password" name="loginPassword"/></br>
+		<input type="submit" title="登录"></input>
 	</form>
 	</div>
 
