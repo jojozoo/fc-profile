@@ -48,7 +48,7 @@ public class NetUtils implements OcProfileConstants {
         Date expiredTime = token.getExpiredTime();
         long seconds = -1;
         if (expiredTime != null) {
-            seconds = expiredTime.getTime() - System.currentTimeMillis() / 1000;
+            seconds = (expiredTime.getTime() - System.currentTimeMillis()) / 1000;
             if (seconds > Integer.MAX_VALUE) {
                 seconds = -1;
             }
@@ -57,4 +57,7 @@ public class NetUtils implements OcProfileConstants {
         CookieManager.getInstance().saveCookie(response, COOKIE_KEY_USER, String.valueOf(token.getUserId()), (int) seconds, "/", PROFILE_MAIN_DOMAIN);
         CookieManager.getInstance().saveCookie(response, COOKIE_KEY_TOKEN, token.getToken(), (int) seconds, "/", PROFILE_MAIN_DOMAIN);
     }
+    public static void main(String[] args) {
+		
+	}
 }

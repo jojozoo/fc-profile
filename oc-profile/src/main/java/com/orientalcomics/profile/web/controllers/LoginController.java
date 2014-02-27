@@ -116,5 +116,12 @@ public class LoginController extends BaseController {
         }
         return "r:/info/my";
 	}
+    public static void main(String[] args) {
+		Date  data = new  Date(System.currentTimeMillis() + TimeUnit.DAYS.toMillis(MAX_LOGIN_DAYS));
+		System.out.println(""+data);
+		
+		long seconds = (data.getTime() - System.currentTimeMillis()) / 1000;
+		System.out.println(""+seconds);
+	}
     
 }
