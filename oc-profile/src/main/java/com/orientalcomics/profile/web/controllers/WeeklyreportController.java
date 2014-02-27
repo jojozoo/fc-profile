@@ -234,7 +234,7 @@ public class WeeklyreportController extends LoginRequiredController {
             report.setStatus(newStatus.getId());
             report.setSupplementary(isSupplementary);
             report.setQa(qA);
-            report.setEmailTos("fc-biz@foundercomics.com");
+            report.setEmailTos("zhanghao@foundercomics.com");
             weeklyReportDAO.update(report);
             
             // success
