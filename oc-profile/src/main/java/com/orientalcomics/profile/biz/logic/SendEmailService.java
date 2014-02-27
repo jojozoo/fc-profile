@@ -831,6 +831,10 @@ public class SendEmailService implements OcProfileConstants {
 
         emailContent = PlaceHolder.resolve(emailContent, placeMap);
 
+        if (LOG.isDebugEnabled()) {
+            LOG.debug("发邮件的内容！++==="+emailContent);
+        }
+        
         // 主管的信息和用户的信息
         User toEmailMangerUser = userService.query(user.getManagerId());
         List<User> toMails = new ArrayList<User>();

@@ -61,6 +61,7 @@ public class ProfileMail {
         HtmlEmail email = new HtmlEmail();
         email.setHostName(emailHostName);
         email.setAuthentication("no-reply@foundercomics.com", "disabled");
+        email.setCharset("UTF-8");
         email.setDebug(true);
         email.setSmtpPort(465);
         email.setSSL(true);
@@ -144,6 +145,6 @@ public class ProfileMail {
         List<EmailUser> toMails = new ArrayList<EmailUser>();
         toMails.add(new EmailUser("zhanghao", "zhanghao@foundercomics.com"));
 
-        mail.sendEmail(new EmailUser("zhanghao", "no-reply@foundercomics.com"), toMails, "测试邮件", "http://www.126.com");
+        mail.sendEmail(new EmailUser("zhanghao", "no-reply@foundercomics.com"), toMails, "测试邮件", "http://www.126.com测试邮件测试邮件测试邮件测试邮件");
     }
 }
