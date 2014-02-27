@@ -61,7 +61,6 @@ public class ProfileMail {
         HtmlEmail email = new HtmlEmail();
         email.setHostName(emailHostName);
         email.setAuthentication("no-reply@foundercomics.com", "disabled");
-        email.setCharset("GB2312");
         email.setDebug(true);
         email.setSmtpPort(465);
         email.setSSL(true);
