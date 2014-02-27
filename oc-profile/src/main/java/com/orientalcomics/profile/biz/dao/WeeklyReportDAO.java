@@ -13,7 +13,7 @@ import net.paoding.rose.jade.annotation.SQLParam;
 import com.orientalcomics.profile.biz.model.WeeklyReport;
 import com.orientalcomics.profile.constants.status.WeeklyReportStatus;
 
-@DAO(catalog = "audit_content")
+@DAO
 public interface WeeklyReportDAO {
     String TABLE             = "weekly_report";
     // -------- { Column Defines

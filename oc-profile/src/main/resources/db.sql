@@ -501,6 +501,28 @@ CREATE TABLE `weekly_report_comment` (
   KEY `comment_userx` (`comment_user`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+DROP TABLE IF EXISTS `user_kpi`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `user_kpi` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) NOT NULL,
+  `perf_time_id` int(11) NOT NULL,
+  `target` varchar(128) NOT NULL,
+  `standard_plan` text NOT NULL,
+  `weight` float NOT NULL DEFAULT 0,
+  `action_result` text NOT NULL DEFAULT '',
+  `self_score` float NOT NULL DEFAULT 0,
+  `leader_score` float NOT NULL DEFAULT 0,
+  `status` tinyint NOT NULL DEFAULT 0,
+  `edit_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  KEY `user_idx` (`user_id`),
+  KEY `perf_time_idx` (`perf_time_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
