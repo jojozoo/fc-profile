@@ -3,6 +3,8 @@ package com.orientalcomics.profile.biz.logic;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -34,6 +36,8 @@ public class AsyncSendEmailService {
 
 	private static final Executor exec = Executors.newFixedThreadPool(NTHREADS);
 
+	private static Logger LOG = LoggerFactory.getLogger(AsyncSendEmailService.class);
+	
 	public void sendApplyFlowerEmail(final User fromUser, final User leadUser, final User toUser, final String reason) {
 
 		exec.execute(new Runnable() {
@@ -187,6 +191,9 @@ public class AsyncSendEmailService {
 
 	public void sendSubmmitedPayWeeklyReportEmail(final WeeklyReport report, final User user) {
 		
+		if (LOG.isDebugEnabled()) {
+			LOG.debug("start send Pay weeklyrepot ");
+		}
 		exec.execute(new Runnable() {
 
 			@Override
@@ -199,11 +206,16 @@ public class AsyncSendEmailService {
 	}
 
 	public void sendSubmmitedWeeklyReportEmail(final WeeklyReport report, final User user) {
-		
+		if (LOG.isDebugEnabled()) {
+			LOG.debug("start send weeklyrepot ");
+		}
 		exec.execute(new Runnable() {
 
 			@Override
 			public void run() {
+				if (LOG.isDebugEnabled()) {
+					LOG.debug("run send weeklyrepot ");
+				}
 				sendEmailService.sendSubmmitedWeeklyReportEmail(report, user);
 			}
 
@@ -260,6 +272,9 @@ public class AsyncSendEmailService {
 			}
 
 		});
+		
+	}
+	public static void main(String[] args) {
 		
 	}
 }

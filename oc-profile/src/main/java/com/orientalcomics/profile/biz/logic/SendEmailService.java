@@ -62,7 +62,7 @@ public class SendEmailService implements OcProfileConstants {
     @Autowired
     private StatisticsService statisticsService;
 
-    private Logger LOG = LoggerFactory.getLogger(SendEmailService.class);
+    private static Logger LOG = LoggerFactory.getLogger(SendEmailService.class);
     
     
     public void sendNoSummbitedWeeklyUser() {
@@ -803,7 +803,7 @@ public class SendEmailService implements OcProfileConstants {
 
         } catch (EmailException e) {
 
-           // LOG.error("发送邮箱失败!", e);
+            LOG.error("发送邮箱失败!"+e.getMessage());
         }
 
     }
@@ -855,128 +855,71 @@ public class SendEmailService implements OcProfileConstants {
         }
     }
 
-//    /**
-//     * 积分申请邮件，发送给主管
-//     * 
-//     */
-//    public void sendApplyScoreEmail(User fromUser, User toUser, ScoreInfo scoreInfo) {
-//
-//        EmailText emailText = emailTextDAO.query(String.valueOf(SendEmailType.LEADER_CONFIRM_SCORE.getId()));
-//        if (emailText == null) {
-//
-//            LOG.info("查询emailText表根据email类型" + SendEmailType.LEADER_CONFIRM_FLOWER.getName() + "失败！");
-//            return;
-//
-//        }
-//
-//        LOG.info("积分申请发送邮件开始啦！");
-//
-//        String inviteEmailTitle = StringUtils.trimToEmpty(emailText.getEmailTitle());
-//        Map<String, Object> placeMap = new HashMap<String, Object>(5);
-//        placeMap.put(PlaceHolderType.XX_PLACE.getName(), fromUser.getName());
-//        placeMap.put(PlaceHolderType.YY_PLACE.getName(), scoreInfo.getFromInfo());
-//        inviteEmailTitle = PlaceHolder.resolve(inviteEmailTitle, placeMap);
-//
-//        String emailContent = StringUtils.trimToEmpty(emailText.getEmailContent());
-//        StringBuilder agreeUrl = new StringBuilder();
-//        agreeUrl.append(OcProfileConstants.PROFILE_MAIN_URL).append("/score/apply/confirmScore?flag=2&info_id=" + scoreInfo.getId());
-//        StringBuilder refuseUrl = new StringBuilder();
-//        refuseUrl.append(OcProfileConstants.PROFILE_MAIN_URL).append("/score/apply/confirmScore?flag=3&info_id=" + scoreInfo.getId());
-//        
-//        placeMap.put(PlaceHolderType.ZZ_PLACE.getName(), scoreInfo.getApplyReason());
-//        placeMap.put(PlaceHolderType.MM_PLACE.getName(), agreeUrl);
-//        placeMap.put(PlaceHolderType.NN_PLACE.getName(), refuseUrl);
-//        
-//
-//        emailContent = PlaceHolder.resolve(emailContent, placeMap);
-//
-//        sendNoServerEmail(Arrays.asList(toUser), inviteEmailTitle, emailContent, fromUser);
-//
-//    }
-    
-//    /**
-//     * 积分申请确认邮件，发送给申请人
-//     * 
-//     */
-//    public void sendConfirmScoreEmail(User leadUser, User toUser, ScoreInfo scoreInfo, int flag) {
-//
-//        EmailText emailText = emailTextDAO.query(String.valueOf(SendEmailType.LEADER_CONFIRM_SCORE.getId()));
-//        if (emailText == null) {
-//
-//            LOG.info("查询emailText表根据email类型" + SendEmailType.LEADER_CONFIRM_FLOWER.getName() + "失败！");
-//            return;
-//
-//        }
-//
-//        LOG.info("积分申请发送邮件开始啦！");
-//
-//        String inviteEmailTitle = StringUtils.trimToEmpty(emailText.getEmailTitle());
-//        Map<String, Object> placeMap = new HashMap<String, Object>(5);
-//        placeMap.put(PlaceHolderType.XX_PLACE.getName(), leadUser.getName());
-//        placeMap.put(PlaceHolderType.YY_PLACE.getName(), flag == 2 ? "同意" : "拒绝");
-//        placeMap.put(PlaceHolderType.ZZ_PLACE.getName(), scoreInfo.getFromInfo());
-//        inviteEmailTitle = PlaceHolder.resolve(inviteEmailTitle, placeMap);
-//
-//        String emailContent = StringUtils.trimToEmpty(emailText.getEmailContent());
-//        emailContent = PlaceHolder.resolve(emailContent, placeMap);
-//
-//        sendNoServerEmail(Arrays.asList(toUser), inviteEmailTitle, emailContent, leadUser);
-//
-//    }
     
     public static void main(String[] args) {
-//        String[] strs = { "何文", "2012-03-26~2012-04-01", "<p>测试</p>", "<p>测试</p>" };
-//        String content = "xx已提交yy的周报，地址：<a href =\"http://profile.renren-inc.com/weeklyreport/my\">http://profile.renren-inc.com/weeklyreport/my</a>。<br><strong>周报全文如下：</strong><br><strong> 本周要做的:</strong><br>zz<strong> 下周周要做的:</strong><br>nn";
-//
-//        System.out.println(StringUtils.replaceEach(content, new String[] { "xx", "yy", "zz", "nn" }, strs));
-//
+        String[] strs = { "何文", "2012-03-26~2012-04-01", "6","<p>测试</p>", "<p>测试</p>" , "<p>测试</p>"};
+        String content = "地址：<a href =\"http://weekly.ccdany.com/weeklyreport/${mm}\">http://weekly.ccdany.com/weeklyreport/${mm}</a>。<br><strong>周报全文如下：</strong><br><strong> 本周要做的:</strong><br>${zz}<strong> 下周周要做的:</strong><br>${nn}<br><strong> 遇到的问题和解决方案:</strong><br>${tt}";
+
+        System.out.println(StringUtils.replaceEach(content, new String[] { "xx", "yy","mm", "zz", "nn","tt" }, strs));
+
 //        Map<String, Object> holderMap = new HashMap<String, Object>();
 //        holderMap.put("xx", "2012年Q1");
 //        System.out.println(PlaceHolder.resolve("${xx}的考评即将截止", holderMap));
+        Map<String, Object> placeMap = new HashMap<String, Object>(5);
+        // 周报的内容
+        String emailContent = StringUtils.trimToEmpty(content);
+        placeMap.put(PlaceHolderType.MM_PLACE.getName(), String.valueOf(2));
+        placeMap.put(PlaceHolderType.ZZ_PLACE.getName(), "<p>测试</p>");
+        placeMap.put(PlaceHolderType.NN_PLACE.getName(), "<p>测试</p>");
+        placeMap.put(PlaceHolderType.TT_PLACE.getName(), "<p>测试</p>");
+
+        emailContent = PlaceHolder.resolve(emailContent, placeMap);
     	
-    	
+        
 
 		List<User> users = new ArrayList<User>();
 		
 		User user2 = new User();
-		user2.setName("何文");
-		user2.setEmail("wen.he1@renren-inc.com");
-		
+		user2.setName("张浩");
+		user2.setEmail("zhanghao@foundercomics.com");
+//		
 		users.add(user2);
 		
-		StringBuilder emailContent = new StringBuilder();
-		String tdStr1 = "<td width=230 nowrap valign=top style='width:105.0pt;border-top:solid #4BACC6 1.0pt;border-left:none;border-bottom:solid #4BACC6 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:12.75pt'><p class=MsoNormal align=left style='text-align:left'><b><span style='font-size:10.0pt;font-family:宋体;color:#31849B'>";
-		String tdStr2 = "</span></b><span lang=EN-US><o:p></o:p></span></p></td>";
-		emailContent.append("<body lang=ZH-CN link=blue vlink=purple style='text-justify-trim:punctuation'>")
-			.append("<div class=WordSection1>")
-			.append("<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width=700 style='width:525.0pt;border-collapse:collapse'>")
-			.append(" <tr style='height:12.75pt'>")
-			.append(tdStr1).append("员工编号").append(tdStr2)
-			.append(tdStr1).append("部门").append(tdStr2)
-			.append(tdStr1).append("姓名").append(tdStr2).append(" </tr>");
-
-		String contentTd1 = " <td width=230 nowrap valign=bottom style='width:105.0pt;background:#D2EAF1;padding:0cm 5.4pt 0cm 5.4pt;height:12.75pt'><p class=MsoNormal><span lang=EN-US style='font-size:10.0pt;font-family:"+"Arial"+",'sans-serif'"+"'>";
-		String contentTd2 = "</span><span lang=EN-US style='font-size:10.0pt;font-family:"+"Arial"+",'sans-serif'"+"'><o:p></o:p></span></p></td>";
-		
-		emailContent.append(" <tr style='height:12.75pt'>");
-		emailContent.append(contentTd1+"CIAC008008"+contentTd2);
-		emailContent.append(contentTd1+"三反五反范文芳/weqfwqefasf未访问"+contentTd2);
-		emailContent.append(contentTd1+"何文"+contentTd2).append("</tr>");
-		
-		emailContent.append(" <tr style='height:12.75pt'>");
-		emailContent.append(contentTd1+"CIAC008008"+contentTd2);
-		emailContent.append(contentTd1+"三反五反范文芳/weqfwqefasf未访问"+contentTd2);
-		emailContent.append(contentTd1+"何文2"+contentTd2).append("</tr>");
-		
-		emailContent.append(" <tr style='height:12.75pt'>");
-		emailContent.append(contentTd1+"CIAC008008"+contentTd2);
-		emailContent.append(contentTd1+"三反五反范文芳/weqfwqefasf未访问"+contentTd2);
-		emailContent.append(contentTd1+"何文3"+contentTd2).append("</tr>");
-		emailContent.append("</table>");
-		
-		emailContent.append("<p class=MsoNormal><span lang=EN-US style='color:black'><o:p>&nbsp;</o:p></span></p><p class=MsoNormal><span style='font-family:宋体;color:red'>注意：上面的名单部分人已经离职，请离职人员的经理发邮件告知我，谢谢！</span><span lang=EN-US style='color:black'><o:p></o:p></span></p>");
-
-        sendServerEmail(users, "who系统未提交周报通知", emailContent.toString());
+		sendServerEmail(users,"xx已提交yy的周报",emailContent);
+//		
+//		StringBuilder emailContent = new StringBuilder();
+//		String tdStr1 = "<td width=230 nowrap valign=top style='width:105.0pt;border-top:solid #4BACC6 1.0pt;border-left:none;border-bottom:solid #4BACC6 1.0pt;border-right:none;padding:0cm 5.4pt 0cm 5.4pt;height:12.75pt'><p class=MsoNormal align=left style='text-align:left'><b><span style='font-size:10.0pt;font-family:宋体;color:#31849B'>";
+//		String tdStr2 = "</span></b><span lang=EN-US><o:p></o:p></span></p></td>";
+//		emailContent.append("<body lang=ZH-CN link=blue vlink=purple style='text-justify-trim:punctuation'>")
+//			.append("<div class=WordSection1>")
+//			.append("<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width=700 style='width:525.0pt;border-collapse:collapse'>")
+//			.append(" <tr style='height:12.75pt'>")
+//			.append(tdStr1).append("员工编号").append(tdStr2)
+//			.append(tdStr1).append("部门").append(tdStr2)
+//			.append(tdStr1).append("姓名").append(tdStr2).append(" </tr>");
+//
+//		String contentTd1 = " <td width=230 nowrap valign=bottom style='width:105.0pt;background:#D2EAF1;padding:0cm 5.4pt 0cm 5.4pt;height:12.75pt'><p class=MsoNormal><span lang=EN-US style='font-size:10.0pt;font-family:"+"Arial"+",'sans-serif'"+"'>";
+//		String contentTd2 = "</span><span lang=EN-US style='font-size:10.0pt;font-family:"+"Arial"+",'sans-serif'"+"'><o:p></o:p></span></p></td>";
+//		
+//		emailContent.append(" <tr style='height:12.75pt'>");
+//		emailContent.append(contentTd1+"CIAC008008"+contentTd2);
+//		emailContent.append(contentTd1+"三反五反范文芳/weqfwqefasf未访问"+contentTd2);
+//		emailContent.append(contentTd1+"张浩"+contentTd2).append("</tr>");
+//		
+//		emailContent.append(" <tr style='height:12.75pt'>");
+//		emailContent.append(contentTd1+"CIAC008008"+contentTd2);
+//		emailContent.append(contentTd1+"三反五反范文芳/weqfwqefasf未访问"+contentTd2);
+//		emailContent.append(contentTd1+"张浩"+contentTd2).append("</tr>");
+//		
+//		emailContent.append(" <tr style='height:12.75pt'>");
+//		emailContent.append(contentTd1+"CIAC008008"+contentTd2);
+//		emailContent.append(contentTd1+"三反五反范文芳/weqfwqefasf未访问"+contentTd2);
+//		emailContent.append(contentTd1+"张浩"+contentTd2).append("</tr>");
+//		emailContent.append("</table>");
+//		
+//		emailContent.append("<p class=MsoNormal><span lang=EN-US style='color:black'><o:p>&nbsp;</o:p></span></p><p class=MsoNormal><span style='font-family:宋体;color:red'>注意：上面的名单部分人已经离职，请离职人员的经理发邮件告知我，谢谢！</span><span lang=EN-US style='color:black'><o:p></o:p></span></p>");
+//
+//        sendServerEmail(users, "who系统未提交周报通知", emailContent.toString());
     
     }
 

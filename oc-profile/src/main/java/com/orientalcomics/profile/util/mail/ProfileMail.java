@@ -27,7 +27,7 @@ import com.orientalcomics.profile.util.logging.ProfileLogger;
 public class ProfileMail {
 
     private ILogger logger        = ProfileLogger.getLogger(this.getClass());
-    private String  emailHostName = "smtp.renren-inc.com";
+    private String  emailHostName = "smtp.gmail.com";
 
     public ProfileMail(String emailHostName) {
         this.emailHostName = emailHostName;
@@ -60,8 +60,12 @@ public class ProfileMail {
         // email 设置主机以及字符编码
         HtmlEmail email = new HtmlEmail();
         email.setHostName(emailHostName);
+        email.setAuthentication("no-reply@foundercomics.com", "disabled");
         email.setCharset("GB2312");
-
+        email.setDebug(true);
+        email.setSmtpPort(465);
+        email.setSSL(true);
+        
         try {
 
             for (EmailUser to : tos) {
@@ -137,10 +141,10 @@ public class ProfileMail {
 
     public static void main(String args[]) throws EmailException {
 
-        ProfileMail mail = new ProfileMail("smtp.renren-inc.com");
+        ProfileMail mail = new ProfileMail("smtp.gmail.com");
         List<EmailUser> toMails = new ArrayList<EmailUser>();
-        toMails.add(new EmailUser("何文", "wen.he1@renren-inc.com"));
+        toMails.add(new EmailUser("zhanghao", "zhanghao@foundercomics.com"));
 
-        mail.sendEmail(new EmailUser("何文1", "wen.he1@renren-inc.com"), toMails, "测试邮件", "http://www.126.com");
+        mail.sendEmail(new EmailUser("zhanghao", "no-reply@foundercomics.com"), toMails, "测试邮件", "http://www.126.com");
     }
 }
