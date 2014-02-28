@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Set;
 
+import net.paoding.rose.jade.annotation.DAO;
 import net.paoding.rose.jade.annotation.ReturnGeneratedKeys;
 import net.paoding.rose.jade.annotation.SQL;
 import net.paoding.rose.jade.annotation.SQLParam;
@@ -18,6 +19,7 @@ import com.orientalcomics.profile.constants.status.WeeklyReportStatus;
  * @version 创建时间：2014年2月27日 下午5:55:53 
  * 类说明 
  */
+@DAO
 public interface DailyReportDAO {
 	
 	String TABLE             = "daily_report";

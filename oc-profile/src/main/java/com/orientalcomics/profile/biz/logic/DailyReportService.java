@@ -6,13 +6,10 @@ import org.apache.commons.collections.map.LRUMap;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.orientalcomics.profile.OcProfileConstants;
 import com.orientalcomics.profile.biz.dao.DailyReportDAO;
 import com.orientalcomics.profile.biz.model.DailyReport;
 import com.orientalcomics.profile.constants.status.DailyReportStatus;
-import com.orientalcomics.profile.util.time.DateTimeUtil;
 import com.orientalcomics.profile.util.time.TimeFormatUtils;
-import com.orientalcomics.profile.util.time.TimeUtils;
 
 /** 
  * @author 张浩 E-mail:zhanghao@foundercomics.com 
@@ -21,6 +18,7 @@ import com.orientalcomics.profile.util.time.TimeUtils;
  */
 @Service
 public class DailyReportService {
+	
 	@Autowired
     DailyReportDAO dailyReportDAO;
 
