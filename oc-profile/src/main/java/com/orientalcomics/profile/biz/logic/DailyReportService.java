@@ -41,6 +41,11 @@ public class DailyReportService {
         if (dailyReportCache.containsKey(key)) {
             return;
         }
+        
+        if(LOG.isDebugEnabled()){
+    		LOG.debug("日报开始时间为："+reportDate);
+    	}
+        
         //当天的日报
         DailyReport report = dailyReportDAO.getReportOfToday(userId, reportDate);
         if (report != null) {
@@ -48,6 +53,10 @@ public class DailyReportService {
         	dailyReportCache.put(key, true);
         	return;
         }
+        
+        if(LOG.isDebugEnabled()){
+    		LOG.debug("创建空的日报");
+    	}
 
         // 还没有日报，生成一个空白的plan
         DailyReport emptyReport = new DailyReport();
@@ -92,7 +101,7 @@ public class DailyReportService {
     		Calendar cal = new GregorianCalendar();
         	cal.setTime(curDate);
         	cal.set(Calendar.DAY_OF_MONTH, cal.get(Calendar.DAY_OF_MONTH) - 1);
-			Date yestDate = cal.getTime();
+			Date yestDate = TimeUtils.FetchTime.yestoday();
 			
 			return getStartTimeOfDate(yestDate);
     		
