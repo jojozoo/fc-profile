@@ -90,27 +90,16 @@ public class DailyReportController extends LoginRequiredController{
         
         // 判断用户是否已写当天的日报
         DailyReport editedReport = null;
-        DailyReport report = dailyReportDAO.getReportOfToday(userId, reportStoreDate);
-        
-        if (LOG.isDebugEnabled()) {
-			LOG.debug("report is null :" + (report == null) + ";report date is :"+reportStoreDate);
-		}
-        
-        if (report != null) {
-            if (report.getStatus() != DailyReportStatus.SUBMITTED.getId() || report.getContentDone() == null 
-            		|| report.getContentDone().length() < 2) {// 如果未提交，则还需要继续编辑
-                editedReport = report;
-            }
-        }
-        
-        if (LOG.isDebugEnabled()) {
-			LOG.debug("edit reprot is null :" + (editedReport == null));
-		}
-        
-        inv.addModel("editedReport", editedReport);
         
         // 获取用户的日报记录
-        renderReports(inv, page, userId, pStartDate, pEndDate, curPage);
+       List<DailyReport> list = renderReports(inv, page, userId, pStartDate, pEndDate, curPage);
+       if(list != null){
+    	   DailyReport report = list.get(0);
+    	   if(report.getReportDate().equals(reportStoreDate)){
+    		   editedReport = report;
+    		   inv.addModel("editedReport", editedReport);
+    	   }
+       }
         inv.addModel("editableIds", getEditableReportIds(userId));
         return "dailyreport_my";
     }
@@ -311,7 +300,7 @@ public class DailyReportController extends LoginRequiredController{
 
     }
 
-    private void renderReports(Invocation inv, HtmlPage page, int ownerId, String pStartDate, String pEndDate, int curPage) {
+    private List<DailyReport> renderReports(Invocation inv, HtmlPage page, int ownerId, String pStartDate, String pEndDate, int curPage) {
         FormValidator fv = page.formValidator();
         // 时间
         final int timeField = Calendar.DATE;
@@ -321,13 +310,10 @@ public class DailyReportController extends LoginRequiredController{
         fv.assertFalse(StringUtils.isNotBlank(pEndDate) && endDate == null, "date", "结束时间格式不对");
         fv.assertFalse(startDate != null && endDate != null && endDate.before(startDate), "date", "结束的创建时间不能早于开始时间");
         if (fv.isFailed()) {
-            return;
+            return null;
         }
-        // 修正时间
-        Date startMonday = startDate == null ? null : DateTimeUtil.getMondayOfWeek(startDate);
-        Date endMonday = endDate == null ? null : DateTimeUtil.getMondayOfWeek(endDate);
 
-        int total = dailyReportDAO.countByUserBetweenDate(ownerId, startMonday, endMonday);
+        int total = dailyReportDAO.countAll();
         int pageSize = getPageSize(PageSizeConfigView.DAILY_REPORT);
         curPage = checkAndReturnPage(curPage, total, pageSize);
 
@@ -335,7 +321,7 @@ public class DailyReportController extends LoginRequiredController{
         inv.addModel("pagesize", pageSize);
         inv.addModel("curpage", curPage);
 
-        List<DailyReport> weeklyReports = dailyReportDAO.queryByUserBetweenDate(ownerId, startMonday, endMonday, curPage * pageSize, pageSize);
+        List<DailyReport> weeklyReports = dailyReportDAO.queryByUserIdByLimit(ownerId, curPage * pageSize, pageSize);
         if(LOG.isDebugEnabled()){
         	
         	Date nowReport = dailyReportService.generateStartDailyPortTime(new Date());
@@ -349,6 +335,7 @@ public class DailyReportController extends LoginRequiredController{
 
         inv.addModel("reports", weeklyReports);
 
+        return weeklyReports;
     }
 
     private boolean renderSubordinateReports(Invocation inv, HtmlPage page, int userId, String pDate, int curPage) {

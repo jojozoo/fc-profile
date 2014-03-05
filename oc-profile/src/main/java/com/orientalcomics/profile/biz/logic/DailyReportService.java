@@ -79,8 +79,12 @@ public class DailyReportService {
         // 尝试插入本周空白的
         emptyReport.setEmailTos(emailTos);
         emptyReport.setReportDate(reportDate);
-        dailyReportDAO.insert(emptyReport);
-        dailyReportCache.put(key, true);
+        try{
+        	dailyReportDAO.insert(emptyReport);
+        	dailyReportCache.put(key, true);
+        }catch (Exception e){
+        	LOG.warn("创建失败:"+e.getLocalizedMessage());
+        }
     }
 
     

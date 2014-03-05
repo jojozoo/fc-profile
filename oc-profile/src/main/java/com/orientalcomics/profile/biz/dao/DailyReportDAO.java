@@ -87,6 +87,10 @@ public interface DailyReportDAO {
     @SQL("select $FIELDS_ALL from " + TABLE + " where `user_id` in (:1) and report_date = date(:2)")
     public List<DailyReport> queryByUserIdsByReportDate(Collection<Integer> userIds, Date reportDate);
 
+    
+    @SQL("select $FIELDS_ALL from " + TABLE + " where `user_id` in (:1)  order by report_date desc limit :2,:3")
+    public List<DailyReport> queryByUserIdByLimit(int userid,int offset,int count);
+    
     /**
      * 获取用户的日报记录（按时间降序排列）
      * 
