@@ -233,7 +233,11 @@ public final class StatusService {
     public UserPerfStatus getUserPerfStatus(int userId) {
 
         PerfTime perfTime = perfTimeService.queryLastest();
-
+        
+        if(perfTime == null){
+        	return UserPerfStatus.READY;
+        }
+        
         try {
 
             UserPerf userPerf = userSelfPerfDAO.queryByUserIdAndPerfTimeID(userId, perfTime.getId());
