@@ -35,14 +35,14 @@ public class DailyReportService {
     public void createEmptyReportsIfNecessary(int userId, Date curDate) {
 
     	//此时应该写的是哪天的日报
-    	Date startDate = generateStartDailyPortTime(curDate);
+    	Date reportDate = generateStartDailyPortTime(curDate);
     	
-        String key = userId + "_" + TimeFormatUtils.date(startDate);
+        String key = userId + "_" + TimeFormatUtils.date(reportDate);
         if (dailyReportCache.containsKey(key)) {
             return;
         }
         //当天的日报
-        DailyReport report = dailyReportDAO.getReportOfToday(userId, startDate);
+        DailyReport report = dailyReportDAO.getReportOfToday(userId, reportDate);
         if (report != null) {
         	
         	dailyReportCache.put(key, true);
@@ -54,22 +54,22 @@ public class DailyReportService {
         emptyReport.setUserId(userId);
         emptyReport.setStatus(DailyReportStatus.READY.getId());
         
-        String emailTos = dailyReportDAO.getLastestNonBlankEmailTosBefore(userId,curDate);
+        String emailTos = dailyReportDAO.getLastestNonBlankEmailTosBefore(userId,reportDate);
         // 尝试插入历史空白的
-        DailyReport lastestReport = dailyReportDAO.getLastestReportBefore(userId, curDate);
+        DailyReport lastestReport = dailyReportDAO.getLastestReportBefore(userId, reportDate);
         
         if (lastestReport != null) {
             Date lastedReportDate = lastestReport.getReportDate();
-            while (lastedReportDate.before(startDate)) {
+            while (lastedReportDate.before(reportDate)) {
                 emptyReport.setEmailTos(emailTos);
-                emptyReport.setReportDate(curDate);
+                emptyReport.setReportDate(reportDate);
                 dailyReportDAO.insert(emptyReport);
             }
         }
 
         // 尝试插入本周空白的
         emptyReport.setEmailTos(emailTos);
-        emptyReport.setReportDate(curDate);
+        emptyReport.setReportDate(reportDate);
         dailyReportDAO.insert(emptyReport);
         dailyReportCache.put(key, true);
     }

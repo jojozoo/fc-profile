@@ -91,11 +91,13 @@ public class DailyReportController extends LoginRequiredController{
         DailyReport editedReport = null;
         DailyReport report = dailyReportDAO.getReportOfToday(userId, reportStoreDate);
         if (report != null) {
-            if (report.getStatus() != DailyReportStatus.SUBMITTED.getId()) {// 如果未提交，则还需要继续编辑
+            if (report.getStatus() != DailyReportStatus.SUBMITTED.getId() || report.getContentDone() == null 
+            		|| report.getContentDone().length() < 2) {// 如果未提交，则还需要继续编辑
                 editedReport = report;
             }
         }
         inv.addModel("editedReport", editedReport);
+        
         // 获取用户的日报记录
         renderReports(inv, page, userId, pStartDate, pEndDate, curPage);
         inv.addModel("editableIds", getEditableReportIds(userId));
@@ -387,20 +389,16 @@ public class DailyReportController extends LoginRequiredController{
     }
 
     private Set<Integer> getEditableReportIds(int userId) {
-        Date today = TimeUtils.FetchTime.today();// 今天
-        Date monday = DateTimeUtil.getMondayOfWeek(today);// 周一
-        // 确定可以编辑哪些周报
-        // 1. 只允许编辑“本周”和“上周”未提交的周报
+        // 1. 只允许编辑当天没有写晚报的日报
         Set<Integer> editableIds = new HashSet<Integer>();
-        int weekCount = 2;// 两周
-        Date date = monday;
-        while ((--weekCount) >= 0) {
-            DailyReport workReport = dailyReportDAO.getReportOfToday(userId, date);
-            if (workReport != null && workReport.getStatus() != DailyReportStatus.SUBMITTED.getId()) {// 周报没有提交
-                editableIds.add(workReport.getId());
-            }
-            date = TimeUtils.Operate.subDate(date, 7);// 上周
-        }
+        
+        Date date = dailyReportService.generateStartDailyPortTime(new Date());
+        DailyReport workReport = dailyReportDAO.getReportOfToday(userId, date);
+          if (workReport != null && workReport.getStatus() != DailyReportStatus.SUBMITTED.getId()
+        		  && workReport.getContentDone() != null && workReport.getContentDone().length() > 2) {// 晚报没有提交
+        	  
+               editableIds.add(workReport.getId());
+          }
 
         return editableIds;
     }
