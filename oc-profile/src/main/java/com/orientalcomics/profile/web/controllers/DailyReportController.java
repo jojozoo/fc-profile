@@ -340,8 +340,13 @@ public class DailyReportController extends LoginRequiredController{
 
         List<DailyReport> weeklyReports = dailyReportDAO.queryByUserBetweenDate(ownerId, startMonday, endMonday, curPage * pageSize, pageSize);
         if(LOG.isDebugEnabled()){
+        	
+        	Date nowReport = dailyReportService.generateStartDailyPortTime(new Date());
+            LOG.debug("query date is :"+ nowReport);
+            
             for (DailyReport report: weeklyReports){
             	LOG.debug("report date is :"+report.getReportDate());
+            	LOG.debug("is equal :"+nowReport.equals(report.getReportDate()));
             }
         }
 

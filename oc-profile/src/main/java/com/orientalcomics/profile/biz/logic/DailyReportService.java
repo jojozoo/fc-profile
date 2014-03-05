@@ -96,12 +96,7 @@ public class DailyReportService {
     	
     	//如果在今天日报点之前，就是昨天的
     	if(curDate.before(todayReportTime)){
-    		
-    		Calendar cal = new GregorianCalendar();
-        	cal.setTime(curDate);
-        	cal.set(Calendar.DAY_OF_MONTH, cal.get(Calendar.DAY_OF_MONTH) - 1);
 			Date yestDate = TimeUtils.FetchTime.yestoday();
-			
 			return getStartTimeOfDate(yestDate);
     		
     	}else{
@@ -119,9 +114,9 @@ public class DailyReportService {
     	
     	Date zeroTime = TimeUtils.Floor.floorToDate(date);
     	
-    	Calendar cal = new GregorianCalendar();
+    	Calendar cal = Calendar.getInstance();
     	cal.setTime(zeroTime);
-    	cal.set(Calendar.HOUR_OF_DAY, 3);
+    	cal.add(Calendar.HOUR_OF_DAY, 3);
     	
     	Date newDate = cal.getTime();
     	
