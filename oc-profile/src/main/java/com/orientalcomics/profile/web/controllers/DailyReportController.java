@@ -83,12 +83,10 @@ public class DailyReportController extends LoginRequiredController{
             @Param("curpage") int curPage) {
     	
         int userId = currentUserId();
-        // 读取当前日期
-        Date curDate = new Date();
         
-        dailyReportService.createEmptyReportsIfNecessary(userId, curDate);// 如果需要就创建Ta的日报
+        dailyReportService.createEmptyReportsIfNecessary(userId);// 如果需要就创建Ta的日报
 
-       Date reportStoreDate =  dailyReportService.generateStartDailyPortTime(curDate);
+       Timestamp reportStoreDate =  dailyReportService.generateStartDailyPortTime(new Date());
         
         // 判断用户是否已写当天的日报
         DailyReport editedReport = null;

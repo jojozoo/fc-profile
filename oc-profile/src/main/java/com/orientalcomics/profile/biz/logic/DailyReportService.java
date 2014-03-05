@@ -1,5 +1,6 @@
 package com.orientalcomics.profile.biz.logic; 
 
+import java.sql.Timestamp;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -31,10 +32,10 @@ public class DailyReportService {
 
     private static Logger LOG = LoggerFactory.getLogger(DailyReportService.class);
     
-    public void createEmptyReportsIfNecessary(int userId, Date curDate) {
+    public void createEmptyReportsIfNecessary(int userId) {
 
     	//此时应该写的是哪天的日报
-    	Date reportDate = generateStartDailyPortTime(curDate);
+    	Date reportDate = generateStartDailyPortTime(new Date());
     	
         String key = userId + "_" + TimeFormatUtils.date(reportDate);
         if (dailyReportCache.containsKey(key)) {
@@ -89,14 +90,14 @@ public class DailyReportService {
      * @param curDate
      * @return
      */
-    public Date generateStartDailyPortTime(Date curDate){
+    public Timestamp generateStartDailyPortTime(Date curDate){
     	
     	
-    	Date todayReportTime = getStartTimeOfDate(curDate);
+    	Timestamp todayReportTime = getStartTimeOfDate(curDate);
     	
     	//如果在今天日报点之前，就是昨天的
     	if(curDate.before(todayReportTime)){
-			Date yestDate = TimeUtils.FetchTime.yestoday();
+    		Timestamp yestDate = TimeUtils.FetchTime.yestoday();
 			return getStartTimeOfDate(yestDate);
     		
     	}else{
@@ -110,15 +111,15 @@ public class DailyReportService {
      * @param date
      * @return
      */
-    public Date getStartTimeOfDate(Date date){
+    public Timestamp getStartTimeOfDate(Date date){
     	
-    	Date zeroTime = TimeUtils.Floor.floorToDate(date);
+    	Timestamp zeroTime = TimeUtils.Convert.toTimestamp(TimeUtils.Floor.floorToDate(date));
     	
     	Calendar cal = Calendar.getInstance();
     	cal.setTime(zeroTime);
     	cal.add(Calendar.HOUR_OF_DAY, 3);
     	
-    	Date newDate = cal.getTime();
+    	Timestamp newDate = TimeUtils.Convert.toTimestamp(cal.getTime());
     	
     	if(LOG.isDebugEnabled()){
     		LOG.debug("日报开始时间为："+newDate);

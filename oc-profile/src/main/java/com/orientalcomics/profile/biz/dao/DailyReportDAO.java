@@ -1,5 +1,6 @@
 package com.orientalcomics.profile.biz.dao; 
 
+import java.sql.Timestamp;
 import java.util.Collection;
 import java.util.Date;
 import java.util.List;
@@ -65,7 +66,7 @@ public interface DailyReportDAO {
      * @return
      */
     @SQL("select $FIELDS_ALL from " + TABLE + " where `user_id` = :1 and report_date = date(:2) limit 1")
-    public DailyReport getReportOfToday(int userId, Date today);
+    public DailyReport getReportOfToday(int userId, Timestamp today);
 
     /**
      * 查出当天，写了日报的人的id

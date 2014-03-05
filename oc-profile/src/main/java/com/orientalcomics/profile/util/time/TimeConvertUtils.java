@@ -21,4 +21,12 @@ public class TimeConvertUtils {
 	public static Timestamp toTimestamp(Date utilDate){
 		return new Timestamp(utilDate.getTime());
 	}
+	
+	public static void main(String[] args) {
+		Date date = new Date();
+		System.out.println(""+date);
+		System.out.println(""+toSqlDate(date));
+		
+		System.out.println(""+toTimestamp(date));
+	}
 }
