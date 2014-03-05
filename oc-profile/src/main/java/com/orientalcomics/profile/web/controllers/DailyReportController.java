@@ -120,8 +120,7 @@ public class DailyReportController extends LoginRequiredController{
     public String get_other(Invocation inv, HtmlPage page, @Param("owner") int owner, @Param("startdate") String pStartDate,
             @Param("enddate") String pEndDate, @Param("curpage") int curPage) {
         Date today = TimeUtils.FetchTime.today();// 今天
-        Date monday = DateTimeUtil.getMondayOfWeek(today);// 周一
-        dailyReportService.createEmptyReportsIfNecessary(owner, monday);// 创建Ta的周报
+        dailyReportService.createEmptyReportsIfNecessary(owner);// 创建Ta的周报
         renderReports(inv, page, owner, pStartDate, pEndDate, curPage);
         Set<Integer> rootUserIds = ProfileConfigHelper.ins().getValue(ProfileConfigs.IntegerSetConfigView.ROOT_USERS);
         inv.addModel("isRoot", rootUserIds.contains(this.currentUserId()));
@@ -393,7 +392,7 @@ public class DailyReportController extends LoginRequiredController{
         });
 
         for (int subordinateId : subordinateIds) {
-            dailyReportService.createEmptyReportsIfNecessary(subordinateId, reportDate);
+            dailyReportService.createEmptyReportsIfNecessary(subordinateId);
         }
 
         List<DailyReport> dailyReports = dailyReportDAO.queryByUserIdsByReportDate(subordinateIds, reportDate);
@@ -414,7 +413,7 @@ public class DailyReportController extends LoginRequiredController{
         // 1. 只允许编辑当天没有写晚报的日报
         Set<Integer> editableIds = new HashSet<Integer>();
         
-        Date date = dailyReportService.generateStartDailyPortTime(new Date());
+        Timestamp date = dailyReportService.generateStartDailyPortTime(new Date());
         DailyReport workReport = dailyReportDAO.getReportOfToday(userId, date);
           if (workReport != null && workReport.getStatus() != DailyReportStatus.SUBMITTED.getId()
         		  && workReport.getContentDone() != null && workReport.getContentDone().length() > 2) {// 晚报没有提交

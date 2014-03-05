@@ -35,7 +35,7 @@ public class DailyReportService {
     public void createEmptyReportsIfNecessary(int userId) {
 
     	//此时应该写的是哪天的日报
-    	Date reportDate = generateStartDailyPortTime(new Date());
+    	Timestamp reportDate = generateStartDailyPortTime(new Date());
     	
         String key = userId + "_" + TimeFormatUtils.date(reportDate);
         if (dailyReportCache.containsKey(key)) {
@@ -47,7 +47,7 @@ public class DailyReportService {
     	}
         
         //当天的日报
-        DailyReport report = dailyReportDAO.getReportOfToday(userId, reportDate);
+        DailyReport report = dailyReportDAO.getReportOfToday(userId,reportDate);
         if (report != null) {
         	
         	dailyReportCache.put(key, true);
