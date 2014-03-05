@@ -31,11 +31,10 @@ public interface DailyReportDAO {
     String IS_SUPPLEMENTARY  = "is_supplementary";
     String CONTENT_DONE      = "content_done";
     String CONTENT_PLAN      = "content_plan";
-    String Q_A               = "qa";
     // -------- } Column Defines
 
     String FIELD_PK          = "id";
-    String FIELDS_WITHOUT_PK = "user_id,report_date,status,email_tos,is_supplementary,content_done,content_plan,qa";
+    String FIELDS_WITHOUT_PK = "user_id,report_date,status,email_tos,is_supplementary,content_done,content_plan";
     String FIELDS_ALL        = FIELD_PK + "," + FIELDS_WITHOUT_PK;
 
     String BETWEEN_DATE      = " #if(:start!=null){ and report_date >= date(:start) } #if(:end!=null){ and report_date <= date(:end) }";
@@ -99,13 +98,13 @@ public interface DailyReportDAO {
     public List<DailyReport> queryByUserBetweenDate(int userId, @SQLParam("start") Date startDate, @SQLParam("end") Date endDate,
             @SQLParam("offset") int offset, @SQLParam("count") int count);
 
-    String SQL_UPDATE_MODEL_FILEDS_WITHOUT_PK = "user_id=:model.userId,report_date=:model.reportDate,status=:model.status,email_tos=:model.emailTos,is_supplementary=:model.isSupplementary,content_done=:model.contentDone,content_plan=:model.contentPlan,qa=:model.qa";
+    String SQL_UPDATE_MODEL_FILEDS_WITHOUT_PK = "user_id=:model.userId,report_date=:model.reportDate,status=:model.status,email_tos=:model.emailTos,is_supplementary=:model.isSupplementary,content_done=:model.contentDone,content_plan=:model.contentPlan";
 
     @SQL("update " + TABLE + " set " + SQL_UPDATE_MODEL_FILEDS_WITHOUT_PK + " where id=:1.id")
     public int update(@SQLParam("model") DailyReport model);
 
     @SQL("insert ignore into " + TABLE + " (" + FIELDS_WITHOUT_PK
-            + ") VALUES (:model.userId,:model.reportDate,:model.status,:model.emailTos,:model.isSupplementary,:model.contentDone,:model.contentPlan,:model.qa)")
+            + ") VALUES (:model.userId,:model.reportDate,:model.status,:model.emailTos,:model.isSupplementary,:model.contentDone,:model.contentPlan)")
     @ReturnGeneratedKeys
     public Integer insert(@SQLParam("model") DailyReport model);
 
