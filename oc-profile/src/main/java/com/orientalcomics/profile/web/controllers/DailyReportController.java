@@ -339,6 +339,12 @@ public class DailyReportController extends LoginRequiredController{
         inv.addModel("curpage", curPage);
 
         List<DailyReport> weeklyReports = dailyReportDAO.queryByUserBetweenDate(ownerId, startMonday, endMonday, curPage * pageSize, pageSize);
+        if(LOG.isDebugEnabled()){
+            for (DailyReport report: weeklyReports){
+            	LOG.debug("report date is :"+report.getReportDate());
+            }
+        }
+
         inv.addModel("reports", weeklyReports);
 
     }

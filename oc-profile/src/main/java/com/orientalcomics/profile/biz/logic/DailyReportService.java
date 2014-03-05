@@ -3,7 +3,6 @@ package com.orientalcomics.profile.biz.logic;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
-import java.util.TimeZone;
 
 import org.apache.commons.collections.map.LRUMap;
 import org.slf4j.Logger;
@@ -146,7 +145,7 @@ public class DailyReportService {
     	DailyReportService service = new DailyReportService();
     	Date date = service.generateStartDailyPortTime(tomorrow);
     	System.out.println(date);
-        
+    	
 	}
 }
  
