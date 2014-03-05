@@ -18,8 +18,8 @@ public class DailyReport {
     // 对应user的Id
     private int     userId          = 0;
 
-    // 周报对应的星期的周一日期
-    private Date    currentDate        = TimeUtils.Constant.TIME_1970;
+    // 日报对应的日期
+    private Date    reportDate        = TimeUtils.Constant.TIME_1970;
 
     // 状态码
     private int     status          = 0;
@@ -52,12 +52,12 @@ public class DailyReport {
 		this.userId = userId;
 	}
 
-	public Date getCurrentDate() {
-		return currentDate;
+	public Date getReportDate() {
+		return reportDate;
 	}
 
-	public void setCurrentDate(Date currentDate) {
-		this.currentDate = currentDate;
+	public void setReportDate(Date reportDate) {
+		this.reportDate = reportDate;
 	}
 
 	public int getStatus() {

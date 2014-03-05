@@ -8,6 +8,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.orientalcomics.profile.biz.model.DailyReport;
 import com.orientalcomics.profile.biz.model.RewardItem;
 import com.orientalcomics.profile.biz.model.User;
 import com.orientalcomics.profile.biz.model.WeeklyReport;
@@ -276,5 +277,27 @@ public class AsyncSendEmailService {
 	}
 	public static void main(String[] args) {
 		
+	}
+
+	//发送日报的晚报
+	public void sendSubmmitedDoneDailyReport(final DailyReport report, final User user) {
+		exec.execute(new Runnable() {
+			@Override
+			public void run() {
+				sendEmailService.sendDailyDone(report,user);
+			}
+
+		});
+	}
+
+	//发送日报的早报
+	public void sendSubmmitedPlanDailyReport(final DailyReport report,final  User user) {
+		exec.execute(new Runnable() {
+			@Override
+			public void run() {
+				sendEmailService.sendDailyPlan(report,user);
+			}
+
+		});
 	}
 }

@@ -41,8 +41,11 @@ public enum SendEmailType {
 	    LEADER_CONFIRM_SCORE(19, "积分申请（发给上级）"),
 	    
 	    
-	    LEADER_COMFIRM_FOR_SENDER(20, "积分申请同意或拒绝提醒，发给申请人")
+	    LEADER_COMFIRM_FOR_SENDER(20, "积分申请同意或拒绝提醒，发给申请人"),
+	    
+	    DAILY_REPORT_PLAN(21,"发送日报早报"),
 
+	    DAILY_REPORT_DONE(22,"发送日报晚报")
 	    ;
 	    
 	    private final int    id;

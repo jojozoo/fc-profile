@@ -19,6 +19,7 @@ import org.springframework.stereotype.Service;
 
 import com.orientalcomics.profile.OcProfileConstants;
 import com.orientalcomics.profile.biz.dao.EmailTextDAO;
+import com.orientalcomics.profile.biz.model.DailyReport;
 import com.orientalcomics.profile.biz.model.Department;
 import com.orientalcomics.profile.biz.model.EmailText;
 import com.orientalcomics.profile.biz.model.PerfTime;
@@ -859,6 +860,110 @@ public class SendEmailService implements OcProfileConstants {
         }
     }
 
+    //发晚报
+	public void sendDailyDone(DailyReport report, User user) {
+		
+		if(LOG.isDebugEnabled()){
+			LOG.debug("发邮件的提交日报晚报开始啦！");
+		}
+
+		EmailText emailText = emailTextDAO.query(String.valueOf(SendEmailType.DAILY_REPORT_DONE.getId()));
+		
+        // 周报的主题本周的周一和周日的日期精度是年月日
+        String emailTitle = StringUtils.trimToEmpty(emailText.getEmailTitle());
+        Map<String, Object> placeMap = new HashMap<String, Object>(5);
+        placeMap.put(PlaceHolderType.XX_PLACE.getName(), user.getName());
+        placeMap.put(
+                PlaceHolderType.YY_PLACE.getName(),
+                DateTimeUtil.getSimpleDateFormat(report.getReportDate()));
+        emailTitle = PlaceHolder.resolve(emailTitle, placeMap);
+
+        // 周报的内容
+        String emailContent = StringUtils.trimToEmpty(emailText.getEmailContent());
+        placeMap.put(PlaceHolderType.MM_PLACE.getName(), String.valueOf(user.getId()));
+        placeMap.put(PlaceHolderType.ZZ_PLACE.getName(), report.getContentDone());
+
+        emailContent = PlaceHolder.resolve(emailContent, placeMap);
+
+        if (LOG.isDebugEnabled()) {
+            LOG.debug("发邮件的内容！++==="+emailContent);
+        }
+        
+        // 主管的信息和用户的信息
+        User toEmailMangerUser = userService.query(user.getManagerId());
+        List<User> toMails = new ArrayList<User>();
+        if (toEmailMangerUser != null) {
+            toMails.add(toEmailMangerUser);
+        }
+        toMails.add(user);
+
+        // 添加用户指定的Emails
+        String emailTos = report.getEmailTos();
+        String[] emailToArray = StringUtils.split(emailTos, ";");
+        if (!ArrayUtils.isEmpty(emailToArray)) {
+            for (String email : emailToArray) {
+                toMails.add(new User(email, null));
+            }
+        }
+
+        sendNoServerEmail(toMails, emailTitle, emailContent, user);
+
+        if (LOG.isDebugEnabled()) {
+            LOG.debug("发邮件的提交日报晚报结束啦！");
+        }
+	}
+
+	//发早报
+	public void sendDailyPlan(DailyReport report, User user) {
+		if(LOG.isDebugEnabled()){
+			LOG.debug("发邮件的提交日报早报开始啦！");
+		}
+
+		EmailText emailText = emailTextDAO.query(String.valueOf(SendEmailType.DAILY_REPORT_PLAN.getId()));
+		
+        // 周报的主题本周的周一和周日的日期精度是年月日
+        String emailTitle = StringUtils.trimToEmpty(emailText.getEmailTitle());
+        Map<String, Object> placeMap = new HashMap<String, Object>(5);
+        placeMap.put(PlaceHolderType.XX_PLACE.getName(), user.getName());
+        placeMap.put(
+                PlaceHolderType.YY_PLACE.getName(),
+                DateTimeUtil.getSimpleDateFormat(report.getReportDate()));
+        emailTitle = PlaceHolder.resolve(emailTitle, placeMap);
+
+        // 周报的内容
+        String emailContent = StringUtils.trimToEmpty(emailText.getEmailContent());
+        placeMap.put(PlaceHolderType.MM_PLACE.getName(), String.valueOf(user.getId()));
+        placeMap.put(PlaceHolderType.ZZ_PLACE.getName(), report.getContentDone());
+
+        emailContent = PlaceHolder.resolve(emailContent, placeMap);
+
+        if (LOG.isDebugEnabled()) {
+            LOG.debug("发邮件的内容！++==="+emailContent);
+        }
+        
+        // 主管的信息和用户的信息
+        User toEmailMangerUser = userService.query(user.getManagerId());
+        List<User> toMails = new ArrayList<User>();
+        if (toEmailMangerUser != null) {
+            toMails.add(toEmailMangerUser);
+        }
+        toMails.add(user);
+
+        // 添加用户指定的Emails
+        String emailTos = report.getEmailTos();
+        String[] emailToArray = StringUtils.split(emailTos, ";");
+        if (!ArrayUtils.isEmpty(emailToArray)) {
+            for (String email : emailToArray) {
+                toMails.add(new User(email, null));
+            }
+        }
+
+        sendNoServerEmail(toMails, emailTitle, emailContent, user);
+
+        if (LOG.isDebugEnabled()) {
+            LOG.debug("发邮件的提交日报早报结束啦！");
+        }
+	}
     
     public static void main(String[] args) {
         String[] strs = { "何文", "2012-03-26~2012-04-01", "6","<p>测试</p>", "<p>测试</p>" , "<p>测试</p>"};

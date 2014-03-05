@@ -481,6 +481,22 @@ CREATE TABLE `weekly_report` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
+
+DROP TABLE IF EXISTS `daily_report`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `daily_report` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) NOT NULL,
+  `report_date` datetime NOT NULL,
+  `status` tinyint(4) DEFAULT '0',
+  `content_done` text NOT NULL DEFAULT '',
+  `content_plan` text NOT NULL DEFAULT '',
+  PRIMARY KEY (`id`),
+  KEY `user_idx` (`user_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
 --
 -- Table structure for table `weekly_report`
 --

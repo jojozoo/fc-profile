@@ -147,6 +147,11 @@ public abstract class ProfileConfigs {
         SUBORDINATE_KPI_SCORE(16, 20), // 对下属kpi打分
         SCORE_DETAILS(17,15),
         WHOTEST_ELEMENTS(18,50),//WHOTEST每页显示50条记录
+        
+        DAILY_REPORT(23, 20), // 用户的日报列表
+        
+     // 下属周报
+        SUBORDINATE_DAILY_REPORT(24, 20), // 【下属日报列表】的下属列表页
         ;
 
         public final int     id;
