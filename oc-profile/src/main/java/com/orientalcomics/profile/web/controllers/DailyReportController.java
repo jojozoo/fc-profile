@@ -15,6 +15,8 @@ import net.paoding.rose.web.annotation.rest.Get;
 import net.paoding.rose.web.annotation.rest.Post;
 
 import org.apache.commons.lang.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.google.common.base.Function;
@@ -65,7 +67,7 @@ public class DailyReportController extends LoginRequiredController{
     @Autowired
     private AsyncSendEmailService  sendEmailService;
     
-
+    private static Logger LOG = LoggerFactory.getLogger(DailyReportController.class);
     /**
      * 权限就引用周报的
      * @param inv
@@ -79,6 +81,7 @@ public class DailyReportController extends LoginRequiredController{
     @Get("my")
     public String get_my(Invocation inv, HtmlPage page, @Param("startdate") String pStartDate, @Param("enddate") String pEndDate,
             @Param("curpage") int curPage) {
+    	
         int userId = currentUserId();
         // 读取当前日期
         Date curDate = new Date();
@@ -90,12 +93,22 @@ public class DailyReportController extends LoginRequiredController{
         // 判断用户是否已写当天的日报
         DailyReport editedReport = null;
         DailyReport report = dailyReportDAO.getReportOfToday(userId, reportStoreDate);
+        
+        if (LOG.isDebugEnabled()) {
+			LOG.debug("report is null :" + (report == null) + ";report date is :"+reportStoreDate);
+		}
+        
         if (report != null) {
             if (report.getStatus() != DailyReportStatus.SUBMITTED.getId() || report.getContentDone() == null 
             		|| report.getContentDone().length() < 2) {// 如果未提交，则还需要继续编辑
                 editedReport = report;
             }
         }
+        
+        if (LOG.isDebugEnabled()) {
+			LOG.debug("edit reprot is null :" + (editedReport == null));
+		}
+        
         inv.addModel("editedReport", editedReport);
         
         // 获取用户的日报记录

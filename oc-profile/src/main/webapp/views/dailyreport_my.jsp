@@ -86,10 +86,7 @@
 					<form id="report_form" node-type="ajax-form">
 						<input type="hidden" name="id" value="${editedReport.id }">
 						<h3>
-							<profile:formatDate value="${editedReport.startDate}" type="date" />
-							至 
-							<profile:formatDate value="${editedReport.endDate}" type="date" />
-							的日报
+							<profile:formatDate value="${editedReport.reportDate}" type="date" />
 						</h3>
 						<br>
 						<div class="content-span">
