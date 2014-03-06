@@ -16,11 +16,11 @@
 	<logger
 		name="net.paoding.rose"
 		additivity="false">
-		<level value="warn" />
+		<level value="all" />
 		<appender-ref ref="stdout" />
 	</logger>
 	<root>
-		<level value="warn" />
+		<level value="all" />
 		<appender-ref ref="COMMON" />
 	</root>
 </log4j:configuration>

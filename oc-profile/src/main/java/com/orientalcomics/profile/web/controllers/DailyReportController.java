@@ -140,22 +140,22 @@ public class DailyReportController extends LoginRequiredController{
         int userId = currentUserId();
         $: { // 查询
             if (id <= 0) {
-                page.error("不存在此周报");
+                page.error("不存在此日报");
                 break $;
             }
             DailyReport report = dailyReportDAO.query(id);
             if (report == null) {
-                page.error("不存在此周报");
+                page.error("不存在此日报");
                 break $;
             }
             if (report.getUserId() != userId) {
-                page.error("不能编辑别人的周报");
+                page.error("不能编辑别人的日报");
                 break $;
             }
 
             Set<Integer> editableIds = getEditableReportIds(userId);
             if (!editableIds.contains(id)) {
-                page.error("不能编辑此周报");
+                page.error("不能编辑此日报");
                 break $;
             }
 
