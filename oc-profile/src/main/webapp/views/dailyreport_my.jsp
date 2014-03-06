@@ -20,12 +20,12 @@
 <c:if test="${editedReport != null }">
 	function submitReport(){
 		PU.confirmDialog('提交后，将不能再次编辑本日报！你确定要提交么？','警告',function(){
-			$('#report_form').attr('action','/weeklyreport/my/submit').submit();
+			$('#report_form').attr('action','/dailyReport/my/submit').submit();
 		});
 		return false;
 	}
 	function previewReport(){
-		$('#report_form').attr('action','/weeklyreport/my/preview').submit();
+		$('#report_form').attr('action','/dailyReport/my/preview').submit();
 		return false;
 	}
 	
@@ -71,7 +71,7 @@
 			<div class="content-title">
 				<h2>
 				<c:if test="${editmode }">
-					<a href="/weeklyreport/my">我的日报</a> &#187; 编辑日报
+					<a href="/dailyReport/my">我的日报</a> &#187; 编辑日报
 				</c:if>
 				<c:if test="${not editmode }">
 				我的日报
@@ -104,7 +104,7 @@
 						</div> --%>
 						<br>
 						<input type="button" class="input-submit" onclick="javascript:return submitReport();" value="提交"> 
-						<input type="button" class="input-submit" node-type="submit" form-action="/weeklyreport/my/save" value="保存"> 
+						<input type="button" class="input-submit" node-type="submit" form-action="/dailyReport/my/save" value="保存"> 
 						<input type="button" class="input-submit" onclick="javascript:return previewReport();" value="预览"> 
 						<span node-type="form-message"></span>
 					</form>

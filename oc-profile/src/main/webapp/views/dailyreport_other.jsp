@@ -5,7 +5,7 @@
 <%@ taglib uri="/WEB-INF/tld/oc-profile.tld" prefix="profile"%>
 <%@ taglib uri="/WEB-INF/tld/oc-profile-functions.tld" prefix="profilefn"%>
 
-<c:set var="nav_menu" value="weeklyreport_other"></c:set>
+<c:set var="nav_menu" value="dailyReport_other"></c:set>
 <c:set var="user_resource" value="true"></c:set>
 
 <!DOCTYPE html>
@@ -19,7 +19,7 @@
 </style>
 <script type="text/javascript">
 function submitComment(id){
-	$('#comment_form_'+id).attr('action','/dailyreport/comment').submit();
+	$('#comment_form_'+id).attr('action','/dailyReport/comment').submit();
 }
 jQuery(function($){
 	$("form.comment_form").ajaxform({
