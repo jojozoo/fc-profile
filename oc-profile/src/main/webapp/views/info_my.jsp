@@ -364,7 +364,7 @@
 		<%@include file="/inc/right-nav.jsp" %>
 		<div class="fc"></div>
 	</div>
-	<c:if test="${not empty is_notice && is_notice==1 }">
+<%-- 	<c:if test="${not empty is_notice && is_notice==1 }">
 		<div id='bottom_id' class="guide guide-qq"  style="display: block; bottom: 0px;">
 	                <div class="guide_boby">
 	                        <p>
@@ -377,7 +377,7 @@
 	                        </div>
 	                </div>
 	     </div>
-     </c:if>
+     </c:if> --%>
 	<%@include file="/inc/footer.jsp" %>
 </body>
 </html>
