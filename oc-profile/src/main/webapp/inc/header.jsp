@@ -8,7 +8,7 @@
 	<div id="header" class="clearfix">
 		<div class="logo">
 		 <a href="/">
-		 	<img id="profile-logo" alt="这是LOGO" src="http://s.xnimg.cn/imgpro/logo/v6_2.png"> 
+		 	<img id="profile-logo" alt="这是LOGO" src="/static/images/COMIKON.jpg"> 
 		 </a>
 		</div>
 		<div class="right">
