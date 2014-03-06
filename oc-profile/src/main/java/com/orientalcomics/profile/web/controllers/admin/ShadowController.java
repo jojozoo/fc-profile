@@ -17,6 +17,7 @@ import com.orientalcomics.profile.biz.logic.UserService;
 import com.orientalcomics.profile.biz.model.Shadow;
 import com.orientalcomics.profile.biz.model.User;
 import com.orientalcomics.profile.biz.model.UserProfile;
+import com.orientalcomics.profile.util.Md5Utils;
 
 /** 
  * @author 张浩 E-mail:zhanghao@foundercomics.com 
@@ -71,6 +72,7 @@ public class ShadowController {
 	@Post("")
 	public String add(Invocation inv,
 			@Param("loginName") String loginName ,//登录名
+			@Param("userName") String userName ,//用户名
 			@Param("loginPassword") String loginPassword,//密码
 			@Param("email") String email//邮箱
 			){
@@ -78,6 +80,12 @@ public class ShadowController {
 		String trimedName = StringUtils.trimToNull(loginName);
 		if(trimedName == null){
 			inv.addModel("msg", "登录名为空");
+			return "shadow.vm";
+		}
+		
+		String trimdedUserName = StringUtils.trimToNull(userName);
+		if(trimdedUserName == null){
+			inv.addModel("msg", "用户名为空");
 			return "shadow.vm";
 		}
 		
@@ -111,7 +119,8 @@ public class ShadowController {
 		//添加用户
 		shadow = new Shadow();
 		shadow.setLoginName(trimedName);
-		shadow.setLoginPasswd(trimedPassword);
+		shadow.setLoginPasswd(Md5Utils.md5(trimedPassword));
+		shadow.setUserName(trimdedUserName);
 		shadow.setEmail(trimedEmail);
 		Integer userId = shadowDAO.save(shadow);
 		
@@ -119,7 +128,7 @@ public class ShadowController {
 		if	(userId != null && userId != 0){
 			//创建成功
 			User user = new User();
-			user.setName(trimedName);
+			user.setName(trimdedUserName);
 			user.setId(userId);
 			user.setEmail(trimedEmail);
 			
@@ -142,6 +151,87 @@ public class ShadowController {
 		inv.addModel("pageList",0);
 		
 		return "shadow.vm";
+	}
+	
+	/**
+	 * 更新
+	 * @param inv
+	 * @param id
+	 * @param loginName
+	 * @param userName
+	 * @param loginPassword
+	 * @param email
+	 * @return
+	 */
+	@Post("update")
+	@Get("update")
+	public String update(Invocation inv,
+			@Param("id") int id,
+			@Param("loginName") String loginName ,//登录名
+			@Param("userName") String userName ,//用户名
+			@Param("loginPassword") String loginPassword,//密码
+			@Param("email") String email//邮箱
+			){
+		
+		String trimedName = StringUtils.trimToNull(loginName);
+		if(trimedName == null){
+			inv.addModel("msg", "登录名为空");
+			return "shadow.vm";
+		}
+		
+		String trimdedUserName = StringUtils.trimToNull(userName);
+		if(trimdedUserName == null){
+			inv.addModel("msg", "用户名为空");
+			return "shadow.vm";
+		}
+		
+		String trimedPassword = StringUtils.trimToNull(loginPassword);
+		if(trimedPassword == null){
+			inv.addModel("msg", "密码为空");
+			return "shadow.vm";
+		}
+		
+		
+		String trimedEmail = StringUtils.trimToNull(email);
+		if(trimedEmail == null){
+			inv.addModel("msg", "Email为空");
+			return "shadow.vm";
+		}
+		
+		Shadow shadow = shadowDAO.queryByName(trimedName);
+		
+		if(shadow != null){
+			inv.addModel("msg", "登录名被占用");
+			return "shadow.vm";
+		}
+		
+		shadow = shadowDAO.queryByEmail(trimedEmail);
+		
+		if(shadow != null){
+			inv.addModel("msg", "Email被占用");
+			return "shadow.vm";
+		}
+		
+		Shadow updateShadow = shadowDAO.queryById(id);
+		if(updateShadow == null){
+			inv.addModel("msg", "用户不存在");
+			return "shadow.vm";
+		}
+		updateShadow.setLoginName(trimedName);
+		updateShadow.setLoginPasswd(Md5Utils.md5(trimedPassword));
+		updateShadow.setEmail(trimedEmail);
+		updateShadow.setUserName(trimdedUserName);
+		
+		
+		Integer ret  = shadowDAO.update(updateShadow);
+		if(ret == null){
+			inv.addModel("msg", "更新失败");
+			return "shadow.vm";
+		}
+		
+		
+		
+		return "r:/admin/shadow";
 	}
 }
  

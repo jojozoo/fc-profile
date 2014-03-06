@@ -8,6 +8,7 @@ import com.orientalcomics.profile.biz.dao.ShadowDAO;
 import com.orientalcomics.profile.biz.dao.UserProfileDAO;
 import com.orientalcomics.profile.biz.model.Shadow;
 import com.orientalcomics.profile.biz.model.User;
+import com.orientalcomics.profile.util.Md5Utils;
 
 @Service
 public class UserLoginService implements OcProfileConstants {
@@ -75,7 +76,8 @@ public class UserLoginService implements OcProfileConstants {
      */
 	public User checkUserByNameAndPass(String trimedName, String trimedPass) {
 		
-		Shadow shadow = shadowDAO.queryByNameAndPass(trimedName,trimedPass);
+		String md5pass = Md5Utils.md5(trimedPass);
+		Shadow shadow = shadowDAO.queryByNameAndPass(trimedName,md5pass);
 		
 		if(shadow == null){//查找失败
 			return null;

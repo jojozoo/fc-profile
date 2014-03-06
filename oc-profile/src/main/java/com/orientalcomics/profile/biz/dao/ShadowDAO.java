@@ -21,13 +21,14 @@ public interface ShadowDAO {
     // -------- { Column Defines
     String ID                = "user_id";
     String NAME              = "login_name";
+    String USER_NAME         = "user_name";
     String EMAIL	         = "email";
     String EDIT_TIME         = "login_passwd";
     String EDITOR_ID         = "create_date";
     // -------- } Column Defines
 
     String FIELD_PK          = "user_id";
-    String FIELDS_WITHOUT_PK = "login_name,email,login_passwd,create_date";
+    String FIELDS_WITHOUT_PK = "login_name,user_name,email,login_passwd,create_date";
     String FIELDS_ALL        = FIELD_PK + "," + FIELDS_WITHOUT_PK;
 
     @SQL("select " + FIELDS_ALL + " from " + TABLE)
@@ -45,12 +46,12 @@ public interface ShadowDAO {
     @SQL("select " + FIELDS_ALL + " from " + TABLE + " where `login_name` = :1")
     public Shadow queryByName(String name);
     
-    String SQL_UPDATE_MODEL_FILEDS_WITHOUT_PK = "login_name=:model.loginName,email=:model.email,login_passwd=:model.loginPasswd,now()";
+    String SQL_UPDATE_MODEL_FILEDS_WITHOUT_PK = "login_name=:model.loginName,user_name=:model.userName,email=:model.email,login_passwd=:model.loginPasswd,now()";
 
     @SQL("update " + TABLE + " set " + SQL_UPDATE_MODEL_FILEDS_WITHOUT_PK + " where user_id=:1.userId")
     public int update(@SQLParam("model") Shadow model);
 
-    @SQL("insert ignore into " + TABLE + " (" + FIELDS_WITHOUT_PK + ") VALUES (:model.loginName,:model.email,:model.loginPasswd,now())")
+    @SQL("insert ignore into " + TABLE + " (" + FIELDS_WITHOUT_PK + ") VALUES (:model.loginName,:model.userName,:model.email,:model.loginPasswd,now())")
     @ReturnGeneratedKeys
     public Integer save(@SQLParam("model") Shadow model);
 

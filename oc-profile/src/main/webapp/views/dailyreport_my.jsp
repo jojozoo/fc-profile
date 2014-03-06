@@ -95,7 +95,7 @@
 						</div>
 						<br>
 						<div class="content-span">
-						<h4>当天结果<span node-type="field-message" message-for="content_plan"></span></h4>
+						<h4>当天结果(早报不需要填写)<span node-type="field-message" message-for="content_plan"></span></h4>
 						<textarea class="tinymce" style="width: 99%;" name="content_plan">${editedReport.contentDone }</textarea>
 						</div>
 <%-- 						<div class="content-span">
@@ -104,7 +104,7 @@
 						</div> --%>
 						<br>
 						<input type="button" class="input-submit" onclick="javascript:return submitReport();" value="提交"> 
-						<input type="button" class="input-submit" node-type="submit" form-action="/dailyReport/my/save" value="保存"> 
+						<!-- <input type="button" class="input-submit" node-type="submit" form-action="/dailyReport/my/save" value="保存"> --> 
 						<input type="button" class="input-submit" onclick="javascript:return previewReport();" value="预览"> 
 						<span node-type="form-message"></span>
 					</form>
