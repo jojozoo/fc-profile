@@ -218,7 +218,7 @@ public class DailyReportController extends LoginRequiredController{
             report.setContentDone(contentDone);
             report.setContentPlan(contentPlan);
             report.setStatus(newStatus.getId());
-            report.setEmailTos("zhanghao@foundercomics.com");
+            report.setEmailTos("fc-biz@foundercomics.com");
             dailyReportDAO.update(report);
             
             // success
