@@ -9,6 +9,12 @@ import java.util.Collection;
  */
 public class SetUtil {
 	public static boolean contains(Collection<?> coll, Object o) {
+		if(coll == null || coll.size() == 0){
+			return false;
+		}
+		if(o == null){
+			return false;
+		}
 	    return coll.contains(o);
 	  }
 }
