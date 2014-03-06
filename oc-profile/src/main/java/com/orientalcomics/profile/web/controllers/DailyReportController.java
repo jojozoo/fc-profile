@@ -172,8 +172,6 @@ public class DailyReportController extends LoginRequiredController{
     public void post_my(HtmlPage page, @Param("action") final String action, @Param("id") final int id,
     		@ProfileHtmlCorrect @Param("content_done") final String contentDone,
             @ProfileHtmlCorrect @Param("content_plan") final String contentPlan,
-            @ProfileHtmlCorrect @Param("q_a") String qA,
-            @Param("qa_changed")boolean qaChanged,
             @ProfileHtmlEscape @Param("emailtos") final String emailTos
             ) {
         int userId = currentUserId();
@@ -182,13 +180,8 @@ public class DailyReportController extends LoginRequiredController{
             // validate
             FormValidator fv = page.formValidator();
             fv.min(id, 1, "week_time", "表单提交错误");
-            fv.notEmpty(contentDone, "content_done", "需要填写本周已做的内容");
-            fv.notEmpty(contentPlan, "content_plan", "需要填写下周计划的内容");
-            if(!qaChanged){
-                qA = StringUtils.EMPTY;
-            }else{
-                qA = StringUtils.trimToEmpty(qA);// 可以不填
-            }
+            fv.notEmpty(contentPlan, "content_plan", "需要填当天计划的内容");
+//            fv.notEmpty(contentDone, "content_done", "需要填当天已做内容");
 
             boolean isPreviewAction = "preview".equalsIgnoreCase(action);
             boolean isSaveAction = "save".equalsIgnoreCase(action);
@@ -202,18 +195,18 @@ public class DailyReportController extends LoginRequiredController{
             }
             // Date weekDate = report.getWeekDate();
             if (report.getUserId() != userId) {
-                page.alert("只允许对自己的周报进行编辑操作");
+                page.alert("只允许对自己的日报进行编辑操作");
                 break $;
             }
 
             Set<Integer> editableIds = getEditableReportIds(userId);
             if (!editableIds.contains(id)) {
-                page.alert("不能编辑这个周报");
+                page.alert("不能编辑这个日报");
                 break $;
             }
 
             if (isPreviewAction) {// 预览这个周报
-                page.data(JsonUtils.builder().put("action", "preview").put("content_done", contentDone).put("content_plan", contentPlan).put("qa", qA).build());
+                page.data(JsonUtils.builder().put("action", "preview").put("content_done", contentDone).put("content_plan", contentPlan).build());
                 break $;
             }
 
@@ -226,7 +219,6 @@ public class DailyReportController extends LoginRequiredController{
             report.setContentDone(contentDone);
             report.setContentPlan(contentPlan);
             report.setStatus(newStatus.getId());
-            report.setQa(qA);
             report.setEmailTos("zhanghao@foundercomics.com");
             dailyReportDAO.update(report);
             
@@ -400,14 +392,13 @@ public class DailyReportController extends LoginRequiredController{
         // 1. 只允许编辑当天没有写晚报的日报
         Set<Integer> editableIds = new HashSet<Integer>();
         
-        Timestamp date = dailyReportService.generateStartDailyPortTime(new Date());
-        DailyReport workReport = dailyReportDAO.getReportOfToday(userId, date);
-          if (workReport != null && workReport.getStatus() != DailyReportStatus.SUBMITTED.getId()
-        		  && workReport.getContentDone() != null && workReport.getContentDone().length() > 2) {// 晚报没有提交
-        	  
-               editableIds.add(workReport.getId());
-          }
+          // 获取用户的日报记录
+        DailyReport report = dailyReportDAO.getLastestReport(userId);
 
+        if(report != null){
+        	editableIds.add(report.getId());
+        }
+        
         return editableIds;
     }
 }
