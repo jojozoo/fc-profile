@@ -45,7 +45,7 @@
 	     <td><input type="text" name="loginName" id="loginName_${shadow.userId}" value="$!{shadow.loginName}"></input></td>
 	     <td><input type="text" name="userName" id="userName_${shadow.userId}" value="$!{shadow.userName}"></input></td>
 	     <td><input type="text" name="email" id="email_${shadow.userId}" value="$!{shadow.email}"></input></td>
-		 <td><input type="text" name="loginPassword" id="passwrd_${shadow.userId}" value="$!{shadow.loginPasswd}"></input></td>
+		 <td><input type="text" name="loginPassword" id="loginPassword_${shadow.userId}" value="$!{shadow.loginPasswd}"></input></td>
 	     <td>${shadow.createDate}</td>
 	     <td>
 	      	#if(${shadow.isDeleted} == 0)
