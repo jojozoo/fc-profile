@@ -198,20 +198,6 @@ public class ShadowController {
 			return "shadow.vm";
 		}
 		
-		Shadow shadow = shadowDAO.queryByName(trimedName);
-		
-		if(shadow != null){
-			inv.addModel("msg", "登录名被占用");
-			return "shadow.vm";
-		}
-		
-		shadow = shadowDAO.queryByEmail(trimedEmail);
-		
-		if(shadow != null){
-			inv.addModel("msg", "Email被占用");
-			return "shadow.vm";
-		}
-		
 		Shadow updateShadow = shadowDAO.queryById(id);
 		if(updateShadow == null){
 			inv.addModel("msg", "用户不存在");
