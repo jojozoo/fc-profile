@@ -371,7 +371,7 @@ public class UserController extends LoginRequiredController {
             profile.setHobby(hobby);
 
             userService.update(user);
-            userProfileDAO.update(profile);
+//            userProfileDAO.update(profile);
 
             // 角色
             userRoleService.updateRolesOfUser(userId, roles);
