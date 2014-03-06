@@ -161,7 +161,7 @@
 					<c:set var="_visiable" value="${_current_perf_time.status == c_perf_time_status$started || _current_perf_time.status == c_perf_time_status$will_end}"></c:set>
 					<c:set var="_show_done_img" value="${_peer_perf_status == c_self_perf_status$complete_invitations }"></c:set>
 					<c:if test="${_visiable }">
-						<a class="title" href="/perfApply/myReport">我的自评{_show_done_img ? _done_img:''}</a>
+						<a class="title" href="/perfApply/myReport">我的自评 ${_show_done_img ? _done_img:''}</a>
 					</c:if>
 					<c:if test="${not _visiable}">
 						<span class="title">
@@ -175,7 +175,7 @@
 					<c:set var="_visiable" value="${_current_perf_time.status == c_perf_time_status$started || _current_perf_time.status == c_perf_time_status$will_end}"></c:set>
 					<c:set var="_show_done_img" value="${_peer_perf_status == c_self_perf_status$complete_invitations }"></c:set>
 					<c:if test="${_visiable }">
-						<a class="title" href="/perf/adjustScore">评分{_show_done_img ? _done_img:''}</a>
+						<a class="title" href="/perf/adjustScore">评分${_show_done_img ? _done_img:''}</a>
 					</c:if>
 					<c:if test="${not _visiable}">
 						<span class="title">
