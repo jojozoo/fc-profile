@@ -971,7 +971,7 @@ public class SendEmailService implements OcProfileConstants {
 			LOG.debug("用户创建邮件！");
 		}
 
-		EmailText emailText = emailTextDAO.query(String.valueOf(SendEmailType.DAILY_REPORT_PLAN.getId()));
+		EmailText emailText = emailTextDAO.query(String.valueOf(SendEmailType.USER_CREATE.getId()));
 		
         // 周报的主题本周的周一和周日的日期精度是年月日
         String emailTitle = StringUtils.trimToEmpty(emailText.getEmailTitle());
