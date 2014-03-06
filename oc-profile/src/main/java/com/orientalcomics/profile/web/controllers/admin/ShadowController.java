@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.orientalcomics.profile.biz.dao.ShadowDAO;
 import com.orientalcomics.profile.biz.dao.UserProfileDAO;
+import com.orientalcomics.profile.biz.logic.AsyncSendEmailService;
 import com.orientalcomics.profile.biz.logic.UserRoleService;
 import com.orientalcomics.profile.biz.logic.UserService;
 import com.orientalcomics.profile.biz.model.Shadow;
@@ -39,6 +40,9 @@ public class ShadowController {
 	
 	@Autowired
 	private UserRoleService userRoleService;
+	
+	@Autowired
+	private AsyncSendEmailService emailService;
 	
 	/**
 	 * list
@@ -150,6 +154,8 @@ public class ShadowController {
 		
 		inv.addModel("pageList",0);
 		
+		
+		
 		return "shadow.vm";
 	}
 	
@@ -215,7 +221,7 @@ public class ShadowController {
 			return "shadow.vm";
 		}
 		
-		
+		emailService.sendUserCreateReport(updateShadow);
 		
 		return "r:/admin/shadow";
 	}

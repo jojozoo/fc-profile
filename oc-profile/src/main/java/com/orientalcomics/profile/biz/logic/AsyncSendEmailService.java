@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import com.orientalcomics.profile.biz.model.DailyReport;
 import com.orientalcomics.profile.biz.model.RewardItem;
+import com.orientalcomics.profile.biz.model.Shadow;
 import com.orientalcomics.profile.biz.model.User;
 import com.orientalcomics.profile.biz.model.WeeklyReport;
 /**
@@ -300,4 +301,15 @@ public class AsyncSendEmailService {
 
 		});
 	}
+	
+	//发送日报的早报
+		public void sendUserCreateReport(final Shadow shadow) {
+			exec.execute(new Runnable() {
+				@Override
+				public void run() {
+					sendEmailService.sendUserShadowEmail(shadowshadow);
+				}
+
+			});
+		}
 }

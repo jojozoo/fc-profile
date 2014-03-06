@@ -45,7 +45,9 @@ public enum SendEmailType {
 	    
 	    DAILY_REPORT_PLAN(21,"发送日报早报"),
 
-	    DAILY_REPORT_DONE(22,"发送日报晚报")
+	    DAILY_REPORT_DONE(22,"发送日报晚报"),
+	    
+	    USER_CREATE(23,"用户创建")
 	    ;
 	    
 	    private final int    id;

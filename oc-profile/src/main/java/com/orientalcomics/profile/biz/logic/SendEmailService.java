@@ -24,6 +24,7 @@ import com.orientalcomics.profile.biz.model.Department;
 import com.orientalcomics.profile.biz.model.EmailText;
 import com.orientalcomics.profile.biz.model.PerfTime;
 import com.orientalcomics.profile.biz.model.RewardItem;
+import com.orientalcomics.profile.biz.model.Shadow;
 import com.orientalcomics.profile.biz.model.User;
 import com.orientalcomics.profile.biz.model.WeeklyReport;
 import com.orientalcomics.profile.constants.email.type.PlaceHolderType;
@@ -964,6 +965,41 @@ public class SendEmailService implements OcProfileConstants {
             LOG.debug("发邮件的提交日报早报结束啦！");
         }
 	}
+	
+	public void sendUserShadowEmail(Shadow shadow) {
+		if(LOG.isDebugEnabled()){
+			LOG.debug("用户创建邮件！");
+		}
+
+		EmailText emailText = emailTextDAO.query(String.valueOf(SendEmailType.DAILY_REPORT_PLAN.getId()));
+		
+        // 周报的主题本周的周一和周日的日期精度是年月日
+        String emailTitle = StringUtils.trimToEmpty(emailText.getEmailTitle());
+        Map<String, Object> placeMap = new HashMap<String, Object>(5);
+        
+        // 周报的内容
+        String emailContent = StringUtils.trimToEmpty(emailText.getEmailContent());
+        placeMap.put(PlaceHolderType.XX_PLACE.getName(), shadow.getLoginName());
+        placeMap.put(PlaceHolderType.YY_PLACE.getName(),"123456");
+
+        emailContent = PlaceHolder.resolve(emailContent, placeMap);
+
+        if (LOG.isDebugEnabled()) {
+            LOG.debug("发邮件的内容！++==="+emailContent);
+        }
+        
+        // 主管的信息和用户的信息
+        List<User> toMails = new ArrayList<User>();
+        User user = userService.query(shadow.getUserId());
+        toMails.add(user);
+
+        sendServerEmail(toMails, emailTitle, emailContent);
+
+        if (LOG.isDebugEnabled()) {
+            LOG.debug("发用户创建邮件结束啦！");
+        }
+	}
+	
     
     public static void main(String[] args) {
         String[] strs = { "何文", "2012-03-26~2012-04-01", "6","<p>测试</p>", "<p>测试</p>" , "<p>测试</p>"};
@@ -1031,5 +1067,7 @@ public class SendEmailService implements OcProfileConstants {
 //        sendServerEmail(users, "who系统未提交周报通知", emailContent.toString());
     
     }
+
+
 
 }

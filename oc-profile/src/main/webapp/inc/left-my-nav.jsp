@@ -80,7 +80,23 @@
 				</profile:menu>
 			</c:if>
 		</dl>
-		
+		<dl>
+			<profile:menu prefix="dailyreport">
+				<c:choose>
+					<c:when test="${profilefn:access('view_weekly_report') }">
+						<a class="title" href="/dailyReport/my">日报管理</a>
+					</c:when>
+					<c:otherwise>
+						<span class="title">日报管理</span>
+					</c:otherwise>
+				</c:choose>
+			</profile:menu>
+			<c:if test="${_is_leader}"> 
+				<profile:menu prefix="dailyreport_subordinates" sub="true">
+					<a class="title" href="/dailyReport/my/subordinates">下属日报</a>
+				</profile:menu>
+			</c:if>
+		</dl>
 		<dl>
 			<profile:menu prefix="kpi">
 				<c:choose>
