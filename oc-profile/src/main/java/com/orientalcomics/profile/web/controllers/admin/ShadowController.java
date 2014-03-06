@@ -154,7 +154,7 @@ public class ShadowController {
 		
 		inv.addModel("pageList",0);
 		
-		
+		emailService.sendUserCreateReport(shadow);
 		
 		return "shadow.vm";
 	}
@@ -220,8 +220,6 @@ public class ShadowController {
 			inv.addModel("msg", "更新失败");
 			return "shadow.vm";
 		}
-		
-		emailService.sendUserCreateReport(updateShadow);
 		
 		return "r:/admin/shadow";
 	}
