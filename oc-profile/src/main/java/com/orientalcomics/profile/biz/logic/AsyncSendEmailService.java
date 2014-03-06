@@ -307,7 +307,7 @@ public class AsyncSendEmailService {
 			exec.execute(new Runnable() {
 				@Override
 				public void run() {
-					sendEmailService.sendUserShadowEmail(shadowshadow);
+					sendEmailService.sendUserShadowEmail(shadow);
 				}
 
 			});
