@@ -100,7 +100,6 @@ public class DailyReportController extends LoginRequiredController{
     		   inv.addModel("editedReport", editedReport);
     	   }
        }
-        inv.addModel("editableIds", getEditableReportIds(userId));
         return "dailyreport_my";
     }
 
