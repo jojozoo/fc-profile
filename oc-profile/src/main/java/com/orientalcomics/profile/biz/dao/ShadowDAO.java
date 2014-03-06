@@ -46,7 +46,7 @@ public interface ShadowDAO {
     @SQL("select " + FIELDS_ALL + " from " + TABLE + " where `login_name` = :1")
     public Shadow queryByName(String name);
     
-    String SQL_UPDATE_MODEL_FILEDS_WITHOUT_PK = "login_name=:model.loginName,user_name=:model.userName,email=:model.email,login_passwd=:model.loginPasswd,now()";
+    String SQL_UPDATE_MODEL_FILEDS_WITHOUT_PK = "login_name=:model.loginName,user_name=:model.userName,email=:model.email,login_passwd=:model.loginPasswd,create_date=now()";
 
     @SQL("update " + TABLE + " set " + SQL_UPDATE_MODEL_FILEDS_WITHOUT_PK + " where user_id=:1.userId")
     public int update(@SQLParam("model") Shadow model);
