@@ -64,17 +64,17 @@ public class DailyReportService {
         emptyReport.setStatus(DailyReportStatus.READY.getId());
         
         String emailTos = dailyReportDAO.getLastestNonBlankEmailTosBefore(userId,reportDate);
-        // 尝试插入历史空白的
-        DailyReport lastestReport = dailyReportDAO.getLastestReportBefore(userId, reportDate);
-        
-        if (lastestReport != null) {
-            Date lastedReportDate = lastestReport.getReportDate();
-            while (lastedReportDate.before(reportDate)) {
-                emptyReport.setEmailTos(emailTos);
-                emptyReport.setReportDate(reportDate);
-                dailyReportDAO.insert(emptyReport);
-            }
-        }
+//        // 尝试插入历史空白的
+//        DailyReport lastestReport = dailyReportDAO.getLastestReportBefore(userId, reportDate);
+//        
+//        if (lastestReport != null) {
+//            Date lastedReportDate = lastestReport.getReportDate();
+//            while (lastedReportDate.before(reportDate)) {
+//                emptyReport.setEmailTos(emailTos);
+//                emptyReport.setReportDate(reportDate);
+//                dailyReportDAO.insert(emptyReport);
+//            }
+//        }
 
         // 尝试插入本周空白的
         emptyReport.setEmailTos(emailTos);
