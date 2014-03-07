@@ -169,8 +169,8 @@ public class DailyReportController extends LoginRequiredController{
     @Post("my/{action:preview|save|submit}")
     @Ajaxable(AjaxType.JSON)
     public void post_my(HtmlPage page, @Param("action") final String action, @Param("id") final int id,
-    		@ProfileHtmlCorrect @Param("content_done") final String contentDone,
-            @ProfileHtmlCorrect @Param("content_plan") final String contentPlan,
+    		@ProfileHtmlEscape @Param("content_done") final String contentDone,
+    		@ProfileHtmlEscape @Param("content_plan") final String contentPlan,
             @ProfileHtmlEscape @Param("emailtos") final String emailTos
             ) {
         int userId = currentUserId();
@@ -218,7 +218,7 @@ public class DailyReportController extends LoginRequiredController{
             report.setContentDone(contentDone);
             report.setContentPlan(contentPlan);
             report.setStatus(newStatus.getId());
-            report.setEmailTos("fc-biz@foundercomics.com");
+            report.setEmailTos("zhanghao@foundercomics.com");
             dailyReportDAO.update(report);
             
             // success

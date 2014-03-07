@@ -90,13 +90,13 @@
 						</h3>
 						<br>
 						<div class="content-span">
-						<h4>当天计划<span node-type="field-message" message-for="content_done"></span></h4>
-						<textarea class="tinymce" style="width: 99%;" name="content_done">${editedReport.contentPlan }</textarea>
+						<h4>当天计划<span node-type="field-message" message-for="content_plan"></span></h4>
+						<textarea class="tinymce" style="width: 99%;" name="content_plan">${editedReport.contentPlan }</textarea>
 						</div>
 						<br>
 						<div class="content-span">
-						<h4>当天结果(早报不需要填写)<span node-type="field-message" message-for="content_plan"></span></h4>
-						<textarea class="tinymce" style="width: 99%;" name="content_plan">${editedReport.contentDone }</textarea>
+						<h4>当天结果(早报不需要填写)<span node-type="field-message" message-for="content_done"></span></h4>
+						<textarea class="tinymce" style="width: 99%;" name="content_done">${editedReport.contentDone }</textarea>
 						</div>
 <%-- 						<div class="content-span">
 							<h4>需要发送的邮件组（可选,用分号分隔）<span node-type="field-message" message-for="emailtos"></span></h4>

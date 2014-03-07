@@ -40,7 +40,6 @@ import com.orientalcomics.profile.core.base.FormValidator;
 import com.orientalcomics.profile.core.base.HtmlPage;
 import com.orientalcomics.profile.util.common.Collections0;
 import com.orientalcomics.profile.util.common.JsonUtils;
-import com.orientalcomics.profile.util.mail.EmailUtils;
 import com.orientalcomics.profile.util.time.DateTimeUtil;
 import com.orientalcomics.profile.util.time.TimeFetchUtils;
 import com.orientalcomics.profile.util.time.TimeFormatUtils;
@@ -164,9 +163,9 @@ public class WeeklyreportController extends LoginRequiredController {
     @Post("my/{action:preview|save|submit}")
     @Ajaxable(AjaxType.JSON)
     public void post_my(HtmlPage page, @Param("action") final String action, @Param("id") final int id,
-    		@ProfileHtmlCorrect @Param("content_done") final String contentDone,
-            @ProfileHtmlCorrect @Param("content_plan") final String contentPlan,
-            @ProfileHtmlCorrect @Param("q_a") String qA,
+    		@ProfileHtmlEscape @Param("content_done") final String contentDone,
+            @ProfileHtmlEscape @Param("content_plan") final String contentPlan,
+            @ProfileHtmlEscape @Param("q_a") String qA,
             @Param("qa_changed")boolean qaChanged,
             @ProfileHtmlEscape @Param("emailtos") final String emailTos
             ) {
@@ -234,7 +233,7 @@ public class WeeklyreportController extends LoginRequiredController {
             report.setStatus(newStatus.getId());
             report.setSupplementary(isSupplementary);
             report.setQa(qA);
-            report.setEmailTos("fc-biz@foundercomics.com");
+            report.setEmailTos("zhanghao@foundercomics.com");
             weeklyReportDAO.update(report);
             
             // success
@@ -386,6 +385,15 @@ public class WeeklyreportController extends LoginRequiredController {
 
     }
 
+    /**
+     * 将下属周报加载到页面中
+     * @param inv
+     * @param page
+     * @param ownerId
+     * @param pStartDate
+     * @param pEndDate
+     * @param curPage
+     */
     private void renderReports(Invocation inv, HtmlPage page, int ownerId, String pStartDate, String pEndDate, int curPage) {
         FormValidator fv = page.formValidator();
         // 时间
@@ -410,42 +418,8 @@ public class WeeklyreportController extends LoginRequiredController {
         inv.addModel("pagesize", pageSize);
         inv.addModel("curpage", curPage);
 
-        List<WeeklyReport> weeklyReports = weeklyReportDAO.queryByUserBetweenDate(ownerId, startMonday, endMonday, curPage * pageSize, pageSize);
-        inv.addModel("reports", weeklyReports);
-        Collection<Integer> weeklyReportIds = Collections2.transform(weeklyReports, new Function<WeeklyReport, Integer>() {
-            @Override
-            public Integer apply(WeeklyReport item) {
-                return item == null ? null : item.getId();
-            }
-        }
-                );
-//        Map<Integer/* 周报的ID */, WeeklyReportComment> weeklyReportCommentMap = null;
-//        if (CollectionUtils.isNotEmpty(weeklyReportIds)) {
-//            List<WeeklyReportComment> weeklyReportComments = weeklyReportCommentDAO.queryByWeeklyReportIds(weeklyReportIds);
-//            weeklyReportCommentMap = Collections0.packageMapByField(weeklyReportComments, new Function<WeeklyReportComment, Integer>() {
-//
-//                @Override
-//                public Integer apply(WeeklyReportComment weeklyReportComment) {
-//                    return weeklyReportComment.getWeeklyReportId();
-//                }
-//            });
-//        }
-        
-        Map<Integer/* 周报的ID */, List<WeeklyReportComment>> weeklyReportCommentMap = new HashMap<Integer/* 周报的ID */, List<WeeklyReportComment>>();
-        if (CollectionUtils.isNotEmpty(weeklyReportIds)) {
-        	 List<WeeklyReportComment> weeklyReportComments = weeklyReportCommentDAO.queryByWeeklyReportIds(weeklyReportIds);
-        	 for (WeeklyReportComment comment : weeklyReportComments) {
-        		 List<WeeklyReportComment> comments = new ArrayList<WeeklyReportComment>(3); 
-        		 if (weeklyReportCommentMap.containsKey(comment.getWeeklyReportId())) {
-        			 weeklyReportCommentMap.get(comment.getWeeklyReportId()).add(comment);
-        		 }else {
-        			 comments.add(comment);
-        			 weeklyReportCommentMap.put(comment.getWeeklyReportId(), comments);
-        		 }
-        		 
-        	 }
-        }
-        inv.addModel("reporsComments", weeklyReportCommentMap);
+        //具体内容通过service加载
+        weeklyReportService.renderReports(inv, ownerId, startMonday, endMonday, curPage, pageSize, total);
     }
 
     private boolean renderSubordinateReports(Invocation inv, HtmlPage page, int userId, String pDate, int curPage) {
