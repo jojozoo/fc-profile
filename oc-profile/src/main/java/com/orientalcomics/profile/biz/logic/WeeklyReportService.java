@@ -1,8 +1,6 @@
 package com.orientalcomics.profile.biz.logic;
 
-import java.sql.Timestamp;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Collection;
 import java.util.Date;
 import java.util.HashMap;
@@ -13,7 +11,6 @@ import net.paoding.rose.web.Invocation;
 
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.collections.map.LRUMap;
-import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,16 +21,13 @@ import com.google.common.collect.Collections2;
 import com.orientalcomics.profile.OcProfileConstants;
 import com.orientalcomics.profile.biz.dao.WeeklyReportCommentDAO;
 import com.orientalcomics.profile.biz.dao.WeeklyReportDAO;
-import com.orientalcomics.profile.biz.logic.ProfileConfigs.PageSizeConfigView;
+import com.orientalcomics.profile.biz.model.User;
 import com.orientalcomics.profile.biz.model.WeeklyReport;
 import com.orientalcomics.profile.biz.model.WeeklyReportComment;
 import com.orientalcomics.profile.constants.status.WeeklyReportStatus;
-import com.orientalcomics.profile.core.base.FormValidator;
-import com.orientalcomics.profile.core.base.HtmlPage;
+import com.orientalcomics.profile.util.common.Collections0;
 import com.orientalcomics.profile.util.time.DateTimeUtil;
 import com.orientalcomics.profile.util.time.TimeFormatUtils;
-import com.orientalcomics.profile.util.time.TimeHandleUtils;
-import com.orientalcomics.profile.util.time.TimeParseUtils;
 import com.orientalcomics.profile.util.time.TimeUtils;
 
 @Service
@@ -43,6 +37,9 @@ public class WeeklyReportService {
     
     @Autowired
     WeeklyReportCommentDAO weeklyReportCommentDAO;
+    
+    @Autowired
+    UserService userService;
 
     LRUMap          weeklyReportCache = new LRUMap(1000);
 
@@ -106,24 +103,54 @@ public class WeeklyReportService {
      * @param pEndDate
      * @param curPage
      */
-    public void renderReports(Invocation inv , int ownerId, Date startMonday, Date endMonday, int curPage,int pageSize,int total) {
+    public boolean renderSubReports(Invocation inv , int ownerId, Date weekDate, int curPage,int pageSize,int total) {
 
+        
+    	List<User> subordinates = userService.querySubordinates(ownerId, curPage * pageSize, pageSize);
+        if (subordinates.isEmpty()) {
+        	LOG.error("没有下属信息");
+            return false;
+        }
 
-        List<WeeklyReport> weeklyReports = weeklyReportDAO.queryByUserBetweenDate(ownerId, startMonday, endMonday, curPage * pageSize, pageSize);
+        // 抽取每个用户的周报列表
+        Collection<Integer> subordinateIds = Collections2.transform(subordinates, new Function<User, Integer>() {
+
+            @Override
+            public Integer apply(User user) {
+                return user.getId();
+            }
+        });
+
+        for (int subordinateId : subordinateIds) {
+            createEmptyReportsIfNecessary(subordinateId, weekDate);
+        }
+
+        List<WeeklyReport> weeklyReports = weeklyReportDAO.queryByUserIdsInWeekDate(subordinateIds, weekDate);
         
         if(LOG.isDebugEnabled()){
-        	LOG.debug("### get reports count:"+weeklyReports.size());
+        	LOG.debug("#####get sub weekly reports count:"+weeklyReports.size());
         }
         
-        inv.addModel("reports", weeklyReports);
+        Map<Integer/* 用户ID */, WeeklyReport> weeklyReportMap = Collections0.packageMapByField(weeklyReports, new Function<WeeklyReport, Integer>() {
+
+            @Override
+            public Integer apply(WeeklyReport weeklyReport) {
+                return weeklyReport.getUserId();
+            }
+        });
+        
+        if(LOG.isDebugEnabled()){
+        	LOG.debug("#####get sub weekly reports map count:"+weeklyReportMap.size());
+        }
         
         Collection<Integer> weeklyReportIds = Collections2.transform(weeklyReports, new Function<WeeklyReport, Integer>() {
+
             @Override
-            public Integer apply(WeeklyReport item) {
-                return item == null ? null : item.getId();
+            public Integer apply(WeeklyReport weeklyReport) {
+                return weeklyReport.getId();
             }
-        }
-                );
+        });
+        
         
         Map<Integer/* 周报的ID */, List<WeeklyReportComment>> weeklyReportCommentMap = new HashMap<Integer/* 周报的ID */, List<WeeklyReportComment>>();
         if (CollectionUtils.isNotEmpty(weeklyReportIds)) {
@@ -136,8 +163,14 @@ public class WeeklyReportService {
         			 comments.add(comment);
         			 weeklyReportCommentMap.put(comment.getWeeklyReportId(), comments);
         		 }
+        		 
         	 }
         }
-        inv.addModel("reporsComments", weeklyReportCommentMap);
+        
+        inv.addModel("subordinates", subordinates);
+        inv.addModel("weeklyreport_map", weeklyReportMap);
+        inv.addModel("weeklyreport_comment_map", weeklyReportCommentMap);
+        
+        return true;
     }
 }

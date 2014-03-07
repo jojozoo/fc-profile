@@ -44,6 +44,7 @@ import com.orientalcomics.profile.util.time.TimeUtils;
 import com.orientalcomics.profile.web.annotations.Ajaxable;
 import com.orientalcomics.profile.web.annotations.ProfileHtmlCorrect;
 import com.orientalcomics.profile.web.annotations.ProfileHtmlEscape;
+import com.orientalcomics.profile.web.annotations.ProfileHtmlPure;
 import com.orientalcomics.profile.web.annotations.ProfileSecurity;
 import com.orientalcomics.profile.web.constants.AjaxType;
 import com.orientalcomics.profile.web.controllers.internal.LoginRequiredController;
@@ -169,8 +170,8 @@ public class DailyReportController extends LoginRequiredController{
     @Post("my/{action:preview|save|submit}")
     @Ajaxable(AjaxType.JSON)
     public void post_my(HtmlPage page, @Param("action") final String action, @Param("id") final int id,
-    		@ProfileHtmlEscape @Param("content_done") final String contentDone,
-    		@ProfileHtmlEscape @Param("content_plan") final String contentPlan,
+    		@ProfileHtmlPure @Param("content_done") final String contentDone,
+    		@ProfileHtmlPure @Param("content_plan") final String contentPlan,
             @ProfileHtmlEscape @Param("emailtos") final String emailTos
             ) {
         int userId = currentUserId();

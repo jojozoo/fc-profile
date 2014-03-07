@@ -418,11 +418,46 @@ public class WeeklyreportController extends LoginRequiredController {
         inv.addModel("pagesize", pageSize);
         inv.addModel("curpage", curPage);
 
-        //具体内容通过service加载
-        weeklyReportService.renderReports(inv, ownerId, startMonday, endMonday, curPage, pageSize, total);
+        List<WeeklyReport> weeklyReports = weeklyReportDAO.queryByUserBetweenDate(ownerId, startMonday, endMonday, curPage * pageSize, pageSize);
+        inv.addModel("reports", weeklyReports);
+        Collection<Integer> weeklyReportIds = Collections2.transform(weeklyReports, new Function<WeeklyReport, Integer>() {
+            @Override
+            public Integer apply(WeeklyReport item) {
+                return item == null ? null : item.getId();
+            }
+        }
+                );
+//        Map<Integer/* 周报的ID */, WeeklyReportComment> weeklyReportCommentMap = null;
+//        if (CollectionUtils.isNotEmpty(weeklyReportIds)) {
+//            List<WeeklyReportComment> weeklyReportComments = weeklyReportCommentDAO.queryByWeeklyReportIds(weeklyReportIds);
+//            weeklyReportCommentMap = Collections0.packageMapByField(weeklyReportComments, new Function<WeeklyReportComment, Integer>() {
+//
+//                @Override
+//                public Integer apply(WeeklyReportComment weeklyReportComment) {
+//                    return weeklyReportComment.getWeeklyReportId();
+//                }
+//            });
+//        }
+        
+        Map<Integer/* 周报的ID */, List<WeeklyReportComment>> weeklyReportCommentMap = new HashMap<Integer/* 周报的ID */, List<WeeklyReportComment>>();
+        if (CollectionUtils.isNotEmpty(weeklyReportIds)) {
+        	 List<WeeklyReportComment> weeklyReportComments = weeklyReportCommentDAO.queryByWeeklyReportIds(weeklyReportIds);
+        	 for (WeeklyReportComment comment : weeklyReportComments) {
+        		 List<WeeklyReportComment> comments = new ArrayList<WeeklyReportComment>(3); 
+        		 if (weeklyReportCommentMap.containsKey(comment.getWeeklyReportId())) {
+        			 weeklyReportCommentMap.get(comment.getWeeklyReportId()).add(comment);
+        		 }else {
+        			 comments.add(comment);
+        			 weeklyReportCommentMap.put(comment.getWeeklyReportId(), comments);
+        		 }
+        		 
+        	 }
+        }
+        inv.addModel("reporsComments", weeklyReportCommentMap);
     }
 
     private boolean renderSubordinateReports(Invocation inv, HtmlPage page, int userId, String pDate, int curPage) {
+    	
         Date weekDate = TimeParseUtils.DATE.parse(pDate);
         if (StringUtils.isNotEmpty(pDate) && weekDate == null) {
             page.warning("日期格式错误，默认为上周");
@@ -466,69 +501,14 @@ public class WeeklyreportController extends LoginRequiredController {
         inv.addModel("total", total);
         inv.addModel("pagesize", pageSize);
         inv.addModel("curpage", curPage);
-        List<User> subordinates = userService.querySubordinates(userId, curPage * pageSize, pageSize);
-        if (subordinates.isEmpty()) {
-            page.error("没有下属信息");
-            return false;
-        }
-        // 抽取每个用户的周报列表
-        Collection<Integer> subordinateIds = Collections2.transform(subordinates, new Function<User, Integer>() {
 
-            @Override
-            public Integer apply(User user) {
-                return user.getId();
-            }
-        });
-
-        for (int subordinateId : subordinateIds) {
-            weeklyReportService.createEmptyReportsIfNecessary(subordinateId, weekDate);
-        }
-
-        List<WeeklyReport> weeklyReports = weeklyReportDAO.queryByUserIdsInWeekDate(subordinateIds, weekDate);
-        Map<Integer/* 用户ID */, WeeklyReport> weeklyReportMap = Collections0.packageMapByField(weeklyReports, new Function<WeeklyReport, Integer>() {
-
-            @Override
-            public Integer apply(WeeklyReport weeklyReport) {
-                return weeklyReport.getUserId();
-            }
-        });
-        Collection<Integer> weeklyReportIds = Collections2.transform(weeklyReports, new Function<WeeklyReport, Integer>() {
-
-            @Override
-            public Integer apply(WeeklyReport weeklyReport) {
-                return weeklyReport.getId();
-            }
-        });
-//        Map<Integer/* 周报的ID */, WeeklyReportComment> weeklyReportCommentMap = null;
-//        if (CollectionUtils.isNotEmpty(weeklyReportIds)) {
-//            List<WeeklyReportComment> weeklyReportComments = weeklyReportCommentDAO.queryByWeeklyReportIds(weeklyReportIds);
-//            weeklyReportCommentMap = Collections0.packageMapByField(weeklyReportComments, new Function<WeeklyReportComment, Integer>() {
-//
-//                @Override
-//                public Integer apply(WeeklyReportComment weeklyReportComment) {
-//                    return weeklyReportComment.getWeeklyReportId();
-//                }
-//            });
-//        }
         
-        Map<Integer/* 周报的ID */, List<WeeklyReportComment>> weeklyReportCommentMap = new HashMap<Integer/* 周报的ID */, List<WeeklyReportComment>>();
-        if (CollectionUtils.isNotEmpty(weeklyReportIds)) {
-        	 List<WeeklyReportComment> weeklyReportComments = weeklyReportCommentDAO.queryByWeeklyReportIds(weeklyReportIds);
-        	 for (WeeklyReportComment comment : weeklyReportComments) {
-        		 List<WeeklyReportComment> comments = new ArrayList<WeeklyReportComment>(3); 
-        		 if (weeklyReportCommentMap.containsKey(comment.getWeeklyReportId())) {
-        			 weeklyReportCommentMap.get(comment.getWeeklyReportId()).add(comment);
-        		 }else {
-        			 comments.add(comment);
-        			 weeklyReportCommentMap.put(comment.getWeeklyReportId(), comments);
-        		 }
-        		 
-        	 }
+        //加载下属周报
+        boolean ret = weeklyReportService.renderSubReports(inv, userId, weekDate, curPage, pageSize, total);
+        if(!ret){
+        	page.error("加载下属周报出错");
+        	return ret;
         }
-        
-        inv.addModel("subordinates", subordinates);
-        inv.addModel("weeklyreport_map", weeklyReportMap);
-        inv.addModel("weeklyreport_comment_map", weeklyReportCommentMap);
         return true;
     }
 
