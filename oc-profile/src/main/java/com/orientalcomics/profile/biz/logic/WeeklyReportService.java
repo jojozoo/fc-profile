@@ -163,7 +163,6 @@ public class WeeklyReportService {
         			 comments.add(comment);
         			 weeklyReportCommentMap.put(comment.getWeeklyReportId(), comments);
         		 }
-        		 
         	 }
         }
         
