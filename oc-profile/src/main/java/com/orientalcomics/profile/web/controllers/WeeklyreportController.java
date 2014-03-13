@@ -163,9 +163,9 @@ public class WeeklyreportController extends LoginRequiredController {
     @Post("my/{action:preview|save|submit}")
     @Ajaxable(AjaxType.JSON)
     public void post_my(HtmlPage page, @Param("action") final String action, @Param("id") final int id,
-    		@ProfileHtmlEscape @Param("content_done") final String contentDone,
-            @ProfileHtmlEscape @Param("content_plan") final String contentPlan,
-            @ProfileHtmlEscape @Param("q_a") String qA,
+    		@Param("content_done") final String contentDone,
+            @Param("content_plan") final String contentPlan,
+            @Param("q_a") String qA,
             @Param("qa_changed")boolean qaChanged,
             @ProfileHtmlEscape @Param("emailtos") final String emailTos
             ) {
@@ -233,7 +233,7 @@ public class WeeklyreportController extends LoginRequiredController {
             report.setStatus(newStatus.getId());
             report.setSupplementary(isSupplementary);
             report.setQa(qA);
-            report.setEmailTos("fc-biz@foundercomics.com");
+            report.setEmailTos("zhanghao@foundercomics.com");
             weeklyReportDAO.update(report);
             
             // success
