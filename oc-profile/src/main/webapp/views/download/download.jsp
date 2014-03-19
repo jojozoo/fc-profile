@@ -1,55 +1,51 @@
-<%@ page contentType="text/html; charset=UTF-8" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib uri="http://struts.apache.org/tags-logic" prefix="logic" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
-
-<!DOCTYPE html>
 <html>
-<head>
-	<title>download test</title>
-	<style>
-	</style>
-	<script type="text/javascript">
-	function redirect(){
-		location.href = href;
-		}
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>二维码下载</title>	
 
-		var url_parts = document.URL.split('?');
-		var query = url_parts.length == 2 ? ('?' + url_parts[1]) : '';
-		var href = '/';
-		var ua = navigator.userAgent.toLowerCase();
+        <script type="text/javascript">
+            /*
+             * 智能机浏览器版本信息:
+             *
+             */
+            var browser = {
+                versions: function() {
+                    var u = navigator.userAgent, app = navigator.appVersion;
+                    return {//移动终端浏览器版本信息 
+                        trident: u.indexOf('Trident') > -1, //IE内核
+                        presto: u.indexOf('Presto') > -1, //opera内核
+                        webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
+                        gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核
+                        mobile: !!u.match(/AppleWebKit.*Mobile.*/) || !!u.match(/AppleWebKit/), //是否为移动终端
+                        ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+                        android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或者uc浏览器
+                        iPhone: u.indexOf('iPhone') > -1 || u.indexOf('Mac') > -1, //是否为iPhone或者QQHD浏览器
+                        iPad: u.indexOf('iPad') > -1, //是否iPad
+                        webApp: u.indexOf('Safari') == -1 //是否web应该程序，没有头部与底部
+                    };
+                }(),
+                language: (navigator.browserLanguage || navigator.language).toLowerCase()
+            }
 
-		if (/iphone|ipad|ipod/.test(ua)) {
-		href = 'https://itunes.apple.com/cn/app/man-hua-kong/id504498659?mt=8';
-		__ga('set', 'page', '/download/ios' + query);
-		__ga('send', 'pageview');
-		__ga('send', 'event', 'app', 'download-via-qrcode', 'ios', {'hitCallback': redirect});
-		setTimeout(redirect, 2000);
-		} else if (/android/.test(ua)) {
-		href = 'http://apps.wandoujia.com/apps/net.comikon.reader/download';
-		__ga('set', 'page', '/download/android' + query);
-		__ga('send', 'pageview');
-		__ga('send', 'event', 'app', 'download-via-qrcode', 'android-local', {'hitCallback': redirect});
-		setTimeout(redirect, 2000);
-		} else if (/windows phone|blackberry/.test(ua)) {
-		__ga('set', 'page', '/download/other' + query);
-		__ga('send', 'pageview');
-		alert('抱歉，暂不支持您的系统');
-		location.href = '/';
-		} else {
-		__ga('send', 'pageview');
-		location.href = '/';
-		}
-		})()
-	</script>
-</head>
-<body>
-	
-	<div id="main">
-		    <p style="font-size: 20px;">
-		       Just for test
-		    </p>
-	<div class="fc"></div>
-	</div>
-</body>
+            if (browser.versions.ios || browser.versions.iPhone || browser.versions.iPad) {
+                window.location="https://itunes.apple.com/cn/app/man-hua-kong/id504498659?mt=8";
+            }
+            else if (browser.versions.android) {
+                window.location="http://apps.wandoujia.com/apps/net.comikon.reader/download";
+            }
+
+//            document.writeln("语言版本: " + browser.language);
+//            document.writeln(" 是否为移动终端: " + browser.versions.mobile);
+//            document.writeln(" ios终端: " + browser.versions.ios);
+//            document.writeln(" android终端: " + browser.versions.android);
+//            document.writeln(" 是否为iPhone: " + browser.versions.iPhone);
+//            document.writeln(" 是否iPad: " + browser.versions.iPad);
+//            document.writeln(navigator.userAgent);
+
+
+        </script>
+    </head>
+    <body>
+        
+    </body>
 </html>
