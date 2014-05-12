@@ -31,18 +31,8 @@
                 window.location="https://itunes.apple.com/cn/app/man-hua-kong/id504498659?mt=8";
             }
             else if (browser.versions.android) {
-                window.location="http://apps.wandoujia.com/apps/net.comikon.reader/download";
+                window.location="http://app.xiaomi.com/detail/40708";
             }
-
-//            document.writeln("语言版本: " + browser.language);
-//            document.writeln(" 是否为移动终端: " + browser.versions.mobile);
-//            document.writeln(" ios终端: " + browser.versions.ios);
-//            document.writeln(" android终端: " + browser.versions.android);
-//            document.writeln(" 是否为iPhone: " + browser.versions.iPhone);
-//            document.writeln(" 是否iPad: " + browser.versions.iPad);
-//            document.writeln(navigator.userAgent);
-
-
         </script>
     </head>
     <body>
