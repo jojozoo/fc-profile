@@ -71,7 +71,7 @@
 				
 				<div class="content-box">
 					<p>${weeklyreport_map[user.id].emailTos} </p>
-					<p>${c_weeklyreport_status}</p>
+					<p>${c_weeklyreport_status$submitted.display}</p>
 					<c:set var="report" value="${weeklyreport_map[user.id] }"></c:set>
 					<c:set var="comment" value="${weeklyreport_comment_map[report.id] }"></c:set>
 					
@@ -81,7 +81,7 @@
 						</c:when>
 						<c:otherwise>
 							<c:choose>
-								<c:when test="${report.status != c_weeklyreport_status$submitted}">
+								<c:when test="${report.status != c_weeklyreport_status$submitted.id}">
 									<div><i>未提交周报</i></div>
 								</c:when>
 								<c:otherwise>
