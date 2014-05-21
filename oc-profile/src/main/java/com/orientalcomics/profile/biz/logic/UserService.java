@@ -44,6 +44,9 @@ public class UserService {
     @Autowired
     UserProfileDAO      userProfileDAO;
     
+    @Autowired
+    WeeklyReportService weeklyReportService;
+    
 
     public List<User> queryValidUsers(int offset, int count) {
         return userDAO.queryValidUsers(offset, count);

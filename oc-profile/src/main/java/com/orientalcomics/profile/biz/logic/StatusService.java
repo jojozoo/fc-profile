@@ -24,6 +24,7 @@ import com.orientalcomics.profile.constants.status.WeeklyReportStatus;
 import com.orientalcomics.profile.util.logging.ILogger;
 import com.orientalcomics.profile.util.logging.ProfileLogger;
 import com.orientalcomics.profile.util.time.DateTimeUtil;
+import com.orientalcomics.profile.util.time.TimeUtils;
 
 
 /**
@@ -204,17 +205,17 @@ public final class StatusService {
      */
     public WeeklyReportStatus getUserWeeklyReportStatus(int userId) {
 
-        Date queryDate = DateTimeUtil.compareAccurateToDate(new Date(), DateTimeUtil.getFridayOfWeek(new Date())) > 0 ? DateTimeUtil
-                .getMondayOfLastWeek(new Date()) : DateTimeUtil.getMondayOfWeek(new Date());
-         log.debug("query date is "+queryDate);
+    	Date today = TimeUtils.FetchTime.today();// 今天
+        Date monday = DateTimeUtil.getMondayOfWeek(today);// 周一
+        if(log.isDebugEnabled()){
+        	log.debug("query weekly date is ", monday);
+        }
         try {
 
-            WeeklyReport report = weeklyReportDAO.getReportOfWeek(userId, queryDate);
+            WeeklyReport report = weeklyReportDAO.getReportOfWeek(userId, monday);
             if (report != null)
                 return report.status();
-            log.debug("no weekly  ");
         } catch (Exception e) {
-
             log.error(e, e.getMessage());
 
         }
