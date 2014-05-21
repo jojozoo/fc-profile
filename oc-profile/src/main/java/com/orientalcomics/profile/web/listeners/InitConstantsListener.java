@@ -32,7 +32,7 @@ public class InitConstantsListener implements ServletContextListener {
         initEnum(sc,"project_weight",ProfilePerfProjectWeight.values());
         
         // status
-        initEnum(sc,"weeklyreport_status",WeeklyReportStatus.values());
+        initEnum(sc, "c_weeklyreport_status", WeeklyReportStatus.values());
     }
 
     private <E extends Enum<E>> void initEnum(ServletContext sc, String name, Enum<E>[] inputs) {
@@ -42,7 +42,7 @@ public class InitConstantsListener implements ServletContextListener {
             }
             name = convertCamelToUnderscoreName(inputs[0].getClass().getSimpleName());
         }
-        String prefix = "_" + name;
+        String prefix = name;
         sc.setAttribute(prefix + "_arr", inputs);
         sc.setAttribute(prefix + "_array", inputs);
         sc.setAttribute(prefix + "_list", Arrays.asList(inputs));
