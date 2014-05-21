@@ -70,7 +70,7 @@
 				</div>
 				
 				<div class="content-box">
-					<p>${weeklyreport_map[user.id].emailTos </p>
+					<p>${weeklyreport_map[user.id].emailTos} </p>
 					<p>${c_weeklyreport_status}</p>
 					<c:set var="report" value="${weeklyreport_map[user.id] }"></c:set>
 					<c:set var="comment" value="${weeklyreport_comment_map[report.id] }"></c:set>
