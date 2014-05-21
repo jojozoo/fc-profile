@@ -208,7 +208,7 @@ public final class StatusService {
     	Date today = TimeUtils.FetchTime.today();// 今天
         Date monday = DateTimeUtil.getMondayOfWeek(today);// 周一
         if(log.isDebugEnabled()){
-        	log.debug("query weekly date is ", monday);
+        	log.debug("query use "+userId+"weekly date is ", monday);
         }
         try {
 

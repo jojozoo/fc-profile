@@ -14,7 +14,7 @@
 	} catch (e) {
 	}
 </script>
-<script src="/static/js/jquery.js" type="text/javascript"></script>
+<script src="http://libs.baidu.com/jquery/1.9.0/jquery.js" type="text/javascript"></script>
 <script src="/static/js/jquery-ui.js" type="text/javascript"></script>
 <script src="/static/js/jquery-ui-i18n.js" type="text/javascript"></script>
 

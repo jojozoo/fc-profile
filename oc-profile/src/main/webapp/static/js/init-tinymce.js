@@ -1,7 +1,7 @@
 jQuery(function($) {
 	var defaultTinymceOptions = {
 		language : 'zh-cn',
-		script_url : '/static/tiny_mce/tiny_mce.js',
+		script_url : 'http://cdnjs.cloudflare.com/ajax/libs/tinymce/4.0.21/tinymce.min.js',
 		theme_advanced_buttons1:"",
 		theme_advanced_buttons2:"",
 		theme_advanced_buttons3:"",

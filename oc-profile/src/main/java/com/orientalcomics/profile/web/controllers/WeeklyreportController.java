@@ -78,7 +78,7 @@ public class WeeklyreportController extends LoginRequiredController {
         Date today = TimeUtils.FetchTime.today();// 今天
         Date monday = DateTimeUtil.getMondayOfWeek(today);// 周一
         weeklyReportService.createEmptyReportsIfNecessary(userId, monday);// 创建Ta的周报
-
+        
         // 判断用户是否已写本周周报
         WeeklyReport editedReport = null;
         WeeklyReport report = weeklyReportDAO.getReportOfWeek(userId, monday);
