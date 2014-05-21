@@ -38,7 +38,6 @@ import com.orientalcomics.profile.constants.ProfileAction;
 import com.orientalcomics.profile.constants.status.WeeklyReportStatus;
 import com.orientalcomics.profile.core.base.FormValidator;
 import com.orientalcomics.profile.core.base.HtmlPage;
-import com.orientalcomics.profile.util.common.Collections0;
 import com.orientalcomics.profile.util.common.JsonUtils;
 import com.orientalcomics.profile.util.time.DateTimeUtil;
 import com.orientalcomics.profile.util.time.TimeFetchUtils;

@@ -70,8 +70,10 @@
 				</div>
 				
 				<div class="content-box">
-					<c:set var="report" value="${weeklyreport_map[user.id+0] }"></c:set>
-					<c:set var="comment" value="${weeklyreport_comment_map[report.id+0] }"></c:set>
+					<p>${weeklyreport_map[user.id].emailTos </p>
+					<p>${c_weeklyreport_status}</p>
+					<c:set var="report" value="${weeklyreport_map[user.id] }"></c:set>
+					<c:set var="comment" value="${weeklyreport_comment_map[report.id] }"></c:set>
 					
 					<c:choose>
 						<c:when test="${report == null}">
