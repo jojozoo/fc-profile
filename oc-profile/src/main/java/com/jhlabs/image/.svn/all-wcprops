@@ -1,0 +1,989 @@
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image
+END
+Gradient.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/Gradient.java
+END
+WarpGrid.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/WarpGrid.java
+END
+LightFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/LightFilter.java
+END
+SparkleFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/SparkleFilter.java
+END
+InvertFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/InvertFilter.java
+END
+ReduceNoiseFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/ReduceNoiseFilter.java
+END
+FBMFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/FBMFilter.java
+END
+CropFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/CropFilter.java
+END
+SmartBlurFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/SmartBlurFilter.java
+END
+MinimumFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/MinimumFilter.java
+END
+FlipFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/FlipFilter.java
+END
+DilateFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/DilateFilter.java
+END
+CompoundFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/CompoundFilter.java
+END
+WarpFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/WarpFilter.java
+END
+SwimFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/SwimFilter.java
+END
+AbstractBufferedImageOp.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/AbstractBufferedImageOp.java
+END
+PlasmaFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/PlasmaFilter.java
+END
+JavaLnFFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/JavaLnFFilter.java
+END
+SkyFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/SkyFilter.java
+END
+ConvolveFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/ConvolveFilter.java
+END
+KeyFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/KeyFilter.java
+END
+TritoneFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/TritoneFilter.java
+END
+LifeFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/LifeFilter.java
+END
+PerspectiveFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/PerspectiveFilter.java
+END
+ArrayColormap.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/ArrayColormap.java
+END
+ApplyMaskFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/ApplyMaskFilter.java
+END
+TransitionFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/TransitionFilter.java
+END
+OffsetFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/OffsetFilter.java
+END
+BlockFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/BlockFilter.java
+END
+SkeletonFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/SkeletonFilter.java
+END
+MaskFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/MaskFilter.java
+END
+IteratedFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/IteratedFilter.java
+END
+ChromaKeyFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/ChromaKeyFilter.java
+END
+ColorHalftoneFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/ColorHalftoneFilter.java
+END
+ExposureFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/ExposureFilter.java
+END
+WholeImageFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/WholeImageFilter.java
+END
+FillFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/FillFilter.java
+END
+StampFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/StampFilter.java
+END
+DiffuseFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/DiffuseFilter.java
+END
+InterpolateFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/InterpolateFilter.java
+END
+MotionBlurFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/MotionBlurFilter.java
+END
+MarbleFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/MarbleFilter.java
+END
+DoGFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/DoGFilter.java
+END
+Flush3DFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/Flush3DFilter.java
+END
+PixelUtils.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/PixelUtils.java
+END
+UnsharpFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/UnsharpFilter.java
+END
+PointFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/PointFilter.java
+END
+FlareFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/FlareFilter.java
+END
+ImageMath.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/ImageMath.java
+END
+MedianFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/MedianFilter.java
+END
+ScaleFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/ScaleFilter.java
+END
+HalftoneFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/HalftoneFilter.java
+END
+GrayFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/GrayFilter.java
+END
+WeaveFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/WeaveFilter.java
+END
+ContrastFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/ContrastFilter.java
+END
+OutlineFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/OutlineFilter.java
+END
+ShearFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/ShearFilter.java
+END
+SwizzleFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/SwizzleFilter.java
+END
+RotateFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/RotateFilter.java
+END
+PointillizeFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/PointillizeFilter.java
+END
+MutatableFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/MutatableFilter.java
+END
+ShatterFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/ShatterFilter.java
+END
+WaterFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/WaterFilter.java
+END
+EmbossFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/EmbossFilter.java
+END
+SpectrumColormap.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/SpectrumColormap.java
+END
+SplineColormap.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/SplineColormap.java
+END
+GradientFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/GradientFilter.java
+END
+RippleFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/RippleFilter.java
+END
+TileImageFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/TileImageFilter.java
+END
+MapColorsFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/MapColorsFilter.java
+END
+RaysFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/RaysFilter.java
+END
+GrayscaleColormap.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/GrayscaleColormap.java
+END
+ShadowFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/ShadowFilter.java
+END
+MirrorFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/MirrorFilter.java
+END
+CrystallizeFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/CrystallizeFilter.java
+END
+NoiseFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/NoiseFilter.java
+END
+RescaleFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/RescaleFilter.java
+END
+SaturationFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/SaturationFilter.java
+END
+DeinterlaceFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/DeinterlaceFilter.java
+END
+DissolveFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/DissolveFilter.java
+END
+UnpremultiplyFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/UnpremultiplyFilter.java
+END
+ShadeFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/ShadeFilter.java
+END
+Histogram.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/Histogram.java
+END
+ThresholdFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/ThresholdFilter.java
+END
+ShineFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/ShineFilter.java
+END
+BicubicScaleFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/BicubicScaleFilter.java
+END
+PosterizeFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/PosterizeFilter.java
+END
+LinearColormap.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/LinearColormap.java
+END
+ErodeFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/ErodeFilter.java
+END
+ShapeFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/ShapeFilter.java
+END
+AverageFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/AverageFilter.java
+END
+RGBAdjustFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/RGBAdjustFilter.java
+END
+FadeFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/FadeFilter.java
+END
+SmearFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/SmearFilter.java
+END
+ScratchFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/ScratchFilter.java
+END
+ChannelMixFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/ChannelMixFilter.java
+END
+GradientWipeFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/GradientWipeFilter.java
+END
+BumpFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/BumpFilter.java
+END
+BrushedMetalFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/BrushedMetalFilter.java
+END
+SphereFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/SphereFilter.java
+END
+QuiltFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/QuiltFilter.java
+END
+GlintFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/GlintFilter.java
+END
+Quantizer.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/Quantizer.java
+END
+InvertAlphaFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/InvertAlphaFilter.java
+END
+PremultiplyFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/PremultiplyFilter.java
+END
+GrayscaleFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/GrayscaleFilter.java
+END
+DitherFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/DitherFilter.java
+END
+CurvesFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/CurvesFilter.java
+END
+VariableBlurFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/VariableBlurFilter.java
+END
+Colormap.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/Colormap.java
+END
+MaximumFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/MaximumFilter.java
+END
+GainFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/GainFilter.java
+END
+EdgeFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/EdgeFilter.java
+END
+GaussianFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/GaussianFilter.java
+END
+ContourFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/ContourFilter.java
+END
+DisplaceFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/DisplaceFilter.java
+END
+SolarizeFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/SolarizeFilter.java
+END
+BoxBlurFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/BoxBlurFilter.java
+END
+OilFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/OilFilter.java
+END
+QuantizeFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/QuantizeFilter.java
+END
+CircleFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/CircleFilter.java
+END
+KaleidoscopeFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/KaleidoscopeFilter.java
+END
+LevelsFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/LevelsFilter.java
+END
+WoodFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/WoodFilter.java
+END
+TransferFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/TransferFilter.java
+END
+CheckFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/CheckFilter.java
+END
+GammaFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/GammaFilter.java
+END
+BlurFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/BlurFilter.java
+END
+RenderTextFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/RenderTextFilter.java
+END
+CausticsFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/CausticsFilter.java
+END
+ImageCombiningFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/ImageCombiningFilter.java
+END
+TwirlFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/TwirlFilter.java
+END
+PolarFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/PolarFilter.java
+END
+ImageUtils.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/ImageUtils.java
+END
+FourColorFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/FourColorFilter.java
+END
+TextureFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/TextureFilter.java
+END
+PinchFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/PinchFilter.java
+END
+LookupFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/LookupFilter.java
+END
+ChromeFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/ChromeFilter.java
+END
+Curve.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/Curve.java
+END
+SharpenFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/SharpenFilter.java
+END
+HighPassFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/HighPassFilter.java
+END
+LaplaceFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/LaplaceFilter.java
+END
+GlowFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/GlowFilter.java
+END
+TransformFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/TransformFilter.java
+END
+CurlFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/CurlFilter.java
+END
+BorderFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/BorderFilter.java
+END
+OctTreeQuantizer.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/OctTreeQuantizer.java
+END
+OpacityFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/OpacityFilter.java
+END
+MarbleTexFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/MarbleTexFilter.java
+END
+CellularFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/CellularFilter.java
+END
+DespeckleFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/DespeckleFilter.java
+END
+CompositeFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/CompositeFilter.java
+END
+HSBAdjustFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/HSBAdjustFilter.java
+END
+MotionBlurOp.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/MotionBlurOp.java
+END
+DiffusionFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/DiffusionFilter.java
+END
+FeedbackFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/FeedbackFilter.java
+END
+LensBlurFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/LensBlurFilter.java
+END
+FieldWarpFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/FieldWarpFilter.java
+END
+BinaryFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/BinaryFilter.java
+END
+EqualizeFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/EqualizeFilter.java
+END
+MapFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/MapFilter.java
+END
+ErodeAlphaFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/ErodeAlphaFilter.java
+END
+Spectrum.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/image/Spectrum.java
+END

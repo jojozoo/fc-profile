@@ -1,0 +1,119 @@
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/math
+END
+Function1D.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/math/Function1D.java
+END
+TurbulenceFunction.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/math/TurbulenceFunction.java
+END
+SCNoise.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/math/SCNoise.java
+END
+Function2D.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/math/Function2D.java
+END
+Function3D.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/math/Function3D.java
+END
+ImageFunction2D.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/math/ImageFunction2D.java
+END
+VLNoise.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/math/VLNoise.java
+END
+Noise.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/math/Noise.java
+END
+BinaryFunction.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/math/BinaryFunction.java
+END
+RidgedFBM.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/math/RidgedFBM.java
+END
+BlackFunction.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/math/BlackFunction.java
+END
+MarbleFunction.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/math/MarbleFunction.java
+END
+CompoundFunction2D.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/math/CompoundFunction2D.java
+END
+CellularFunction2D.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/math/CellularFunction2D.java
+END
+FFT.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/math/FFT.java
+END
+MathFunction1D.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/math/MathFunction1D.java
+END
+FractalSumFunction.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/math/FractalSumFunction.java
+END
+CompositeFunction1D.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/math/CompositeFunction1D.java
+END
+FBM.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/tech_system/!svn/ver/1470/renren-profile/trunk/src/main/java/com/jhlabs/math/FBM.java
+END
