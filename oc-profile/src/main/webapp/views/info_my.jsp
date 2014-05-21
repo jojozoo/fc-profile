@@ -311,6 +311,7 @@
 										${item.user.jobTitle}
 									</td>
 									<td>
+										<p>${item.weeklyReportStatus.display}</p>
 										<c:if test="${item.weeklyReportStatus.id == c_weeklyreport_status$ready.id}">
 											周报未写
 										</c:if>

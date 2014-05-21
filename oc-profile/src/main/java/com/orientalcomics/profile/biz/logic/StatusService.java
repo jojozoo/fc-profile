@@ -206,13 +206,13 @@ public final class StatusService {
 
         Date queryDate = DateTimeUtil.compareAccurateToDate(new Date(), DateTimeUtil.getFridayOfWeek(new Date())) > 0 ? DateTimeUtil
                 .getMondayOfLastWeek(new Date()) : DateTimeUtil.getMondayOfWeek(new Date());
-
+         log.debug("query date is "+queryDate);
         try {
 
             WeeklyReport report = weeklyReportDAO.getReportOfWeek(userId, queryDate);
             if (report != null)
                 return report.status();
-
+            log.debug("no weekly  ");
         } catch (Exception e) {
 
             log.error(e, e.getMessage());
