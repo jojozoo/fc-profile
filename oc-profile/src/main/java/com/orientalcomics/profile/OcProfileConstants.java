@@ -65,7 +65,7 @@ public interface OcProfileConstants {
     public static final int[]  PHOTO_SIZES               = { PHOTO_SIZE_TINY, PHOTO_SIZE_MAIN };
     public static final String PHOTO_EXT                 = "png";
     public static final String PHOTO_DATA_DIR            = "/data/profile-data";
-    public static final String PHOTO_BASE_URL            = "/data/profile-data";
+    public static final String PHOTO_BASE_URL            = "/profile-data";
     public static final int    PHOTO_CONTAINER_SIZE      = 300;
 
     // 页面title
