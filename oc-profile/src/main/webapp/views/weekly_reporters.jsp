@@ -40,7 +40,7 @@
 				<input type="submit" class="datepicker-btn" value="查询"> 
 			</form>
 			<c:forEach var="report" items="${reports}">
-				<c:if test="${report.status == c_weeklyreport_status$submitted}"><%--是已提交的周报 --%>
+				<c:if test="${report.status == c_weeklyreport_status$submitted.id}"><%--是已提交的周报 --%>
 					<div class="report-item">
 						<div class="sub-title">
 							<strong>

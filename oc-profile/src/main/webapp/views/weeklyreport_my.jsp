@@ -165,7 +165,7 @@
 										<profile:formatDate value="${report.endDate}" type="date" />
 										(
 										<c:choose>
-											<c:when test="${report.status == c_weeklyreport_status$submitted }">
+											<c:when test="${report.status == c_weeklyreport_status$submitted.id }">
 											已提交
 											</c:when>
 											<c:otherwise>

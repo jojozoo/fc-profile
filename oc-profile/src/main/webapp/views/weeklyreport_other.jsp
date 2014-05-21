@@ -67,10 +67,10 @@ jQuery(function($){
 						</c:if>
 					</div>
 					<div class="content-box">
-						<c:if test="${report.status != c_weeklyreport_status$submitted}"><%--是未提交的周报 --%>
+						<c:if test="${report.status != c_weeklyreport_status$submitted.id}"><%--是未提交的周报 --%>
 							<div><i>未提交此周报</i></div>
 						</c:if>
-						<c:if test="${report.status == c_weeklyreport_status$submitted}"><%--是已提交的周报 --%>
+						<c:if test="${report.status == c_weeklyreport_status$submitted.id}"><%--是已提交的周报 --%>
 							<fieldset class="report-done">
 								<legend>本周已做</legend>
 								${report.contentDone }

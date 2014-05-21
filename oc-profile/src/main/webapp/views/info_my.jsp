@@ -311,13 +311,13 @@
 										${item.user.jobTitle}
 									</td>
 									<td>
-										<c:if test="${item.weeklyReportStatus == c_weeklyreport_status$ready}">
+										<c:if test="${item.weeklyReportStatus == c_weeklyreport_status$ready.id}">
 											周报未写
 										</c:if>
-										<c:if test="${item.weeklyReportStatus == c_weeklyreport_status$saved }">
+										<c:if test="${item.weeklyReportStatus == c_weeklyreport_status$saved.id }">
 											周报已保存
 										</c:if>
-										<c:if test="${item.weeklyReportStatus == c_weeklyreport_status$submitted }">
+										<c:if test="${item.weeklyReportStatus == c_weeklyreport_status$submitted.id}">
 											<a href="/weeklyreport/${item.user.id }">
 												周报已提交
 											</a>

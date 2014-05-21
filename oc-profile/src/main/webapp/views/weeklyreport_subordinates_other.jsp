@@ -79,7 +79,7 @@
 								</c:when>
 								<c:otherwise>
 									<c:choose>
-										<c:when test="${report.status != c_weeklyreport_status$submitted}">
+										<c:when test="${report.status != c_weeklyreport_status$submitted.id}">
 											<div><i>未提交周报</i></div>
 										</c:when>
 										<c:otherwise>
