@@ -15,7 +15,7 @@
 	}
 </script>
 <script src="http://libs.baidu.com/jquery/1.9.0/jquery.js" type="text/javascript"></script>
-<script src="/static/js/jquery-ui.js" type="text/javascript"></script>
+<script src="http://libs.baidu.com/jqueryui/1.9.0/jquery-ui.min.js" type="text/javascript"></script>
 <script src="/static/js/jquery-ui-i18n.js" type="text/javascript"></script>
 
 <script src="/static/js/base.js" type="text/javascript"></script>
